@@ -63,6 +63,8 @@ const pt = {
   back: 'Voltar',
   loadingAudio: 'Preparando o audio...',
   audioError: 'Nao foi possivel carregar o audio desta musica.',
+  audioBlocked: 'O navegador bloqueou o audio.',
+  audioHint: 'No iPhone, confira a chave de silencioso na lateral: ela cala o som do jogo mesmo com o volume alto.',
   retry: 'Tentar de novo',
   stems: {
     drums: 'Bateria',
@@ -156,6 +158,8 @@ const en: Dictionary = {
   back: 'Back',
   loadingAudio: 'Preparing audio...',
   audioError: 'Could not load the audio for this song.',
+  audioBlocked: 'The browser blocked audio playback.',
+  audioHint: 'On iPhone, check the side ring/silent switch: it mutes the game even at full volume.',
   retry: 'Try again',
   stems: {
     drums: 'Drums',
