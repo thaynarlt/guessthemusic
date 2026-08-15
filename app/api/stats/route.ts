@@ -91,5 +91,11 @@ export async function GET(request: Request): Promise<NextResponse> {
     distribution[slot] = (distribution[slot] ?? 0) + 1;
   }
 
-  return NextResponse.json({ enabled: true, players: rows.length, wins, distribution });
+  return NextResponse.json({
+    enabled: true,
+    players: rows.length,
+    wins,
+    losses: rows.length - wins,
+    distribution,
+  });
 }

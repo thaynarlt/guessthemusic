@@ -358,7 +358,7 @@ export function GameScreen({ mode, variant = 'diario' }: GameScreenProps) {
             onTogglePlay={togglePlay}
             {...(isFree
               ? { onNext: nextRound, score: freeScore ?? { rounds: 0, wins: 0 } }
-              : {})}
+              : { stats })}
           />
         ) : (
           <>

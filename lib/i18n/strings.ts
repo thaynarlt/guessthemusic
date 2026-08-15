@@ -50,6 +50,11 @@ const pt = {
   statsStreak: 'Sequencia',
   statsMaxStreak: 'Recorde',
   statsDistribution: 'Em qual tentativa acertou',
+  statsGlobalDistribution: 'Como foi a galera hoje',
+  statsMissed: 'Nao acertou',
+  statsPlayers: 'jogadores hoje',
+  /** {pct} vira a fatia dos jogadores que voce igualou ou superou. */
+  statsTopPercent: 'Voce ficou entre os {pct}% melhores de hoje.',
   nextPuzzle: 'Proximo puzzle em',
   howToPlay: 'Como jogar',
   howToTrecho:
@@ -146,6 +151,10 @@ const en: Dictionary = {
   statsStreak: 'Streak',
   statsMaxStreak: 'Best',
   statsDistribution: 'Guess distribution',
+  statsGlobalDistribution: 'How everyone did today',
+  statsMissed: 'Missed',
+  statsPlayers: 'players today',
+  statsTopPercent: "You've placed in the top {pct}% of players today.",
   nextPuzzle: 'Next puzzle in',
   howToPlay: 'How to play',
   howToTrecho:
