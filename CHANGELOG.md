@@ -3,6 +3,15 @@
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 Versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.2.0] — 2026-08-15
+
+### Alterado
+
+- `.env.example` passa a listar as seis variáveis que o código realmente lê,
+  incluindo `NEXT_PUBLIC_SITE_URL`, que faltava. Deixa explícito que todas são
+  opcionais e que a service role key do Supabase nunca pode receber o prefixo
+  `NEXT_PUBLIC_`, sob pena de ir parar no pacote enviado ao navegador.
+
 ## [0.1.0] — 2026-08-15
 
 Primeira versão jogável.
@@ -52,4 +61,5 @@ Primeira versão jogável.
 - Reimportar o catálogo muda as respostas do puzzle diário, porque o sorteio
   deriva da lista de músicas.
 
+[0.2.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.2.0
 [0.1.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.1.0
