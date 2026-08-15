@@ -3,6 +3,21 @@
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 Versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.2.1] — 2026-08-15
+
+### Corrigido
+
+- **iPhone tocava sem som.** No iOS o `AudioContext` sai por padrão na categoria
+  "ambient", que a chave de silencioso do aparelho corta — o jogo parecia tocar
+  (botão virava pause, barra andava) mas ficava mudo, mesmo com o volume alto.
+  Agora o motor declara a categoria `playback` (Safari 16.4+), que ignora a
+  chave. Em navegadores sem a API, não faz nada.
+- O contexto de áudio agora é retomado sempre que não estiver em `running`, e
+  não só quando estiver `suspended` — no iOS ele também entra em `interrupted`
+  ao receber ligação ou quando outro app toca som.
+- Quando o navegador bloqueia o áudio, a tela explica o motivo e sugere conferir
+  a chave de silencioso, em vez de ficar em silêncio sem dizer nada.
+
 ## [0.2.0] — 2026-08-15
 
 ### Alterado
@@ -61,5 +76,6 @@ Primeira versão jogável.
 - Reimportar o catálogo muda as respostas do puzzle diário, porque o sorteio
   deriva da lista de músicas.
 
+[0.2.1]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.2.1
 [0.2.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.2.0
 [0.1.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.1.0
