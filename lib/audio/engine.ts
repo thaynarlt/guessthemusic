@@ -30,6 +30,24 @@ interface ActiveTrack {
 
 type AudioContextConstructor = new () => AudioContext;
 
+/** Categoria de audio do WebKit (Safari 16.4+). */
+interface AudioSession {
+  type: 'auto' | 'playback' | 'transient' | 'transient-solo' | 'ambient' | 'play-and-record';
+}
+
+/**
+ * Faz o som ignorar a chave de silencioso do aparelho.
+ *
+ * No iOS, o Web Audio sai por padrao na categoria "ambient", que o botao de
+ * silencioso corta — mesmo com o volume no maximo. Um <audio> comum tocaria,
+ * o AudioContext nao. Declarar a categoria "playback" resolve; em navegadores
+ * sem a API, nao faz nada.
+ */
+function claimPlaybackSession(): void {
+  const session = (navigator as Navigator & { audioSession?: AudioSession }).audioSession;
+  if (session) session.type = 'playback';
+}
+
 function resolveAudioContext(): AudioContextConstructor {
   const w = window as unknown as {
     AudioContext?: AudioContextConstructor;
@@ -65,6 +83,7 @@ export class AudioEngine {
   /** O AudioContext so nasce em resposta a um gesto do usuario. */
   getContext(): AudioContext {
     if (!this.context) {
+      claimPlaybackSession();
       const Ctor = resolveAudioContext();
       this.context = new Ctor();
 
@@ -94,9 +113,20 @@ export class AudioEngine {
     return this.volume;
   }
 
+  /**
+   * Retoma o contexto. Precisa ser chamado dentro do gesto do usuario, senao
+   * o navegador mantem o audio suspenso. No iOS o estado tambem pode virar
+   * "interrupted" (ligacao, outro app tocando), e dai o resume e necessario
+   * de novo.
+   */
   async resume(): Promise<void> {
     const ctx = this.getContext();
-    if (ctx.state === 'suspended') await ctx.resume();
+    if (ctx.state !== 'running') await ctx.resume();
+  }
+
+  /** Estado do contexto, para a interface conseguir explicar o silencio. */
+  get state(): AudioContextState | 'uninitialized' {
+    return this.context?.state ?? 'uninitialized';
   }
 
   private async cached(key: string, load: () => Promise<AudioBuffer | null>) {

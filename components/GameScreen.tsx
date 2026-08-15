@@ -47,7 +47,7 @@ const STEM_ICONS: Record<StemName, ReactNode> = {
 /** Quantas musicas guardar no historico para nao repetir no modo livre. */
 const RECENT_MEMORY = 8;
 
-type AudioStatus = 'idle' | 'loading' | 'ready' | 'error';
+type AudioStatus = 'idle' | 'loading' | 'ready' | 'error' | 'blocked';
 
 interface GameScreenProps {
   mode: GameMode;
@@ -143,6 +143,14 @@ export function GameScreen({ mode, variant = 'diario' }: GameScreenProps) {
     setAudio('loading');
     try {
       await engine.resume();
+
+      // Se o contexto nao entrou em "running", nao adianta seguir: sairia
+      // silencio sem explicacao. Acontece quando o navegador exige um gesto
+      // novo ou quando o iOS interrompeu o audio (ligacao, outro app).
+      if (engine.state !== 'running') {
+        setAudio('blocked');
+        return;
+      }
 
       let tracks: PlayTrack[];
       let duration: number;
@@ -319,9 +327,12 @@ export function GameScreen({ mode, variant = 'diario' }: GameScreenProps) {
 
           <VolumeControl />
 
-          {audio === 'error' && (
-            <div className="text-center text-sm">
-              <p className="text-red-500">{strings.audioError}</p>
+          {(audio === 'error' || audio === 'blocked') && (
+            <div className="max-w-sm text-center text-sm">
+              <p className="text-red-500">
+                {audio === 'blocked' ? strings.audioBlocked : strings.audioError}
+              </p>
+              <p className="mt-1 text-xs muted">{strings.audioHint}</p>
               <button type="button" className="btn-ghost mt-2" onClick={() => void play()}>
                 {strings.retry}
               </button>
