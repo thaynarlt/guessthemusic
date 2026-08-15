@@ -98,6 +98,7 @@ const pt = {
   resultArtist: 'Artista certo, musica errada',
   resultWrong: 'Errado',
   resultSkipped: 'Pulado',
+  legalLink: 'Termos, privacidade e creditos',
 };
 
 /** O dicionario pt-BR e a fonte da verdade: todo idioma precisa das mesmas chaves. */
@@ -197,6 +198,7 @@ const en: Dictionary = {
   resultArtist: 'Right artist, wrong song',
   resultWrong: 'Wrong',
   resultSkipped: 'Skipped',
+  legalLink: 'Terms, privacy and credits',
 };
 
 export const dictionaries: Record<Locale, Dictionary> = { 'pt-BR': pt, en };
