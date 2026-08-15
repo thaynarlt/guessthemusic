@@ -2,7 +2,7 @@
 
 Jogo diário de adivinhar música, com dois modos:
 
-- **Trecho** — você ouve um piscar de olho. Cada erro ou pulo libera mais tempo: `0,1s → 0,5s → 2s → 4s → 8s → 15s` (a mesma curva do Songless).
+- **Trecho** — você ouve um piscar de olho. Cada erro ou pulo libera mais tempo: `0,1s → 0,5s → 2s → 4s → 8s → 15s` (a mesma curva do Songless). O ponto de partida é **sorteado dentro da música**, não o começo da prévia — que as APIs já entregam cortada no refrão. O sorteio é determinístico (semente = id da música + número do puzzle), então o desafio do dia é o mesmo para todo mundo e o trecho não muda entre as tentativas; começos mudos são descartados por energia do sinal (`lib/audio/startPoint.ts`).
 - **Banda** — a música vai se abrindo em camadas, uma por erro, até tocar inteira. Como a fonte manda:
   - **por instrumento** (`bateria → baixo → guitarra → teclado → outros → vocal`) quando a música tem trilhas isoladas;
   - **por faixa de frequência** (`graves → médios-graves → médios → médios-agudos → agudos → brilho`) quando não tem — que é o caso das prévias de streaming. Em ambos dá para ligar/desligar cada camada já liberada; na revelação final o clipe toca limpo, sem filtro.

@@ -20,6 +20,12 @@ export interface PlayRequest {
   tracks: PlayTrack[];
   /** Trecho liberado, em segundos. */
   duration: number;
+  /**
+   * Onde o trecho comeca dentro da faixa, em segundos. Vale para todas as
+   * trilhas: no modo Banda elas precisam sair do mesmo ponto para continuarem
+   * em sincronia.
+   */
+  offset?: number;
   onEnded?: () => void;
 }
 
@@ -179,7 +185,7 @@ export class AudioEngine {
     return Math.min(this.playingDuration, Math.max(0, this.context.currentTime - this.startedAt));
   }
 
-  play({ tracks, duration, onEnded }: PlayRequest): void {
+  play({ tracks, duration, offset = 0, onEnded }: PlayRequest): void {
     this.stop();
     if (tracks.length === 0 || duration <= 0) return;
 
@@ -222,8 +228,10 @@ export class AudioEngine {
       }
 
       node.connect(gain).connect(master);
-      // Mesmo `startAt` para todas as trilhas => mixagem em sincronia perfeita.
-      source.start(startAt, 0, Math.min(duration, track.buffer.duration));
+      // Mesmo `startAt` e mesmo `from` para todas as trilhas => mixagem em
+      // sincronia perfeita.
+      const from = Math.min(Math.max(0, offset), track.buffer.duration);
+      source.start(startAt, from, Math.min(duration, track.buffer.duration - from));
       source.stop(endAt + 0.02);
 
       this.active.set(track.id, { source, gain });

@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { Check, Image as ImageIcon, MessageCircle, Share2 } from 'lucide-react';
-import { buildInvite, modeLabel } from '@/lib/game/share';
+import { buildInvite, shareScore, shareTitle } from '@/lib/game/share';
 import { renderShareImage } from '@/lib/share/image';
 import { siteUrl } from '@/lib/share/url';
-import type { GameState, Song } from '@/lib/game/types';
+import type { GameState, GameVariant, Song } from '@/lib/game/types';
 import { useStrings } from '@/store/useSettings';
 
 type Feedback = 'idle' | 'working' | 'copied';
@@ -13,6 +13,7 @@ type Feedback = 'idle' | 'working' | 'copied';
 interface ShareButtonProps {
   state: GameState;
   song: Song;
+  variant: GameVariant;
 }
 
 /**
@@ -24,12 +25,16 @@ interface ShareButtonProps {
  * so carrega texto. Onde a folha nao aceita arquivos, sobra o texto — e ali
  * o link rende a previa gerada pelas meta tags do site.
  */
-export function ShareButton({ state, song }: ShareButtonProps) {
+export function ShareButton({ state, song, variant }: ShareButtonProps) {
   const strings = useStrings();
   const [feedback, setFeedback] = useState<Feedback>('idle');
 
   const url = siteUrl();
-  const message = buildInvite(state, url, strings.inviteCta);
+  const message = buildInvite(state, url, strings.inviteCta, variant);
+
+  // No diario todo mundo joga a mesma musica: revelar a capa na imagem
+  // entregaria a resposta para quem ainda vai jogar.
+  const reveal = variant === 'livre';
 
   const buildFile = async (): Promise<File | null> => {
     try {
@@ -37,10 +42,13 @@ export function ShareButton({ state, song }: ShareButtonProps) {
         getComputedStyle(document.body).getPropertyValue('--font-display') || 'sans-serif';
       const blob = await renderShareImage(state, {
         song,
-        modeLabel: modeLabel(state),
+        title: shareTitle(state, variant),
+        score: shareScore(state),
         invite: strings.inviteCta,
         url,
         fontFamily: `${fontFamily}, sans-serif`,
+        reveal,
+        mystery: strings.shareMystery,
       });
       return new File([blob], 'guessthemusic.jpg', { type: 'image/jpeg' });
     } catch {

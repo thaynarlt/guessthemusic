@@ -6,7 +6,12 @@ import { MAX_ATTEMPTS, type GameState, type GuessResult, type Song } from '@/lib
  * Desenha o resultado como imagem para compartilhar (WhatsApp, Instagram...).
  *
  * Quadrado de 1080px porque e o formato que chega inteiro na conversa sem
- * corte. Mostra a musica revelada: capa, titulo e artista.
+ * corte.
+ *
+ * A musica so aparece quando `reveal` e verdadeiro — ou seja, no modo livre,
+ * onde cada rodada sorteia uma musica diferente. No desafio do dia todo mundo
+ * joga a mesma musica, entao mostrar capa e titulo entregaria a resposta a
+ * quem recebesse a imagem.
  */
 const SIZE = 1080;
 
@@ -22,12 +27,19 @@ const TEXT_SOFT = 'rgba(233, 228, 250, 0.72)';
 
 interface ShareImageOptions {
   song: Song;
-  modeLabel: string;
+  /** Ja vem pronto: "Trecho #227" no diario, "Trecho livre" no modo livre. */
+  title: string;
+  /** Placar "3/6" ou "X/6". */
+  score: string;
   /** Chamada convidando a jogar. */
   invite: string;
   url: string;
   /** Familia tipografica ja carregada na pagina. */
   fontFamily: string;
+  /** So o modo livre revela a musica; o diario e o mesmo puzzle para todos. */
+  reveal: boolean;
+  /** Texto no lugar do titulo quando a musica fica escondida. */
+  mystery: string;
 }
 
 function roundedRectPath(
@@ -121,11 +133,33 @@ function drawFallbackCover(
   ctx.fill();
 }
 
+/** Capa fechada: nao deriva nada da musica, para nao dar pista nenhuma. */
+function drawMysteryCover(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  size: number,
+  fontFamily: string,
+): void {
+  const gradient = ctx.createLinearGradient(x, y, x + size, y + size);
+  gradient.addColorStop(0, '#9a5cff');
+  gradient.addColorStop(1, '#271b48');
+  ctx.fillStyle = gradient;
+  ctx.fill();
+
+  ctx.save();
+  ctx.textAlign = 'center';
+  ctx.font = `700 ${Math.round(size * 0.58)}px ${fontFamily}`;
+  ctx.fillStyle = 'rgba(10, 7, 19, 0.55)';
+  ctx.fillText('?', x + size / 2, y + size / 2);
+  ctx.restore();
+}
+
 export async function renderShareImage(
   state: GameState,
-  { song, modeLabel, invite, url, fontFamily }: ShareImageOptions,
+  { song, title: shareTitle, score, invite, url, fontFamily, reveal, mystery }: ShareImageOptions,
 ): Promise<Blob> {
-  const cover = coverUrl(song);
+  const cover = reveal ? coverUrl(song) : null;
   const coverImage = cover ? await loadImage(cover) : null;
 
   const canvas = document.createElement('canvas');
@@ -168,32 +202,46 @@ export async function renderShareImage(
   ctx.save();
   roundedRectPath(ctx, coverX, coverY, coverSize, coverSize, 36);
   ctx.clip();
-  if (coverImage) {
+  if (!reveal) {
+    drawMysteryCover(ctx, coverX, coverY, coverSize, fontFamily);
+  } else if (coverImage) {
     ctx.drawImage(coverImage, coverX, coverY, coverSize, coverSize);
   } else {
     drawFallbackCover(ctx, song, coverX, coverY, coverSize);
   }
   ctx.restore();
 
-  // Musica revelada
   ctx.textAlign = 'center';
   const maxWidth = SIZE - 140;
 
-  const title = fitText(ctx, song.title, maxWidth, [64, 56, 48, 42], 700, fontFamily);
-  ctx.fillStyle = '#ffffff';
-  ctx.fillText(title, SIZE / 2, 626);
+  if (reveal) {
+    const title = fitText(ctx, song.title, maxWidth, [64, 56, 48, 42], 700, fontFamily);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(title, SIZE / 2, 626);
 
-  const artist = fitText(ctx, `${song.artist} · ${song.year}`, maxWidth, [42, 38, 34], 500, fontFamily);
-  ctx.fillStyle = TEXT_SOFT;
-  ctx.fillText(artist, SIZE / 2, 690);
+    const artist = fitText(
+      ctx,
+      `${song.artist} · ${song.year}`,
+      maxWidth,
+      [42, 38, 34],
+      500,
+      fontFamily,
+    );
+    ctx.fillStyle = TEXT_SOFT;
+    ctx.fillText(artist, SIZE / 2, 690);
+  } else {
+    // Sem titulo nem artista: o convite ocupa o lugar da musica.
+    const teaser = fitText(ctx, mystery, maxWidth, [64, 56, 48, 42], 700, fontFamily);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(teaser, SIZE / 2, 658);
+  }
 
   // Placar e grade de tentativas
   const won = state.status === 'won';
-  const score = won ? `${state.attempts.length}/${MAX_ATTEMPTS}` : `X/${MAX_ATTEMPTS}`;
 
   ctx.font = `700 46px ${fontFamily}`;
   ctx.fillStyle = won ? '#5cffb1' : TEXT_SOFT;
-  ctx.fillText(`${modeLabel} #${state.puzzleNumber} · ${score}`, SIZE / 2, 782);
+  ctx.fillText(`${shareTitle} · ${score}`, SIZE / 2, 782);
 
   const box = 82;
   const gap = 16;
