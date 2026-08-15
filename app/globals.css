@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --surface: 255 255 255;
+  --surface-raised: 247 245 252;
+  --border: 226 220 240;
+  --text: 22 16 38;
+  --text-muted: 96 88 120;
+}
+
+.dark {
+  --surface: 10 7 19;
+  --surface-raised: 27 19 50;
+  --border: 58 42 99;
+  --text: 240 236 252;
+  --text-muted: 165 155 195;
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background:
+      radial-gradient(1000px 600px at 50% -10%, rgb(var(--surface-raised)), transparent 70%),
+      rgb(var(--surface));
+    color: rgb(var(--text));
+    font-family: var(--font-body), system-ui, sans-serif;
+    min-height: 100dvh;
+  }
+
+  /* Titulos, numeros e rotulos curtos herdam a fonte de display. */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  :focus-visible {
+    outline: 3px solid theme('colors.grape.400');
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Alvo de toque minimo de 44px em qualquer controle. */
+  .tap {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  .surface {
+    @apply rounded-2xl border;
+    border-color: rgb(var(--border));
+    background-color: rgb(var(--surface-raised) / 0.72);
+  }
+
+  .muted {
+    color: rgb(var(--text-muted));
+  }
+
+  /*
+   * Estica um bloco para alem da coluna de leitura, centralizado — usado no
+   * painel de audio, onde a barra precisa de largura para os primeiros
+   * trechos (0,1s de 15s) aparecerem. Os 2rem descontados cobrem a barra de
+   * rolagem e o respiro lateral, entao a pagina nunca rola na horizontal.
+   */
+  /* Range nativo nao aceita Tailwind no thumb: precisa dos seletores do vendor. */
+  .volume-slider::-webkit-slider-thumb {
+    @apply h-4 w-4 cursor-pointer appearance-none rounded-full bg-grape-500;
+    box-shadow: 0 0 0 3px rgb(var(--surface));
+  }
+
+  .volume-slider::-moz-range-thumb {
+    @apply h-4 w-4 cursor-pointer rounded-full border-0 bg-grape-500;
+  }
+
+  .wide-bleed {
+    width: min(calc(100vw - 2rem), 1100px);
+    margin-left: calc(50% - min(calc(50vw - 1rem), 550px));
+  }
+
+  .btn {
+    @apply tap inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 font-semibold transition;
+  }
+
+  .btn-primary {
+    @apply btn bg-grape-600 text-white hover:bg-grape-500 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply btn border hover:bg-grape-500/10 active:scale-[0.98];
+    border-color: rgb(var(--border));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

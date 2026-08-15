@@ -1,0 +1,7 @@
+# Normaliza as quebras de linha no repositorio: LF sempre, independente do SO
+# de quem commita. Evita diffs falsos quando alguem edita no Windows.
+* text=auto eol=lf
+
+# Arquivos gerados: nao poluem o diff nem contam como codigo nas estatisticas
+package-lock.json linguist-generated=true
+data/songs.json   linguist-generated=true
