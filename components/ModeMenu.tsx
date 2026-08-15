@@ -147,6 +147,10 @@ export function ModeMenu() {
         <button type="button" className="btn-ghost mx-auto" onClick={() => setShowHowTo(true)}>
           {strings.howToPlay}
         </button>
+
+        <Link href="/termos" className="mx-auto text-xs underline muted">
+          {strings.legalLink}
+        </Link>
       </main>
 
       <HowToModal

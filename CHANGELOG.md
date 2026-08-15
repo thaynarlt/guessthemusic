@@ -3,6 +3,54 @@
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 Versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.3.0] — 2026-08-15
+
+### Adicionado
+
+- **Trecho sorteado dentro da música.** O jogo tocava sempre o começo da prévia,
+  e as prévias do Deezer/iTunes já vêm cortadas no refrão — ou seja, a parte
+  fácil. Agora o ponto de partida é sorteado (`lib/audio/startPoint.ts`) a
+  partir de uma semente estável (id da música + número do puzzle): o desafio do
+  dia sai igual para todo mundo, o ponto não muda entre as tentativas nem nos
+  replays, e no modo Banda todas as trilhas saem do mesmo instante. O sorteio
+  mede a energia do sinal e descarta os começos mudos, para a primeira
+  tentativa de 0,1s nunca cair num silêncio.
+
+- **Distribuição na tela de revelação.** Terminada a partida do diário, o card
+  mostra em qual tentativa a galera acertou (1 a 6, mais a barra `X` de quem não
+  acertou), com a sua linha destacada em verde e a frase "você ficou entre os
+  X% melhores de hoje". Com o backend desligado, o mesmo gráfico usa o seu
+  histórico local; sem partida nenhuma registrada, a seção não aparece.
+- **Ícone do site.** Colcheia neon sobre o roxo da marca: `app/icon.svg` na aba
+  do navegador, `app/apple-icon.png` (180px) para a tela inicial do iPhone e
+  `manifest.webmanifest` com os PNGs de 192/512 e a versão `maskable` para o
+  Android — o jogo agora instala como app, em tela cheia.
+- **Página `/termos`.** Aviso de projeto de hobby, créditos das inspirações
+  (Wordle, Heardle, Songless, Bandle), origem das prévias e o que fica guardado
+  no aparelho e no servidor. Bilíngue, como o resto da interface.
+
+- **Compartilhamento no modo livre.** Como cada rodada sorteia uma música, ali
+  não há resposta comum a proteger: o card ganhou os botões de compartilhar,
+  e a imagem mostra capa, título e artista.
+
+### Corrigido
+
+- **A imagem do desafio do dia entregava a resposta.** O texto já era
+  spoiler-free (só placar e emojis), mas a imagem desenhava capa, título e
+  artista — quem recebesse no WhatsApp via a música que ainda precisava
+  adivinhar. Agora, no diário, a capa vira um cartão fechado com "?" e o lugar
+  do título traz "Qual e a musica de hoje?".
+- No modo livre o cabeçalho não mostra mais `#1`: ali o número é a contagem de
+  rodadas da sessão, que não significa nada para quem recebe. Texto e imagem
+  passaram a montar esse título pela mesma função (`shareTitle`), que era de
+  onde vinha a divergência.
+
+### Alterado
+
+- `/api/stats` passa a devolver `losses` no agregado do dia, e a barra de
+  distribuição virou o componente `GuessDistribution`, usado tanto no card de
+  revelação quanto no modal de estatísticas.
+
 ## [0.2.1] — 2026-08-15
 
 ### Corrigido

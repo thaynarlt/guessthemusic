@@ -43,6 +43,8 @@ const pt = {
   fullTrackNote: 'O player toca 30s; a musica inteira pede login no Deezer.',
   openInDeezer: 'Abrir no Deezer',
   inviteCta: 'Consegue fazer melhor? Jogue voce tambem:',
+  /** Ocupa o lugar do titulo na imagem do diario, que nao revela a musica. */
+  shareMystery: 'Qual e a musica de hoje?',
   saveImage: 'Salvar imagem',
   stats: 'Estatisticas',
   statsPlayed: 'Partidas',
@@ -50,10 +52,15 @@ const pt = {
   statsStreak: 'Sequencia',
   statsMaxStreak: 'Recorde',
   statsDistribution: 'Em qual tentativa acertou',
+  statsGlobalDistribution: 'Como foi a galera hoje',
+  statsMissed: 'Nao acertou',
+  statsPlayers: 'jogadores hoje',
+  /** {pct} vira a fatia dos jogadores que voce igualou ou superou. */
+  statsTopPercent: 'Voce ficou entre os {pct}% melhores de hoje.',
   nextPuzzle: 'Proximo puzzle em',
   howToPlay: 'Como jogar',
   howToTrecho:
-    'Voce ouve um trecho curto da musica. Cada erro ou pulo libera mais alguns segundos, ate 16s na ultima tentativa.',
+    'Voce ouve um trecho curto, sorteado em qualquer ponto da musica — nem sempre o refrao. Cada erro ou pulo libera mais alguns segundos, ate 15s na ultima tentativa.',
   howToBanda:
     'Voce comeca ouvindo so a bateria. A cada erro entra mais um instrumento, ate a banda inteira tocar junto.',
   howToShared:
@@ -93,6 +100,7 @@ const pt = {
   resultArtist: 'Artista certo, musica errada',
   resultWrong: 'Errado',
   resultSkipped: 'Pulado',
+  legalLink: 'Termos, privacidade e creditos',
 };
 
 /** O dicionario pt-BR e a fonte da verdade: todo idioma precisa das mesmas chaves. */
@@ -139,6 +147,7 @@ const en: Dictionary = {
   fullTrackNote: 'The player streams 30s; the full song needs a Deezer login.',
   openInDeezer: 'Open in Deezer',
   inviteCta: 'Think you can do better? Play it too:',
+  shareMystery: "What's today's song?",
   saveImage: 'Save image',
   stats: 'Statistics',
   statsPlayed: 'Played',
@@ -146,10 +155,14 @@ const en: Dictionary = {
   statsStreak: 'Streak',
   statsMaxStreak: 'Best',
   statsDistribution: 'Guess distribution',
+  statsGlobalDistribution: 'How everyone did today',
+  statsMissed: 'Missed',
+  statsPlayers: 'players today',
+  statsTopPercent: "You've placed in the top {pct}% of players today.",
   nextPuzzle: 'Next puzzle in',
   howToPlay: 'How to play',
   howToTrecho:
-    'You hear a short snippet. Every miss or skip unlocks a few more seconds, up to 16s on the last try.',
+    'You hear a short snippet taken from a random point in the song — not always the chorus. Every miss or skip unlocks a few more seconds, up to 15s on the last try.',
   howToBanda:
     'You start with drums only. Every miss brings in one more instrument, until the whole band plays together.',
   howToShared: 'You get 6 tries. Search by artist or song title and pick an option from the list.',
@@ -188,6 +201,7 @@ const en: Dictionary = {
   resultArtist: 'Right artist, wrong song',
   resultWrong: 'Wrong',
   resultSkipped: 'Skipped',
+  legalLink: 'Terms, privacy and credits',
 };
 
 export const dictionaries: Record<Locale, Dictionary> = { 'pt-BR': pt, en };
