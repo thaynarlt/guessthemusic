@@ -43,6 +43,8 @@ const pt = {
   fullTrackNote: 'O player toca 30s; a musica inteira pede login no Deezer.',
   openInDeezer: 'Abrir no Deezer',
   inviteCta: 'Consegue fazer melhor? Jogue voce tambem:',
+  /** Ocupa o lugar do titulo na imagem do diario, que nao revela a musica. */
+  shareMystery: 'Qual e a musica de hoje?',
   saveImage: 'Salvar imagem',
   stats: 'Estatisticas',
   statsPlayed: 'Partidas',
@@ -145,6 +147,7 @@ const en: Dictionary = {
   fullTrackNote: 'The player streams 30s; the full song needs a Deezer login.',
   openInDeezer: 'Open in Deezer',
   inviteCta: 'Think you can do better? Play it too:',
+  shareMystery: "What's today's song?",
   saveImage: 'Save image',
   stats: 'Statistics',
   statsPlayed: 'Played',

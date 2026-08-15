@@ -134,10 +134,11 @@ export function ResultCard({
               {strings.sessionScore}: {score.wins}/{score.rounds}
             </p>
           )}
+          <ShareButton state={state} song={song} variant="livre" />
         </>
       ) : (
         <>
-          <ShareButton state={state} song={song} />
+          <ShareButton state={state} song={song} variant="diario" />
           <Countdown />
         </>
       )}

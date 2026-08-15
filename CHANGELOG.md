@@ -29,6 +29,22 @@ Versionamento [SemVer](https://semver.org/lang/pt-BR/).
   (Wordle, Heardle, Songless, Bandle), origem das prévias e o que fica guardado
   no aparelho e no servidor. Bilíngue, como o resto da interface.
 
+- **Compartilhamento no modo livre.** Como cada rodada sorteia uma música, ali
+  não há resposta comum a proteger: o card ganhou os botões de compartilhar,
+  e a imagem mostra capa, título e artista.
+
+### Corrigido
+
+- **A imagem do desafio do dia entregava a resposta.** O texto já era
+  spoiler-free (só placar e emojis), mas a imagem desenhava capa, título e
+  artista — quem recebesse no WhatsApp via a música que ainda precisava
+  adivinhar. Agora, no diário, a capa vira um cartão fechado com "?" e o lugar
+  do título traz "Qual e a musica de hoje?".
+- No modo livre o cabeçalho não mostra mais `#1`: ali o número é a contagem de
+  rodadas da sessão, que não significa nada para quem recebe. Texto e imagem
+  passaram a montar esse título pela mesma função (`shareTitle`), que era de
+  onde vinha a divergência.
+
 ### Alterado
 
 - `/api/stats` passa a devolver `losses` no agregado do dia, e a barra de
