@@ -58,7 +58,7 @@ const pt = {
   nextPuzzle: 'Proximo puzzle em',
   howToPlay: 'Como jogar',
   howToTrecho:
-    'Voce ouve um trecho curto da musica. Cada erro ou pulo libera mais alguns segundos, ate 16s na ultima tentativa.',
+    'Voce ouve um trecho curto, sorteado em qualquer ponto da musica — nem sempre o refrao. Cada erro ou pulo libera mais alguns segundos, ate 15s na ultima tentativa.',
   howToBanda:
     'Voce comeca ouvindo so a bateria. A cada erro entra mais um instrumento, ate a banda inteira tocar junto.',
   howToShared:
@@ -159,7 +159,7 @@ const en: Dictionary = {
   nextPuzzle: 'Next puzzle in',
   howToPlay: 'How to play',
   howToTrecho:
-    'You hear a short snippet. Every miss or skip unlocks a few more seconds, up to 16s on the last try.',
+    'You hear a short snippet taken from a random point in the song — not always the chorus. Every miss or skip unlocks a few more seconds, up to 15s on the last try.',
   howToBanda:
     'You start with drums only. Every miss brings in one more instrument, until the whole band plays together.',
   howToShared: 'You get 6 tries. Search by artist or song title and pick an option from the list.',

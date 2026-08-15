@@ -16,6 +16,7 @@ import { SpectrumIcon } from '@/components/icons/SpectrumIcon';
 import { Drum, Guitar, MicVocal, Music, Piano, Speaker } from 'lucide-react';
 import { getEngine, type PlayTrack } from '@/lib/audio/engine';
 import { FREQUENCY_LAYERS } from '@/lib/audio/layers';
+import { snippetStart, startSeed } from '@/lib/audio/startPoint';
 import { songUsesStems } from '@/lib/game/catalog';
 import { attemptsRemaining, snippetDuration, unlockedCount, unlockedStems } from '@/lib/game/machine';
 import {
@@ -155,10 +156,16 @@ export function GameScreen({ mode, variant = 'diario' }: GameScreenProps) {
       let tracks: PlayTrack[];
       let duration: number;
 
+      // Ponto de partida sorteado uma vez por partida: sem isso todo trecho
+      // comecaria no refrao, que e onde as previas ja vem cortadas.
+      const seed = startSeed(answer.id, game.puzzleNumber);
+      let offset = 0;
+
       if (mode === 'trecho') {
         const buffer = await engine.loadClip(answer);
+        offset = snippetStart(buffer, seed, FULL_DURATION);
         tracks = [{ id: 'clip', buffer }];
-        duration = Math.min(snippetDuration(game), buffer.duration);
+        duration = Math.min(snippetDuration(game), buffer.duration - offset);
       } else if (songUsesStems(answer)) {
         const buffers = await engine.loadStems(answer, unlockedStems(game));
         if (buffers.size === 0) throw new Error('sem trilhas para esta musica');
@@ -167,7 +174,10 @@ export function GameScreen({ mode, variant = 'diario' }: GameScreenProps) {
           buffer,
           muted: muted.has(stem),
         }));
-        duration = Math.min(FULL_DURATION, tracks[0]?.buffer.duration ?? FULL_DURATION);
+        // A mixagem inteira sai do mesmo ponto: basta medir uma trilha.
+        const reference = tracks[0]?.buffer;
+        offset = reference ? snippetStart(reference, seed, FULL_DURATION) : 0;
+        duration = Math.min(FULL_DURATION, (reference?.duration ?? FULL_DURATION) - offset);
       } else {
         // Sem trilhas isoladas: revela o espectro em camadas.
         const buffer = await engine.loadClip(answer);
@@ -183,12 +193,13 @@ export function GameScreen({ mode, variant = 'diario' }: GameScreenProps) {
                 band: { low: layer.low, high: layer.high },
               }))
             : [{ id: 'full', buffer }];
-        duration = Math.min(FULL_DURATION, buffer.duration);
+        offset = snippetStart(buffer, seed, FULL_DURATION);
+        duration = Math.min(FULL_DURATION, buffer.duration - offset);
       }
 
       setAudio('ready');
       setPlaying(true);
-      engine.play({ tracks, duration, onEnded: stopPlayback });
+      engine.play({ tracks, duration, offset, onEnded: stopPlayback });
       frame.current = requestAnimationFrame(trackElapsed);
     } catch {
       setAudio('error');
