@@ -1,0 +1,52 @@
+name: CI
+
+# Roda nos alvos do GitFlow: toda feature/release/hotfix chega por PR para
+# develop ou main, e o push direto nessas duas branches tambem e verificado.
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+# Um PR novo cancela a execucao anterior do mesmo PR.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NEXT_TELEMETRY_DISABLED: '1'
+
+jobs:
+  verificar:
+    name: Lint, tipos, testes e build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o codigo
+        uses: actions/checkout@v5
+
+      # Node 24: mesma linha usada no desenvolvimento, e a 20 saiu de suporte.
+      - name: Preparar Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Checagem de tipos
+        run: npx tsc --noEmit
+
+      - name: Testes
+        run: npm test
+
+      - name: Validar catalogo
+        run: npm run catalog:check
+
+      # O build baixa as fontes do Google (next/font) e compila as rotas.
+      - name: Build de producao
+        run: npx next build
