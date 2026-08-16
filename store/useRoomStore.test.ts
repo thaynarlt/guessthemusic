@@ -157,7 +157,7 @@ describe('entrar na sala', () => {
 
   it('o anfitriao propaga modo e rodadas ainda no lobby', async () => {
     const ana = track(await enter('Ana', 3));
-    ana.getState().configure('banda', 10);
+    ana.getState().configure('banda', 10, 'rock');
     await tick();
 
     const bia = track(await enter('Bia', 5));
@@ -166,6 +166,74 @@ describe('entrar na sala', () => {
 
     expect(bia.getState().snapshot.mode).toBe('banda');
     expect(bia.getState().snapshot.totalRounds).toBe(10);
+    expect(bia.getState().snapshot.genre).toBe('rock');
+  });
+});
+
+describe('mural', () => {
+  it('anuncia quem entra depois de voce, mas nao a sala que ja estava la', async () => {
+    const ana = track(await enter('Ana'));
+    await tick();
+    // Ana entrou numa sala vazia: nada a anunciar.
+    expect(ana.getState().feed).toHaveLength(0);
+
+    track(await enter('Bia'));
+    await tick();
+
+    expect(ana.getState().feed).toEqual([
+      expect.objectContaining({ kind: 'joined', name: 'Bia' }),
+    ]);
+  });
+
+  it('nao anuncia a propria entrada', async () => {
+    track(await enter('Ana'));
+    const bia = track(await enter('Bia'));
+    await tick();
+
+    expect(bia.getState().feed.some((event) => event.name === 'Bia')).toBe(false);
+  });
+
+  it('anuncia quem sai', async () => {
+    const ana = track(await enter('Ana'));
+    const bia = track(await enter('Bia'));
+    await tick();
+
+    bia.getState().leave();
+    await tick();
+    await tick();
+
+    expect(ana.getState().feed).toContainEqual(
+      expect.objectContaining({ kind: 'left', name: 'Bia' }),
+    );
+  });
+
+  it('entrega o chat para todo mundo, inclusive para quem falou', async () => {
+    const ana = track(await enter('Ana'));
+    const bia = track(await enter('Bia'));
+    await tick();
+
+    ana.getState().say('  oi   gente  ');
+    await tick();
+    await tick();
+
+    for (const store of [ana, bia]) {
+      expect(store.getState().feed).toContainEqual(
+        expect.objectContaining({ kind: 'chat', name: 'Ana', text: 'oi gente' }),
+      );
+    }
+  });
+
+  it('nao manda mensagem vazia', async () => {
+    const ana = track(await enter('Ana'));
+    const bia = track(await enter('Bia'));
+    await tick();
+    const antes = bia.getState().feed.length;
+
+    ana.getState().say('   ');
+    await tick();
+    await tick();
+
+    expect(bia.getState().feed).toHaveLength(antes);
   });
 });
 

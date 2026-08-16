@@ -13,10 +13,14 @@ import {
   emptySnapshot,
   everyoneDone,
   hostId,
+  MAX_FEED,
   MAX_ROOM_PLAYERS,
+  presenceDiff,
   resultOf,
   ROUND_TIMEOUT_MS,
+  sanitizeChat,
   startRound,
+  type RoomEvent,
   type RoomMessage,
   type RoomPlayer,
   type RoomSnapshot,
@@ -38,17 +42,20 @@ export interface RoomStore {
   startedLocally: number | null;
   /** Soma dos tempos de resposta, criterio de desempate do placar. */
   spent: Record<string, number>;
+  /** Mural: entradas, saidas e chat, do mais antigo para o mais novo. */
+  feed: RoomEvent[];
   nonce: number;
   error: string | null;
 
   join: (code: string, name: string, mode: GameMode, totalRounds: number) => Promise<void>;
   /** `forget` apaga a sessao guardada — so quando a pessoa sai de proposito. */
   leave: (forget?: boolean) => void;
-  configure: (mode: GameMode, totalRounds: number) => void;
+  configure: (mode: GameMode, totalRounds: number, genre: string) => void;
   startMatch: () => void;
   nextRound: () => void;
   guess: (song: Song) => void;
   skip: () => void;
+  say: (text: string) => void;
 }
 
 /**
@@ -62,11 +69,17 @@ export const createRoomStore = () =>
     let deadline: ReturnType<typeof setTimeout> | null = null;
     let recent: string[] = [];
 
-    /** Sorteia a proxima musica da sala, evitando as ultimas. */
-    const draw = (mode: GameMode): Song => {
-      const song = freeRound(mode, recent, ALL_GENRES);
+    /** Sorteia a proxima musica da sala, no genero escolhido e sem repetir. */
+    const draw = (snapshot: RoomSnapshot): Song => {
+      const song = freeRound(snapshot.mode, recent, snapshot.genre);
       recent = [song.id, ...recent].slice(0, RECENT_MEMORY);
       return song;
+    };
+
+    /** Acrescenta ao mural, mantendo so as ultimas linhas. */
+    const push = (...events: RoomEvent[]) => {
+      if (events.length === 0) return;
+      set((state) => ({ feed: [...state.feed, ...events].slice(-MAX_FEED) }));
     };
 
     const iAmHost = (): boolean => {
@@ -152,15 +165,44 @@ export const createRoomStore = () =>
         return;
       }
 
+      if (message.kind === 'chat') {
+        push({
+          kind: 'chat',
+          id: message.playerId,
+          name: message.name,
+          text: message.text,
+          at: Date.now(),
+        });
+        return;
+      }
+
       // Resultado alheio: so o anfitriao contabiliza e republica.
       if (!iAmHost()) return;
       closeIfReady(applyResult(get().snapshot, message.playerId, message.result));
     };
 
     const onPlayers = (players: RoomPlayer[]) => {
-      const { me, snapshot } = get();
+      const { me, snapshot, players: before } = get();
       set({ players });
       if (!me) return;
+
+      // A primeira sincronizacao traz a sala inteira de uma vez; anunciar todo
+      // mundo ali seria ruido. Os avisos comecam da segunda em diante.
+      if (before.length > 0) {
+        const { joined, left } = presenceDiff(before, players);
+        const at = Date.now();
+        push(
+          ...joined
+            .filter((player) => player.id !== me.id)
+            .map((player) => ({ kind: 'joined' as const, id: player.id, name: player.name, at })),
+          ...left.map((player) => ({
+            kind: 'left' as const,
+            id: player.id,
+            name: player.name,
+            at,
+          })),
+        );
+      }
 
       // Sala cheia: quem chegou depois do limite sai sozinho. O criterio e o
       // mesmo em todo cliente, entao ninguem discorda de quem sobra.
@@ -190,6 +232,7 @@ export const createRoomStore = () =>
       game: null,
       startedLocally: null,
       spent: {},
+      feed: [],
       nonce: 0,
       error: null,
 
@@ -217,6 +260,7 @@ export const createRoomStore = () =>
           game: null,
           startedLocally: null,
           spent: {},
+          feed: [],
           nonce: 0,
           error: null,
         });
@@ -247,23 +291,23 @@ export const createRoomStore = () =>
         set({ code: null, me: null, players: [], status: 'closed', game: null });
       },
 
-      configure: (mode, totalRounds) => {
+      configure: (mode, totalRounds, genre) => {
         const { snapshot } = get();
         if (!iAmHost() || snapshot.phase !== 'lobby') return;
-        publish({ ...snapshot, mode, totalRounds });
+        publish({ ...snapshot, mode, totalRounds, genre });
       },
 
       // `adopt` ja arma o cronometro da rodada para quem e anfitriao.
       startMatch: () => {
         const { snapshot } = get();
         if (!iAmHost() || snapshot.phase !== 'lobby') return;
-        publish(startRound(snapshot, draw(snapshot.mode).id, Date.now()));
+        publish(startRound(snapshot, draw(snapshot).id, Date.now()));
       },
 
       nextRound: () => {
         const { snapshot } = get();
         if (!iAmHost() || snapshot.phase !== 'intermission') return;
-        publish(startRound(snapshot, draw(snapshot.mode).id, Date.now()));
+        publish(startRound(snapshot, draw(snapshot).id, Date.now()));
       },
 
       guess: (song) => {
@@ -284,6 +328,15 @@ export const createRoomStore = () =>
         const next = skipTurn(game);
         set((state) => ({ game: next, nonce: state.nonce + 1 }));
         announce(next);
+      },
+
+      say: (text) => {
+        const { me } = get();
+        const clean = sanitizeChat(text);
+        // `self: true` no canal: a propria mensagem volta e entra no mural pelo
+        // mesmo caminho das outras, sem ramo especial nem risco de duplicar.
+        if (me && clean)
+          connection?.send({ kind: 'chat', playerId: me.id, name: me.name, text: clean });
       },
     };
   });

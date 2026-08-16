@@ -10,6 +10,7 @@ import { DuelSetup } from '@/components/DuelSetup';
 import { FullTrackPlayer } from '@/components/FullTrackPlayer';
 import { GuessInput } from '@/components/GuessInput';
 import { HowToModal } from '@/components/HowToModal';
+import { Podium } from '@/components/Podium';
 import { Scoreboard } from '@/components/Scoreboard';
 import { useSnippetPlayer } from '@/lib/audio/useSnippetPlayer';
 import { getSong, songUsesStems } from '@/lib/game/catalog';
@@ -163,7 +164,7 @@ export function DuelScreen() {
                     ? strings.duelTie
                     : strings.duelWinner.replace('{name}', table[0]?.name ?? '')}
                 </p>
-                <Scoreboard rows={table} crownLeader={!tie} />
+                <Podium rows={table} />
                 <button type="button" className="btn-primary w-full" onClick={reset} autoFocus>
                   <RotateCcw size={18} aria-hidden="true" />
                   {strings.playAgain}

@@ -73,6 +73,26 @@ const pt = {
   roomCodeInvalid: 'Codigo invalido. Sao 4 letras.',
   backToRoom: 'Voltar para a sala {code}',
 
+  roomChat: 'Conversa',
+  roomChatEmpty: 'Ninguem falou nada ainda.',
+  roomChatPlaceholder: 'Diga alguma coisa...',
+  playerJoined: '{name} entrou na sala',
+  playerLeft: '{name} saiu da sala',
+  cancel: 'Cancelar',
+  leaveRoomTitle: 'Sair da sala?',
+  leaveRoomWarning:
+    'Voce perde os pontos desta partida e a sala esquece o seu lugar. Para so dar uma saidinha, e so fechar a aba: dai da para voltar.',
+  timeRunningOut: 'Acabando!',
+  howToRoom: 'Como funciona a sala',
+  howToRoomIntro:
+    'Todo mundo ouve a MESMA musica ao mesmo tempo, cada um no seu ritmo. Nao e quem responde primeiro que ganha: e quem precisa de menos tempo de musica.',
+  howToRoomScoreTitle: 'Quanto vale cada degrau',
+  howToRoomScore:
+    'Acertar no trecho mais curto vale 6. Cada erro ou pulo libera mais tempo e derruba um ponto. Errar e pular custam igual, entao pular so serve para nao perder tempo.',
+  howToRoomRoundTitle: 'Quando a rodada acaba',
+  howToRoomRound:
+    'Quando todo mundo responde ou quando estouram {seconds}s — assim quem fechou a aba nao trava a sala. Empate no fim vai para quem respondeu mais rapido no acumulado.',
+
   genre: 'Genero',
   genres: {
     todos: 'Todos',
@@ -228,6 +248,26 @@ const en: Dictionary = {
     'NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are missing. The local duel works with no configuration at all.',
   roomCodeInvalid: 'Invalid code. It has 4 letters.',
   backToRoom: 'Back to room {code}',
+
+  roomChat: 'Chat',
+  roomChatEmpty: 'Nobody has said anything yet.',
+  roomChatPlaceholder: 'Say something...',
+  playerJoined: '{name} joined the room',
+  playerLeft: '{name} left the room',
+  cancel: 'Cancel',
+  leaveRoomTitle: 'Leave the room?',
+  leaveRoomWarning:
+    "You lose this match's points and the room forgets your spot. If you just need to step away, close the tab instead — that way you can come back.",
+  timeRunningOut: 'Running out!',
+  howToRoom: 'How the room works',
+  howToRoomIntro:
+    "Everyone hears the SAME song at the same time, each at their own pace. It isn't about answering first: it's about needing less of the song.",
+  howToRoomScoreTitle: 'What each step is worth',
+  howToRoomScore:
+    'Getting it on the shortest snippet is worth 6. Every miss or skip unlocks more time and costs one point. Missing and skipping cost the same, so skipping only saves you time.',
+  howToRoomRoundTitle: 'When the round ends',
+  howToRoomRound:
+    'When everyone has answered, or after {seconds}s — that way someone who closed their tab does not block the room. Ties are broken by total answering time.',
 
   genre: 'Genre',
   genres: {

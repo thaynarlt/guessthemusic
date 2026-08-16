@@ -11,10 +11,13 @@ import {
   emptySnapshot,
   everyoneDone,
   hostId,
+  MAX_CHAT_LENGTH,
+  presenceDiff,
   resultOf,
   roomRanking,
   roundExpired,
   ROUND_TIMEOUT_MS,
+  sanitizeChat,
   startRound,
   type RoomPlayer,
   type RoomSnapshot,
@@ -195,6 +198,48 @@ describe('resultado a partir da partida local', () => {
     let state = newGame();
     for (let i = 0; i < MAX_ATTEMPTS; i += 1) state = submitGuess(state, other, answer);
     expect(resultOf(state, 100)).toMatchObject({ points: 0, won: false });
+  });
+});
+
+describe('mural da sala', () => {
+  const ana = players[0] as RoomPlayer;
+  const bia = players[1] as RoomPlayer;
+
+  it('detecta quem entrou', () => {
+    expect(presenceDiff([ana], [ana, bia])).toEqual({ joined: [bia], left: [] });
+  });
+
+  it('detecta quem saiu', () => {
+    expect(presenceDiff([ana, bia], [ana])).toEqual({ joined: [], left: [bia] });
+  });
+
+  it('troca completa conta os dois lados', () => {
+    expect(presenceDiff([ana], [bia])).toEqual({ joined: [bia], left: [ana] });
+  });
+
+  it('lista igual nao gera aviso', () => {
+    expect(presenceDiff([ana, bia], [bia, ana])).toEqual({ joined: [], left: [] });
+  });
+
+  it('sala vazia para cheia anuncia todo mundo', () => {
+    expect(presenceDiff([], players).joined).toHaveLength(2);
+  });
+});
+
+describe('mensagem do chat', () => {
+  it('colapsa espacos e apara as pontas', () => {
+    expect(sanitizeChat('  oi   gente  ')).toBe('oi gente');
+  });
+
+  it('recusa mensagem so de espaco', () => {
+    expect(sanitizeChat('   ')).toBeNull();
+    expect(sanitizeChat('\n\t')).toBeNull();
+    expect(sanitizeChat('')).toBeNull();
+  });
+
+  it('corta no limite', () => {
+    const longa = 'a'.repeat(MAX_CHAT_LENGTH + 50);
+    expect(sanitizeChat(longa)).toHaveLength(MAX_CHAT_LENGTH);
   });
 });
 

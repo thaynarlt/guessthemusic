@@ -5,6 +5,22 @@ Versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
 ## [Não lançado]
 
+### Adicionado (sala)
+
+- **Filtro de gênero no lobby**, escolhido pelo anfitrião e propagado para todo
+  mundo. Quem não decide agora vê o resumo do que vem aí (modo, rodadas,
+  gênero) em vez de um "esperando" sem contexto.
+- **"Como funciona a sala"**, com a curva 6→1 desenhada. A regra que mais
+  importa só aparecia depois de a pessoa já estar jogando.
+- **Conversa da sala**, recolhida por padrão e com contador do que chegou —
+  numa tela de celular a partida precisa do espaço mais do que o chat. Quem
+  entra e quem sai aparece na mesma lista, deduzido da presença: não custa
+  mensagem nenhuma a mais.
+- **Aviso de tempo acabando**: o cronômetro vira alerta nos últimos 15s.
+- **Confirmação ao sair da sala**, já que sair apaga os pontos e a sessão — o
+  diálogo explica que fechar a aba deixa voltar.
+- **Pódio** no lugar do placar no fim da partida, no duelo também.
+
 ### Corrigido
 
 - **Áudio mudo depois de sair do app no celular.** Trocar de app no iOS manda o

@@ -13,13 +13,13 @@ function SnippetIllustration() {
       <rect x="60" y="14" width="40" height="16" rx="8" fill="#9a5cff" opacity="0.55" />
       <rect x="100" y="14" width="50" height="16" rx="8" fill="#9a5cff" opacity="0.3" />
       <text x="4" y="10" fontSize="9" fill="rgb(var(--text-muted))">
-        1s
+        0,2s
       </text>
       <text x="98" y="10" fontSize="9" fill="rgb(var(--text-muted))">
         4s
       </text>
       <text x="200" y="10" fontSize="9" fill="rgb(var(--text-muted))">
-        16s
+        15s
       </text>
     </svg>
   );
