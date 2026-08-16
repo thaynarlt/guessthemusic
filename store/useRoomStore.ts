@@ -17,11 +17,14 @@ import {
   MAX_FEED,
   MAX_ROOM_PLAYERS,
   presenceDiff,
+  RACE_LOCKOUT_MS,
+  raceLevel,
   resultOf,
-  ROUND_TIMEOUT_MS,
+  roundDeadline,
   sanitizeChat,
   startRound,
   type RoomEvent,
+  type RoomFormat,
   type RoomMessage,
   type RoomPlayer,
   type RoomSnapshot,
@@ -45,13 +48,20 @@ export interface RoomStore {
   spent: Record<string, number>;
   /** Mural: entradas, saidas e chat, do mais antigo para o mais novo. */
   feed: RoomEvent[];
+  /** Ate quando o palpite fica travado, depois de errar na corrida. */
+  lockedUntil: number | null;
   nonce: number;
   error: string | null;
 
   join: (code: string, name: string, mode: GameMode, totalRounds: number) => Promise<void>;
   /** `forget` apaga a sessao guardada — so quando a pessoa sai de proposito. */
   leave: (forget?: boolean) => void;
-  configure: (mode: GameMode, totalRounds: number, filter: CatalogFilter) => void;
+  configure: (
+    mode: GameMode,
+    totalRounds: number,
+    filter: CatalogFilter,
+    format: RoomFormat,
+  ) => void;
   startMatch: () => void;
   nextRound: () => void;
   guess: (song: Song) => void;
@@ -115,11 +125,22 @@ export const createRoomStore = () =>
       publish(closeRound(snapshot));
     };
 
-    const armDeadline = () => {
+    /**
+     * (Re)arma o fim da rodada a partir do snapshot.
+     *
+     * Rearmar, e nao so armar no comeco, porque na corrida o prazo encurta no
+     * meio do caminho: o primeiro acerto dispara a ultima chamada.
+     */
+    const armDeadline = (snapshot: RoomSnapshot) => {
       clearDeadline();
-      deadline = setTimeout(() => {
-        if (iAmHost()) closeIfReady(get().snapshot, true);
-      }, ROUND_TIMEOUT_MS);
+      const at = roundDeadline(snapshot);
+      if (at === null) return;
+      deadline = setTimeout(
+        () => {
+          if (iAmHost()) closeIfReady(get().snapshot, true);
+        },
+        Math.max(0, at - Date.now()),
+      );
     };
 
     /** Aplica um snapshot recebido e abre a partida local quando a rodada vira. */
@@ -141,12 +162,28 @@ export const createRoomStore = () =>
                   ? null
                   : createGame(snapshot.mode, snapshot.round, snapshot.songId),
               startedLocally: Date.now(),
+              lockedUntil: null,
               nonce: 0,
             }
           : {}),
       });
 
-      if (newRound && iAmHost()) armDeadline();
+      // Rearma sempre que a rodada esta correndo: o prazo muda quando a ultima
+      // chamada dispara, nao so quando a rodada comeca.
+      if (iAmHost() && snapshot.phase === 'playing') armDeadline(snapshot);
+    };
+
+    /**
+     * Degrau em que a pessoa respondeu.
+     *
+     * So a corrida precisa dizer: la o degrau e do relogio da sala. No ritmo,
+     * `resultOf` deduz das tentativas — e tem que ser o degrau em que ela
+     * jogou, nao o que a jogada acabou de liberar.
+     */
+    const answeredLevel = (): number | undefined => {
+      const { snapshot, startedLocally } = get();
+      if (snapshot.format !== 'corrida') return undefined;
+      return raceLevel(startedLocally === null ? 0 : Date.now() - startedLocally);
     };
 
     /** Anuncia o resultado da partida local assim que ela termina. */
@@ -154,15 +191,16 @@ export const createRoomStore = () =>
       const { me, startedLocally, snapshot } = get();
       if (!me || game.status === 'playing') return;
 
-      const ms = startedLocally === null ? 0 : Date.now() - startedLocally;
-      const result = resultOf(game, ms);
+      const now = Date.now();
+      const ms = startedLocally === null ? 0 : now - startedLocally;
+      const result = resultOf(game, ms, answeredLevel());
 
       set((state) => ({ spent: { ...state.spent, [me.id]: (state.spent[me.id] ?? 0) + ms } }));
       connection?.send({ kind: 'done', playerId: me.id, result });
 
       // O anfitriao aplica direto tambem: a propria mensagem volta pelo canal,
       // mas nao ha razao para esperar o eco para atualizar a tela.
-      if (iAmHost()) closeIfReady(applyResult(snapshot, me.id, result));
+      if (iAmHost()) closeIfReady(applyResult(snapshot, me.id, result, now));
     };
 
     const onMessage = (message: RoomMessage) => {
@@ -186,7 +224,7 @@ export const createRoomStore = () =>
 
       // Resultado alheio: so o anfitriao contabiliza e republica.
       if (!iAmHost()) return;
-      closeIfReady(applyResult(get().snapshot, message.playerId, message.result));
+      closeIfReady(applyResult(get().snapshot, message.playerId, message.result, Date.now()));
     };
 
     const onPlayers = (players: RoomPlayer[]) => {
@@ -242,6 +280,7 @@ export const createRoomStore = () =>
       startedLocally: null,
       spent: {},
       feed: [],
+      lockedUntil: null,
       nonce: 0,
       error: null,
 
@@ -270,6 +309,7 @@ export const createRoomStore = () =>
           startedLocally: null,
           spent: {},
           feed: [],
+          lockedUntil: null,
           nonce: 0,
           error: null,
         });
@@ -300,12 +340,18 @@ export const createRoomStore = () =>
         set({ code: null, me: null, players: [], status: 'closed', game: null });
       },
 
-      configure: (mode, totalRounds, filter) => {
+      configure: (mode, totalRounds, filter, format) => {
         const { snapshot } = get();
         if (!iAmHost() || snapshot.phase !== 'lobby') return;
         // Poda antes de publicar: filtro guardado de um catalogo antigo pode
         // trazer genero ou artista que nao existe mais.
-        publish({ ...snapshot, mode, totalRounds, filter: pruneFilter(songs, filter) });
+        publish({
+          ...snapshot,
+          mode,
+          totalRounds,
+          format,
+          filter: pruneFilter(songs, filter),
+        });
       },
 
       // `adopt` ja arma o cronometro da rodada para quem e anfitriao.
@@ -322,13 +368,26 @@ export const createRoomStore = () =>
       },
 
       guess: (song) => {
-        const { game } = get();
+        const { game, snapshot, lockedUntil } = get();
         if (!game || game.status !== 'playing') return;
+        if (lockedUntil !== null && Date.now() < lockedUntil) return;
         const answer = getSong(game.answerId);
         if (!answer) return;
 
         const next = submitGuess(game, song, answer);
-        set((state) => ({ game: next, nonce: state.nonce + 1 }));
+        const errou = next.status !== 'won';
+
+        set((state) => ({
+          game: next,
+          nonce: state.nonce + 1,
+          // Na corrida o degrau nao e seu, entao o erro custa tempo. Errar na
+          // ultima tentativa ja encerra a rodada: travar ali so atrapalharia.
+          lockedUntil:
+            snapshot.format === 'corrida' && errou && next.status === 'playing'
+              ? Date.now() + RACE_LOCKOUT_MS
+              : null,
+        }));
+
         // Sem 'victory' aqui: acertar a rodada nao e ganhar a partida, e a
         // fanfarra sai quando o placar final aparece.
         playSfx(next.status === 'won' ? 'correct' : 'wrong');
