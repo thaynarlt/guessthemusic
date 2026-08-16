@@ -2,7 +2,16 @@
 
 import Link from 'next/link';
 import { useEffect, useState, type ReactNode } from 'react';
-import { AudioLines, Check, ChevronRight, Flame, Headphones, Infinity as InfinityIcon } from 'lucide-react';
+import {
+  AudioLines,
+  Check,
+  ChevronRight,
+  Flame,
+  Headphones,
+  Infinity as InfinityIcon,
+  Radio,
+  Swords,
+} from 'lucide-react';
 import { AppHeader } from '@/components/AppHeader';
 import { Countdown } from '@/components/Countdown';
 import { HowToModal } from '@/components/HowToModal';
@@ -137,6 +146,35 @@ export function ModeMenu() {
                 <InfinityIcon size={16} className="muted" aria-hidden="true" />
               </Link>
             ))}
+          </div>
+        </section>
+
+        <section className="grid gap-2">
+          <h2 className="text-xs font-bold uppercase tracking-wider muted">
+            {strings.multiplayerSection}
+          </h2>
+          <p className="text-sm muted">{strings.scoringPitch}</p>
+          <div className="grid gap-2 sm:grid-cols-2">
+            <Link
+              href="/duelo"
+              className="surface tap flex items-center gap-3 px-3 py-3 transition hover:bg-grape-500/10 active:scale-[0.99]"
+            >
+              <Swords size={22} aria-hidden="true" className="text-grape-500" />
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-bold">{strings.duelName}</span>
+                <span className="block text-xs muted">{strings.duelPitch}</span>
+              </span>
+            </Link>
+            <Link
+              href="/sala"
+              className="surface tap flex items-center gap-3 px-3 py-3 transition hover:bg-neon-500/10 active:scale-[0.99]"
+            >
+              <Radio size={22} aria-hidden="true" className="text-neon-500" />
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-bold">{strings.roomName}</span>
+                <span className="block text-xs muted">{strings.roomPitch}</span>
+              </span>
+            </Link>
           </div>
         </section>
 

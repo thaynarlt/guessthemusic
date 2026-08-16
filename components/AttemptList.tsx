@@ -20,8 +20,15 @@ const COLORS: Record<GuessResult, string> = {
   skipped: '',
 };
 
+interface AttemptListProps {
+  attempts: Attempt[];
+  shakeNonce: number;
+  /** Autor de cada linha, quando a partida tem mais de um jogador. */
+  authors?: ReadonlyArray<string | undefined>;
+}
+
 /** Historico de tentativas, sempre com as 6 linhas visiveis. */
-export function AttemptList({ attempts, shakeNonce }: { attempts: Attempt[]; shakeNonce: number }) {
+export function AttemptList({ attempts, shakeNonce, authors }: AttemptListProps) {
   const strings = useStrings();
   const labels: Record<GuessResult, string> = {
     correct: strings.resultCorrect,
@@ -54,6 +61,12 @@ export function AttemptList({ attempts, shakeNonce }: { attempts: Attempt[]; sha
               <>
                 <span className={COLORS[attempt.result] || 'muted'}>{ICONS[attempt.result]}</span>
                 <span className="flex-1 truncate">
+                  {authors?.[index] && (
+                    <span className="font-semibold">
+                      {authors[index]}
+                      <span className="muted font-normal"> · </span>
+                    </span>
+                  )}
                   {attempt.result === 'skipped' ? (
                     <span className="muted italic">{labels.skipped}</span>
                   ) : (

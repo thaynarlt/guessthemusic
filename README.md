@@ -2,7 +2,7 @@
 
 Jogo diário de adivinhar música, com dois modos:
 
-- **Trecho** — você ouve um piscar de olho. Cada erro ou pulo libera mais tempo: `0,1s → 0,5s → 2s → 4s → 8s → 15s` (a mesma curva do Songless). O ponto de partida é **sorteado dentro da música**, não o começo da prévia — que as APIs já entregam cortada no refrão. O sorteio é determinístico (semente = id da música + número do puzzle), então o desafio do dia é o mesmo para todo mundo e o trecho não muda entre as tentativas; começos mudos são descartados por energia do sinal (`lib/audio/startPoint.ts`).
+- **Trecho** — você ouve um piscar de olho. Cada erro ou pulo libera mais tempo: `0,2s → 0,5s → 2s → 4s → 8s → 15s` (a mesma curva do Songless). O ponto de partida é **sorteado dentro da música**, não o começo da prévia — que as APIs já entregam cortada no refrão. O sorteio é determinístico (semente = id da música + número do puzzle), então o desafio do dia é o mesmo para todo mundo e o trecho não muda entre as tentativas; começos mudos são descartados por energia do sinal (`lib/audio/startPoint.ts`).
 - **Banda** — a música vai se abrindo em camadas, uma por erro, até tocar inteira. Como a fonte manda:
   - **por instrumento** (`bateria → baixo → guitarra → teclado → outros → vocal`) quando a música tem trilhas isoladas;
   - **por faixa de frequência** (`graves → médios-graves → médios → médios-agudos → agudos → brilho`) quando não tem — que é o caso das prévias de streaming. Em ambos dá para ligar/desligar cada camada já liberada; na revelação final o clipe toca limpo, sem filtro.
@@ -13,6 +13,15 @@ Cada modo tem duas variantes:
 
 - **Diário** (`/trecho`, `/banda`) — um puzzle por dia, com sequência, estatísticas e compartilhamento.
 - **Livre** (`/livre/trecho`, `/livre/banda`) — rodadas ilimitadas, sem esperar o dia virar. Sorteia uma música na hora, evita repetir as últimas e mantém um placar da sessão. **Não grava nada e não mexe na sequência do diário.**
+
+## Multijogador
+
+Os dois modos multijogador usam a mesma pontuação: **acertar no trecho de 0,2s vale 6 pontos, e cada degrau liberado vale um ponto a menos** — 6, 5, 4, 3, 2, 1, e zero para quem não acertou. Como errar e pular consomem o mesmo degrau, custam a mesma coisa; pular só serve para não perder tempo, nunca é vantagem. Nenhum dos dois grava nada nem mexe na sequência do diário.
+
+- **Duelo** (`/duelo`) — de 2 a 4 pessoas em um aparelho só, **disputando a mesma música**. A primeira ouve 0,2s e chuta; se errar ou pular, a vez passa para a próxima, que ouve 0,5s mas já vale só 5 pontos. Quem acertar leva os pontos daquele degrau e a rodada acaba. Quem abre a rodada roda a cada rodada, porque começar é vantagem e desvantagem ao mesmo tempo: vale mais, mas entrega o degrau seguinte de graça a quem vem depois.
+- **Sala online** (`/sala`) — estilo Gartic: cria uma sala, compartilha um código de 4 letras e todo mundo ouve **a mesma música ao mesmo tempo**, cada um no seu ritmo, até 8 pessoas. Quem reconhece antes pontua mais. A rodada fecha quando todo mundo responde ou quando estouram 90s — assim quem fechou a aba não trava a sala. Empate no total é desempatado pelo tempo de resposta.
+
+A sala online é o **único** pedaço do jogo que precisa de infraestrutura; o resto continua rodando com `npm run dev` e mais nada. Veja [Sala online](#sala-online-opcional).
 
 ## Rodando
 
@@ -41,15 +50,17 @@ Abra `http://localhost:3000`. **Não precisa de backend, banco nem arquivo de á
 - **Zustand 4** — estado de jogo e preferências, persistidos em `localStorage`
 - **Web Audio API** — corte no milissegundo, fade de 80 ms e trilhas sincronizadas (não usa `<audio>`)
 - **Route Handlers (Node)** — puzzle do dia, prévias de áudio e estatísticas globais opcionais
-- **Vitest** — 54 testes sobre a lógica pura, sem tocar na UI
+- **Supabase Realtime** — só a sala online, e só os canais: sem tabela e carregado sob demanda
+- **Vitest** — 159 testes sobre a lógica pura e a sala, sem tocar na UI
 
 ```
-app/            rotas (menu, /trecho, /banda) + /api
+app/            rotas (menu, /trecho, /banda, /duelo, /sala) + /api
 components/     UI (client components)
-lib/game/       lógica pura: sorteio diário, palpites, máquina de estados, stats, share
+lib/game/       lógica pura: sorteio diário, palpites, máquina de estados, duelo, pontos, stats, share
 lib/audio/      gerador procedural, provedor plugável e motor de reprodução
 lib/puzzle/     resolução do puzzle do dia (local ou via API)
-store/          Zustand (jogo + preferências)
+lib/room/       sala online: protocolo, código e canal de Realtime
+store/          Zustand (jogo, duelo, sala + preferências)
 data/songs.json catálogo
 scripts/        validação do catálogo (roda antes do build)
 ```
@@ -101,11 +112,13 @@ Testado em 14/08/2026:
 | Bytes do áudio | `resolve` → `401`; iframe cross-origin bloqueia | mp3 baixável e decodificável |
 | Música inteira deslogado | sim (vantagem real dele) | 30s sem login |
 
-O jogo precisa do `AudioBuffer`, não de um player: sem as amostras não dá para cortar em 0,1s com fade, nem para aplicar os filtros do modo Banda. Um widget em iframe de outra origem não entrega isso — o que também explica por que o Songless, que usa SoundCloud, não tem um modo estilo Bandle.
+O jogo precisa do `AudioBuffer`, não de um player: sem as amostras não dá para cortar em 0,2s com fade, nem para aplicar os filtros do modo Banda. Um widget em iframe de outra origem não entrega isso — o que também explica por que o Songless, que usa SoundCloud, não tem um modo estilo Bandle.
 
 ## Precisa de banco de dados?
 
-Não — e por bastante tempo. O catálogo é um JSON lido em tempo de build:
+Não — e por bastante tempo. Nem para o multijogador: o **Duelo** é local e a **Sala online** precisa de *estado compartilhado*, que é coisa diferente de banco. A sala vive uns dez minutos e morre com a última aba; não há nada para persistir, então ela usa só os canais de Realtime do Supabase (Broadcast + Presence) — **sem tabela, sem schema, sem migração**.
+
+O catálogo é um JSON lido em tempo de build:
 
 | Catálogo | `songs.json` | Peso no bundle (gzip) |
 | --- | --- | --- |
@@ -119,7 +132,8 @@ Vale migrar para banco (Supabase — a rota `/api/stats` já está preparada) qu
 - passar de alguns milhares de músicas;
 - editar o catálogo sem fazer deploy (painel de curadoria);
 - ranking global, contas de usuário ou histórico entre dispositivos;
-- programar a fila de puzzles à mão em vez de sortear.
+- programar a fila de puzzles à mão em vez de sortear;
+- guardar o resultado das salas depois que elas acabam (ranking entre amigos que sobrevive ao fim da partida).
 
 Antes disso, existe um degrau mais barato: manter o JSON como fonte e servi-lo por um Route Handler com cache, tirando o catálogo do bundle — sem banco nenhum.
 
@@ -205,6 +219,39 @@ alter table results enable row level security; -- só a service role escreve
 ```
 
 As estatísticas pessoais continuam em `localStorage` (`gtm:v1:*`, com migração segura de schema) e funcionam offline mesmo com o backend ligado.
+
+### Sala online (opcional)
+
+Desligada por padrão: sem as variáveis, `/sala` explica o que falta e o resto do jogo — inclusive o Duelo local — segue igual.
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGci...
+```
+
+**Não rode SQL nenhum.** Basta criar um projeto no Supabase e copiar as duas chaves de *Settings → API*. A sala usa apenas os canais de Realtime:
+
+- **Broadcast** — as mensagens da partida (`state` e `done`). Não ficam gravadas em lugar nenhum.
+- **Presence** — a lista de quem está na sala, com queda de conexão detectada de graça.
+
+Diferente da `SUPABASE_SERVICE_ROLE_KEY` das estatísticas, a chave `anon` **é pública por design** — ela vai para o navegador, e por isso leva o prefixo `NEXT_PUBLIC_`. Como não há tabela, também não há RLS para configurar nem dado exposto.
+
+O plano gratuito cobre 200 conexões simultâneas e 2 milhões de mensagens por mês — uma partida de 6 pessoas gasta algumas dezenas.
+
+Como isso funciona por dentro:
+
+| Peça | Onde | O que faz |
+| --- | --- | --- |
+| `lib/room/protocol.ts` | puro, testado | ciclo da rodada, eleição do anfitrião, placar |
+| `lib/room/code.ts` | puro, testado | código de 4 letras (sem `I`, `O`, `0`, `1`, que confundem quando ditados) |
+| `lib/room/client.ts` | cliente | canal do Realtime; `import()` dinâmico, então quem só joga o diário nunca baixa a lib |
+| `store/useRoomStore.ts` | cliente, testado | amarra tudo; o teste sobe dois clientes em um canal falso e joga uma partida inteira |
+
+**Quem manda na sala** é quem chegou primeiro (empate resolvido pelo id, para todo cliente chegar ao mesmo nome sem negociar). Só o anfitriao sorteia a música e fecha a rodada; ele transmite o estado inteiro a cada mudança, em vez de deltas — são poucos bytes e resolve de graça quem entra no meio ou perde uma mensagem. Se ele cair, o próximo da fila assume sozinho.
+
+**Cada jogador roda a máquina de estados de sempre** (`lib/game/machine.ts`) na música da rodada; o que trafega é só o resultado. Por isso a sala não precisou de uma segunda implementação das regras.
+
+**Sobre trapaça:** a resposta está no bundle do cliente, então dá para vê-la no devtools — o mesmo já vale para o desafio diário. Entre amigos, tudo bem. Deixar isso à prova de trapaça exigiria a resposta ficar só no servidor e um token opaco por rodada, o que é outro projeto.
 
 ## Licenciamento do conteúdo musical
 

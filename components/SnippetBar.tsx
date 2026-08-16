@@ -18,7 +18,7 @@ const toPercent = (seconds: number): number => Math.min(100, Math.max(0, (second
  * Barra do modo Trecho: liberado em roxo, bloqueado em cinza, playhead por cima
  * e um marcador indicando o trecho atual.
  *
- * A escala e linear (0,1s ocupa mesmo pouquissimo espaco de 15s), por isso o
+ * A escala e linear (0,2s ocupa mesmo pouquissimo espaco de 15s), por isso o
  * bloco de audio usa `wide-bleed`: com largura suficiente, os primeiros passos
  * aparecem como fatias finas em vez de sumirem.
  */
