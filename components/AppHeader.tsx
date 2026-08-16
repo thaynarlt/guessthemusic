@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft, ChartColumn, CircleHelp, Moon, Sun } from 'lucide-react';
+import { ArrowLeft, ChartColumn, CircleHelp, Moon, Sun, Volume2, VolumeX } from 'lucide-react';
+import { playSfx } from '@/lib/audio/sfx';
 import { LOCALES } from '@/lib/i18n/strings';
 import { useSettings, useStrings } from '@/store/useSettings';
 
@@ -13,7 +14,7 @@ interface AppHeaderProps {
 
 export function AppHeader({ backHref, onHowTo, onStats }: AppHeaderProps) {
   const strings = useStrings();
-  const { locale, theme, setLocale, setTheme } = useSettings();
+  const { locale, theme, sfx, setLocale, setTheme, setSfx } = useSettings();
 
   const nextTheme = theme === 'dark' ? 'light' : 'dark';
   const nextLocale = LOCALES[(LOCALES.indexOf(locale) + 1) % LOCALES.length] ?? 'pt-BR';
@@ -41,6 +42,24 @@ export function AppHeader({ backHref, onHowTo, onStats }: AppHeaderProps) {
           aria-label={`${strings.language}: ${nextLocale}`}
         >
           {locale === 'pt-BR' ? 'PT' : 'EN'}
+        </button>
+        <button
+          type="button"
+          className="btn-ghost px-2"
+          aria-pressed={sfx}
+          onClick={() => {
+            // Ao ligar, toca uma amostra: o botao se explica sozinho, e o
+            // clique ja e o gesto que o navegador exige para liberar o audio.
+            setSfx(!sfx);
+            if (!sfx) playSfx('join');
+          }}
+          aria-label={`${strings.soundEffects}: ${sfx ? strings.unmuted : strings.muted}`}
+        >
+          {sfx ? (
+            <Volume2 size={18} aria-hidden="true" />
+          ) : (
+            <VolumeX size={18} aria-hidden="true" />
+          )}
         </button>
         <button
           type="button"

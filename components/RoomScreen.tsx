@@ -5,15 +5,23 @@ import { Check, Copy, DoorOpen, Play, Radio, SkipForward, Trophy } from 'lucide-
 import { AppHeader } from '@/components/AppHeader';
 import { AttemptList } from '@/components/AttemptList';
 import { AudioDeck } from '@/components/AudioDeck';
+import { ConfirmDialog } from '@/components/ConfirmDialog';
 import { CoverArt } from '@/components/CoverArt';
 import { FullTrackPlayer } from '@/components/FullTrackPlayer';
+import { GenrePicker } from '@/components/GenrePicker';
 import { GuessInput } from '@/components/GuessInput';
+import { HowToRoomModal } from '@/components/HowToRoomModal';
+import { Podium } from '@/components/Podium';
+import { RoomFeed } from '@/components/RoomFeed';
 import { Scoreboard } from '@/components/Scoreboard';
+import { playSfx } from '@/lib/audio/sfx';
 import { useSnippetPlayer } from '@/lib/audio/useSnippetPlayer';
 import { getSong, songUsesStems } from '@/lib/game/catalog';
+import { genreLabel } from '@/lib/game/genres';
 import { attemptsRemaining, unlockedLevel } from '@/lib/game/machine';
 import { formatSeconds, SNIPPET_STEPS, type GameMode } from '@/lib/game/types';
 import { roomsEnabled } from '@/lib/room/client';
+import { loadSession } from '@/lib/room/session';
 import {
   hostId,
   roomRanking,
@@ -23,6 +31,9 @@ import {
 } from '@/lib/room/protocol';
 import { useRoomStore } from '@/store/useRoomStore';
 import { useStrings } from '@/store/useSettings';
+
+/** A partir daqui o cronometro vira alerta: da para uma ultima tentativa. */
+const WARNING_SECONDS = 15;
 
 const FULL_DURATION = SNIPPET_STEPS[SNIPPET_STEPS.length - 1] ?? 16;
 
@@ -38,6 +49,7 @@ export function RoomScreen({ code }: { code: string }) {
   const status = useRoomStore((state) => state.status);
   const game = useRoomStore((state) => state.game);
   const spent = useRoomStore((state) => state.spent);
+  const feed = useRoomStore((state) => state.feed);
   const nonce = useRoomStore((state) => state.nonce);
   const error = useRoomStore((state) => state.error);
   const join = useRoomStore((state) => state.join);
@@ -47,12 +59,28 @@ export function RoomScreen({ code }: { code: string }) {
   const nextRound = useRoomStore((state) => state.nextRound);
   const guess = useRoomStore((state) => state.guess);
   const skip = useRoomStore((state) => state.skip);
+  const say = useRoomStore((state) => state.say);
 
   const [name, setName] = useState('');
   const [copied, setCopied] = useState(false);
+  const [showHowTo, setShowHowTo] = useState(false);
+  const [confirmLeave, setConfirmLeave] = useState(false);
 
-  // Sair da sala ao desmontar: sem isso a presenca so cai no timeout do canal.
+  // Solta a presenca ao sair da tela; sem isso ela so cai no timeout do canal.
+  // Sem `forget`: recarregar tambem passa por aqui, e a sessao precisa
+  // sobreviver para a pessoa voltar com os pontos dela.
   useEffect(() => leave, [leave]);
+
+  /**
+   * Recarregou a pagina no meio da partida? Volta sozinha, com o mesmo id — e
+   * portanto com os pontos ja conquistados. Perguntar o nome de novo aqui seria
+   * pedir para a pessoa reconstruir algo que o navegador ja sabe.
+   */
+  useEffect(() => {
+    if (me) return;
+    const saved = loadSession();
+    if (saved?.code === code) void join(code, saved.name, 'trecho', 5);
+  }, [me, code, join]);
 
   const song = snapshot.songId ? getSong(snapshot.songId) : undefined;
   const myGameOver = game !== null && game.status !== 'playing';
@@ -69,11 +97,12 @@ export function RoomScreen({ code }: { code: string }) {
   if (!roomsEnabled()) {
     return (
       <>
-        <AppHeader backHref="/" onHowTo={() => undefined} />
+        <AppHeader backHref="/" onHowTo={() => setShowHowTo(true)} />
         <main className="surface space-y-2 p-4 text-center">
           <p className="font-semibold text-amber-500">{strings.roomOffline}</p>
           <p className="text-sm muted">{strings.roomOfflineHint}</p>
         </main>
+        <HowToRoomModal open={showHowTo} onClose={() => setShowHowTo(false)} />
       </>
     );
   }
@@ -82,7 +111,7 @@ export function RoomScreen({ code }: { code: string }) {
   if (!me) {
     return (
       <>
-        <AppHeader backHref="/sala" onHowTo={() => undefined} />
+        <AppHeader backHref="/sala" onHowTo={() => setShowHowTo(true)} />
         <main className="flex flex-1 flex-col gap-5">
           <div className="text-center">
             <h1 className="text-2xl font-extrabold">{strings.roomName}</h1>
@@ -118,6 +147,8 @@ export function RoomScreen({ code }: { code: string }) {
             <p className="text-center text-sm text-red-500">{strings.connectionLost}</p>
           )}
         </main>
+
+        <HowToRoomModal open={showHowTo} onClose={() => setShowHowTo(false)} />
       </>
     );
   }
@@ -129,7 +160,7 @@ export function RoomScreen({ code }: { code: string }) {
 
   return (
     <>
-      <AppHeader backHref="/sala" onHowTo={() => undefined} />
+      <AppHeader backHref="/sala" onHowTo={() => setShowHowTo(true)} />
 
       <main className="flex flex-1 flex-col gap-5">
         <div className="flex items-baseline justify-between gap-2">
@@ -150,7 +181,9 @@ export function RoomScreen({ code }: { code: string }) {
           </p>
         )}
 
-        <Scoreboard rows={table} activeId={me.id} crownLeader={finished} />
+        {/* No fim o podio substitui o placar: a mesma informacao, com a leitura
+            que a partida inteira estava construindo. */}
+        {!finished && <Scoreboard rows={table} activeId={me.id} />}
 
         {snapshot.phase === 'lobby' && (
           <RoomLobby
@@ -239,6 +272,7 @@ export function RoomScreen({ code }: { code: string }) {
                         <p className="text-center font-display text-xl font-extrabold">
                           {strings.duelWinner.replace('{name}', table[0]?.name ?? '')}
                         </p>
+                        <Podium rows={table} meId={me.id} />
                       </>
                     ) : amHost ? (
                       <button
@@ -260,10 +294,26 @@ export function RoomScreen({ code }: { code: string }) {
           </>
         )}
 
-        <button type="button" className="btn-ghost mx-auto" onClick={leave}>
+        <RoomFeed feed={feed} meId={me.id} onSay={say} />
+
+        <button type="button" className="btn-ghost mx-auto" onClick={() => setConfirmLeave(true)}>
           {strings.roomLeave}
         </button>
       </main>
+
+      <HowToRoomModal open={showHowTo} onClose={() => setShowHowTo(false)} />
+
+      <ConfirmDialog
+        open={confirmLeave}
+        title={strings.leaveRoomTitle}
+        message={strings.leaveRoomWarning}
+        confirmLabel={strings.roomLeave}
+        onCancel={() => setConfirmLeave(false)}
+        onConfirm={() => {
+          setConfirmLeave(false);
+          leave(true);
+        }}
+      />
     </>
   );
 }
@@ -275,7 +325,7 @@ interface RoomLobbyProps {
   snapshot: RoomSnapshot;
   enoughPlayers: boolean;
   onCopy: () => void;
-  onConfigure: (mode: GameMode, totalRounds: number) => void;
+  onConfigure: (mode: GameMode, totalRounds: number, genre: string) => void;
   onStart: () => void;
 }
 
@@ -307,7 +357,7 @@ function RoomLobby({
                 key={option}
                 type="button"
                 aria-pressed={snapshot.mode === option}
-                onClick={() => onConfigure(option, snapshot.totalRounds)}
+                onClick={() => onConfigure(option, snapshot.totalRounds, snapshot.genre)}
                 className={`tap rounded-xl border px-3 py-3 text-sm font-bold transition ${
                   snapshot.mode === option ? 'border-transparent bg-grape-600 text-white' : ''
                 }`}
@@ -324,7 +374,7 @@ function RoomLobby({
                 key={option}
                 type="button"
                 aria-pressed={snapshot.totalRounds === option}
-                onClick={() => onConfigure(snapshot.mode, option)}
+                onClick={() => onConfigure(snapshot.mode, option, snapshot.genre)}
                 className={`tap rounded-xl border px-3 py-3 text-sm font-bold transition ${
                   snapshot.totalRounds === option
                     ? 'border-transparent bg-grape-600 text-white'
@@ -341,6 +391,11 @@ function RoomLobby({
             ))}
           </div>
 
+          <GenrePicker
+            value={snapshot.genre}
+            onChange={(genre) => onConfigure(snapshot.mode, snapshot.totalRounds, genre)}
+          />
+
           <button
             type="button"
             className="btn-primary w-full disabled:opacity-40"
@@ -352,14 +407,31 @@ function RoomLobby({
           </button>
         </>
       ) : (
-        <p className="text-center text-sm muted">{strings.waitingHost}</p>
+        <>
+          {/* Quem nao e anfitriao nao decide, mas precisa saber o que vem ai. */}
+          <p className="text-center text-sm muted">
+            {snapshot.mode === 'trecho' ? strings.modeTrechoName : strings.modeBandaName}
+            {' · '}
+            {snapshot.totalRounds} {strings.rounds.toLowerCase()}
+            {' · '}
+            {genreLabel(snapshot.genre, strings.genres)}
+          </p>
+          <p className="text-center text-sm muted">{strings.waitingHost}</p>
+        </>
       )}
     </section>
   );
 }
 
-/** Quanto falta para a rodada estourar. So informativo: quem fecha e o anfitriao. */
+/**
+ * Quanto falta para a rodada estourar.
+ *
+ * So informativo — quem fecha a rodada e o anfitriao. Perto do fim vira alerta,
+ * porque a diferenca entre "tenho tempo" e "e agora" muda o que se faz com a
+ * ultima tentativa.
+ */
 function RoundClock({ startedAt }: { startedAt: number | null }) {
+  const strings = useStrings();
   const [now, setNow] = useState(() => Date.now());
 
   useEffect(() => {
@@ -367,10 +439,28 @@ function RoundClock({ startedAt }: { startedAt: number | null }) {
     return () => clearInterval(timer);
   }, []);
 
-  if (startedAt === null) return null;
-  const left = Math.max(0, Math.ceil((startedAt + ROUND_TIMEOUT_MS - now) / 1000));
+  const left =
+    startedAt === null ? null : Math.max(0, Math.ceil((startedAt + ROUND_TIMEOUT_MS - now) / 1000));
+  const warning = left !== null && left <= WARNING_SECONDS;
 
-  return <span className={left <= 10 ? 'font-bold text-amber-500' : undefined}>{left}s</span>;
+  // Um tique por segundo na reta final. O `playSfx` ja se cala enquanto o
+  // trecho toca, entao isso nunca atropela a musica.
+  useEffect(() => {
+    if (warning && left !== null && left > 0) playSfx('tick');
+  }, [warning, left]);
+
+  if (left === null) return null;
+
+  return (
+    <span
+      className={warning ? 'font-bold text-amber-500' : undefined}
+      // Anuncia uma vez so, quando entra na reta final: repetir a cada segundo
+      // deixaria o leitor de tela impossivel de acompanhar.
+      role={warning ? 'status' : undefined}
+    >
+      {left}s{warning && ` ${strings.timeRunningOut}`}
+    </span>
+  );
 }
 
 /** Quantos segundos o proximo degrau libera. */

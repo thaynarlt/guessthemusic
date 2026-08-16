@@ -89,6 +89,27 @@ export function useSnippetPlayer({
     setMuted(new Set());
   }, [level, song?.id, revealed, stop]);
 
+  /**
+   * Sair do app corta o audio no celular, e o contexto pode voltar morto.
+   *
+   * Ao sair, paramos o que estava tocando — sem isso o playhead continua
+   * correndo sobre um som que ninguem ouve. Ao voltar, limpamos o aviso de erro
+   * para o proximo toque no play tentar de novo: e o gesto do usuario que
+   * permite ressuscitar o contexto, entao nao adianta tentar aqui.
+   */
+  useEffect(() => {
+    const onVisibility = () => {
+      if (document.visibilityState !== 'visible') {
+        stop();
+        return;
+      }
+      setStatus((current) => (current === 'blocked' || current === 'error' ? 'idle' : current));
+    };
+
+    document.addEventListener('visibilitychange', onVisibility);
+    return () => document.removeEventListener('visibilitychange', onVisibility);
+  }, [stop]);
+
   const trackElapsed = useCallback(() => {
     setElapsed(getEngine().getElapsed());
     frame.current = requestAnimationFrame(trackElapsed);

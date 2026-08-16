@@ -1,3 +1,4 @@
+import { ALL_GENRES } from '@/lib/game/genres';
 import { pointsForGame } from '@/lib/game/score';
 import type { GameMode, GameState } from '@/lib/game/types';
 
@@ -36,6 +37,8 @@ export type RoomPhase = 'lobby' | 'playing' | 'intermission' | 'finished';
 export interface RoomSnapshot {
   phase: RoomPhase;
   mode: GameMode;
+  /** Filtro de genero do sorteio, escolhido pelo anfitriao. */
+  genre: string;
   /** 0 no lobby; 1 na primeira rodada. */
   round: number;
   totalRounds: number;
@@ -49,10 +52,14 @@ export interface RoomSnapshot {
   results: Record<string, RoundResult>;
 }
 
+/** Tamanho maximo de uma mensagem do chat, em caracteres. */
+export const MAX_CHAT_LENGTH = 200;
+
 /** Mensagens que trafegam no canal. */
 export type RoomMessage =
   | { kind: 'state'; snapshot: RoomSnapshot }
-  | { kind: 'done'; playerId: string; result: RoundResult };
+  | { kind: 'done'; playerId: string; result: RoundResult }
+  | { kind: 'chat'; playerId: string; name: string; text: string };
 
 export interface RoomPlayer {
   id: string;
@@ -61,9 +68,14 @@ export interface RoomPlayer {
   joinedAt: number;
 }
 
-export const emptySnapshot = (mode: GameMode, totalRounds: number): RoomSnapshot => ({
+export const emptySnapshot = (
+  mode: GameMode,
+  totalRounds: number,
+  genre: string = ALL_GENRES,
+): RoomSnapshot => ({
   phase: 'lobby',
   mode,
+  genre,
   round: 0,
   totalRounds,
   songId: null,
@@ -71,6 +83,41 @@ export const emptySnapshot = (mode: GameMode, totalRounds: number): RoomSnapshot
   scores: {},
   results: {},
 });
+
+/**
+ * Linha do mural da sala: quem entrou, quem saiu e o que foi dito.
+ *
+ * Entradas e saidas nao viajam pelo canal — cada cliente as deduz comparando
+ * duas leituras de presenca, entao nao ha mensagem a mais nem risco de um aviso
+ * chegar duplicado.
+ */
+export type RoomEvent =
+  | { kind: 'joined'; id: string; name: string; at: number }
+  | { kind: 'left'; id: string; name: string; at: number }
+  | { kind: 'chat'; id: string; name: string; text: string; at: number };
+
+/** Quanto do mural fica na memoria. Sala nao tem historico: e conversa de agora. */
+export const MAX_FEED = 50;
+
+/** Quem entrou e quem saiu entre duas leituras de presenca. */
+export function presenceDiff(
+  before: readonly RoomPlayer[],
+  after: readonly RoomPlayer[],
+): { joined: RoomPlayer[]; left: RoomPlayer[] } {
+  const antes = new Set(before.map((player) => player.id));
+  const depois = new Set(after.map((player) => player.id));
+
+  return {
+    joined: after.filter((player) => !antes.has(player.id)),
+    left: before.filter((player) => !depois.has(player.id)),
+  };
+}
+
+/** Corta a mensagem no limite e recusa o que sobrou vazio. */
+export function sanitizeChat(text: string): string | null {
+  const clean = text.replace(/\s+/g, ' ').trim().slice(0, MAX_CHAT_LENGTH);
+  return clean.length > 0 ? clean : null;
+}
 
 /**
  * Quem manda na sala.

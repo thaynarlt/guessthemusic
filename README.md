@@ -19,7 +19,7 @@ Cada modo tem duas variantes:
 Os dois modos multijogador usam a mesma pontuação: **acertar no trecho de 0,2s vale 6 pontos, e cada degrau liberado vale um ponto a menos** — 6, 5, 4, 3, 2, 1, e zero para quem não acertou. Como errar e pular consomem o mesmo degrau, custam a mesma coisa; pular só serve para não perder tempo, nunca é vantagem. Nenhum dos dois grava nada nem mexe na sequência do diário.
 
 - **Duelo** (`/duelo`) — de 2 a 4 pessoas em um aparelho só, **disputando a mesma música**. A primeira ouve 0,2s e chuta; se errar ou pular, a vez passa para a próxima, que ouve 0,5s mas já vale só 5 pontos. Quem acertar leva os pontos daquele degrau e a rodada acaba. Quem abre a rodada roda a cada rodada, porque começar é vantagem e desvantagem ao mesmo tempo: vale mais, mas entrega o degrau seguinte de graça a quem vem depois.
-- **Sala online** (`/sala`) — estilo Gartic: cria uma sala, compartilha um código de 4 letras e todo mundo ouve **a mesma música ao mesmo tempo**, cada um no seu ritmo, até 8 pessoas. Quem reconhece antes pontua mais. A rodada fecha quando todo mundo responde ou quando estouram 90s — assim quem fechou a aba não trava a sala. Empate no total é desempatado pelo tempo de resposta.
+- **Sala online** (`/sala`) — estilo Gartic: cria uma sala, compartilha um código de 4 letras e todo mundo ouve **a mesma música ao mesmo tempo**, cada um no seu ritmo, até 8 pessoas. Quem reconhece antes pontua mais. A rodada fecha quando todo mundo responde ou quando estouram 90s — assim quem fechou a aba não trava a sala. Empate no total é desempatado pelo tempo de resposta. Tem filtro de gênero, conversa, aviso de quem entra e sai, e pódio no fim.
 
 A sala online é o **único** pedaço do jogo que precisa de infraestrutura; o resto continua rodando com `npm run dev` e mais nada. Veja [Sala online](#sala-online-opcional).
 
@@ -41,6 +41,7 @@ Abra `http://localhost:3000`. **Não precisa de backend, banco nem arquivo de á
 | `npm run lint` | ESLint (`eslint-config-next`) |
 | `npm run catalog:check` | Valida `data/songs.json` sozinho |
 | `npm run catalog:import` | Importa músicas reais das APIs do Deezer/iTunes |
+| `npm run catalog:featuring` | Preenche os artistas convidados de cada música |
 | `npm run format` | Prettier |
 
 ## Stack
@@ -48,10 +49,10 @@ Abra `http://localhost:3000`. **Não precisa de backend, banco nem arquivo de á
 - **Next.js 14.2** (App Router) + **React 18.3** + **TypeScript 5.5** (`strict`, alias `@/*`)
 - **Tailwind CSS 3.4** — tema claro/escuro por classe, respeitando `prefers-color-scheme`
 - **Zustand 4** — estado de jogo e preferências, persistidos em `localStorage`
-- **Web Audio API** — corte no milissegundo, fade de 80 ms e trilhas sincronizadas (não usa `<audio>`)
+- **Web Audio API** — corte no milissegundo, fade de 80 ms, trilhas sincronizadas (não usa `<audio>`) e os efeitos de interface, gerados na hora em vez de servidos como arquivo
 - **Route Handlers (Node)** — puzzle do dia, prévias de áudio e estatísticas globais opcionais
 - **Supabase Realtime** — só a sala online, e só os canais: sem tabela e carregado sob demanda
-- **Vitest** — 159 testes sobre a lógica pura e a sala, sem tocar na UI
+- **Vitest** — 211 testes sobre a lógica pura, a sala e os scripts, sem tocar na UI
 
 ```
 app/            rotas (menu, /trecho, /banda, /duelo, /sala) + /api
@@ -89,7 +90,18 @@ npm run catalog:import -- --fonte deezer --busca "rock nacional" --limite 30 --j
 
 O importador descarta versões ao vivo, remix e karaokê (atrapalham o reconhecimento) e evita que a mesma música entre duas vezes por causa de "Remastered".
 
-Depois rode `npm run catalog:check`.
+Depois rode `npm run catalog:featuring` e `npm run catalog:check`.
+
+### Artistas convidados
+
+O Deezer é inconsistente com participações: "Uptown Funk (feat. Bruno Mars)" vem com o crédito no título, mas "Sua Cara" vem seco — e aí ninguém acha a música procurando por "Anitta". Os convidados só existem em `/track/{id}`, que os endpoints de busca e de chart não trazem, então buscá-los faria o importador demorar o dobro. Por isso é um passo à parte:
+
+```bash
+npm run catalog:featuring              # preenche só o que falta
+npm run catalog:featuring -- --forcar  # refaz tudo
+```
+
+O script **só acrescenta o campo `featuring`**: não mexe em `id`, na ordem do array nem em nenhum valor existente. Isso importa porque o sorteio do puzzle diário deriva da lista de músicas — mudar a ordem faria todo mundo perder a partida do dia. Os convidados entram na busca e valem como "artista certo" no palpite.
 
 Duas coisas que o importador resolve por você:
 
@@ -189,7 +201,7 @@ Normalmente vem do `catalog:import`, mas dá pra escrever à mão:
 
 `root` é uma nota MIDI, `progression` são semitons relativos à tônica (um acorde por compasso) e `seed` deixa o resultado determinístico. O gerador (`lib/audio/synth.ts`) monta as 6 trilhas separadas, então **músicas `synth` funcionam nos dois modos**.
 
-Campos opcionais úteis: `cover` (sem ele, uma capa em gradiente é gerada a partir do `id`) e `aliases` (grafias alternativas aceitas na busca — a busca já ignora acentos e maiúsculas).
+Campos opcionais úteis: `cover` (sem ele, uma capa em gradiente é gerada a partir do `id`), `aliases` (grafias alternativas aceitas na busca — a busca já ignora acentos e maiúsculas) e `featuring` (artistas convidados, preenchido por `catalog:featuring`).
 
 ## Trocando o provedor de áudio
 
@@ -268,3 +280,5 @@ O modo Banda **não** exige separação de stems: com prévias ele revela por fa
 ## Acessibilidade
 
 Navegação completa por teclado (`Espaço` toca/para, `Enter` envia, setas percorrem o autocomplete, `Esc` fecha), foco visível, `aria-live` anunciando cada tentativa, combobox com `role`/`aria-activedescendant`, alvos de toque ≥44px, contraste AA e `prefers-reduced-motion` respeitado.
+
+Nada depende só de som: os efeitos sonoros duplicam informação que já está na tela, e o botão de mudo no cabeçalho desliga todos. Na sala, o cronômetro é anunciado uma vez ao entrar na reta final, e não a cada segundo — repetir seria impossível de acompanhar por leitor de tela.

@@ -1,11 +1,12 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { DoorOpen, Plus, Radio } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { DoorOpen, Plus, Radio, Undo2 } from 'lucide-react';
 import { AppHeader } from '@/components/AppHeader';
 import { isValidRoomCode, normalizeRoomCode, randomRoomCode } from '@/lib/room/code';
 import { roomsEnabled } from '@/lib/room/client';
+import { loadSession, type RoomSession } from '@/lib/room/session';
 import { useStrings } from '@/store/useSettings';
 
 /** Porta de entrada: cria uma sala nova ou entra em uma que ja existe. */
@@ -14,6 +15,11 @@ export function RoomEntry() {
   const router = useRouter();
   const [code, setCode] = useState('');
   const [touched, setTouched] = useState(false);
+  const [recent, setRecent] = useState<RoomSession | null>(null);
+
+  // localStorage so existe no cliente: por isso a sala recente entra depois da
+  // montagem, e nao direto no useState.
+  useEffect(() => setRecent(loadSession()), []);
 
   const enabled = roomsEnabled();
   const valid = isValidRoomCode(code);
@@ -40,9 +46,20 @@ export function RoomEntry() {
           <>
             <p className="surface p-3 text-center text-sm muted">{strings.scoringPitch}</p>
 
+            {recent && (
+              <button
+                type="button"
+                className="btn-primary w-full"
+                onClick={() => router.push(`/sala/${recent.code}`)}
+              >
+                <Undo2 size={18} aria-hidden="true" />
+                {strings.backToRoom.replace('{code}', recent.code)}
+              </button>
+            )}
+
             <button
               type="button"
-              className="btn-primary w-full"
+              className={`${recent ? 'btn-ghost' : 'btn-primary'} w-full`}
               onClick={() => router.push(`/sala/${randomRoomCode()}`)}
             >
               <Plus size={18} aria-hidden="true" />

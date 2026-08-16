@@ -1,6 +1,7 @@
 'use client';
 
 import { create } from 'zustand';
+import { playSfx } from '@/lib/audio/sfx';
 import { getSong } from '@/lib/game/catalog';
 import { createDuel, duelGuess, duelNextRound, duelSkip, type DuelState } from '@/lib/game/duel';
 import { ALL_GENRES } from '@/lib/game/genres';
@@ -29,6 +30,15 @@ interface DuelStore {
 export const useDuelStore = create<DuelStore>((set, get) => {
   const recent: string[] = [];
 
+  /** Som da jogada: quem rouba a rodada leva a fanfarra. */
+  const announce = (duel: DuelState): void => {
+    const last = duel.round.attempts[duel.round.attempts.length - 1];
+    if (duel.status === 'finished') playSfx('victory');
+    else if (duel.round.status === 'over')
+      playSfx(last?.result === 'correct' ? 'correct' : 'reveal');
+    else playSfx(last?.result === 'skipped' ? 'skip' : 'wrong');
+  };
+
   /** Sorteia a proxima musica evitando as ultimas do duelo. */
   const draw = (mode: GameMode, genre: string): Song => {
     const song = freeRound(mode, recent, genre);
@@ -52,13 +62,19 @@ export const useDuelStore = create<DuelStore>((set, get) => {
       if (!duel) return;
       const answer = getSong(duel.round.answerId);
       if (!answer) return;
-      set((state) => ({ duel: duelGuess(duel, song, answer), nonce: state.nonce + 1 }));
+
+      const next = duelGuess(duel, song, answer);
+      set((state) => ({ duel: next, nonce: state.nonce + 1 }));
+      announce(next);
     },
 
     skip: () => {
       const { duel } = get();
       if (!duel) return;
-      set((state) => ({ duel: duelSkip(duel), nonce: state.nonce + 1 }));
+
+      const next = duelSkip(duel);
+      set((state) => ({ duel: next, nonce: state.nonce + 1 }));
+      announce(next);
     },
 
     next: () => {

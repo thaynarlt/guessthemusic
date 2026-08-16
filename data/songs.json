@@ -17,7 +17,10 @@
     "genre": "rock",
     "source": "preview",
     "previewId": "deezer:3098519",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/0a1daf96211c7d0d662eab97b5e6e337/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/0a1daf96211c7d0d662eab97b5e6e337/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "David Bowie"
+    ]
   },
   {
     "id": "deezer-4092329741",
@@ -1807,7 +1810,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:142706538",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/2ae6c01a51296a7ec6d89c96a4fac32c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/2ae6c01a51296a7ec6d89c96a4fac32c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "The Chainsmokers"
+    ]
   },
   {
     "id": "deezer-3098841",
@@ -1847,7 +1853,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:1498546032",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/b9133002f605093482a187335b2dac24/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/b9133002f605093482a187335b2dac24/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "BTS"
+    ]
   },
   {
     "id": "deezer-3098838",
@@ -1907,7 +1916,12 @@
     "genre": "rock",
     "source": "preview",
     "previewId": "deezer:1535046792",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/59e97030824a55b87304485e549a2451/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/59e97030824a55b87304485e549a2451/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "JID",
+      "Arcane",
+      "League of Legends"
+    ]
   },
   {
     "id": "deezer-528330431",
@@ -3227,7 +3241,35 @@
     "genre": "rock",
     "source": "preview",
     "previewId": "deezer:1134033732",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/8709028c2bb9a8070809e62e2b4ebfda/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/8709028c2bb9a8070809e62e2b4ebfda/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Anoushka Shankar",
+      "Ava Max",
+      "BBC Concert Orchestra",
+      "Bryan Adams",
+      "Cher",
+      "Clean Bandit",
+      "Ella Eyre",
+      "Grace Chatto",
+      "Gregory Porter",
+      "Izzy Bizu",
+      "Jack Savoretti",
+      "James Morrison",
+      "Jamie Cullum",
+      "Jay Sean",
+      "Jess Glynne",
+      "KSI",
+      "Kylie Minogue",
+      "Lauv",
+      "Lenny Kravitz",
+      "Mel C",
+      "Nile Rodgers",
+      "Paloma Faith",
+      "Rebecca Ferguson",
+      "Robbie Williams",
+      "Sheku Kanneh-Mason",
+      "Yola"
+    ]
   },
   {
     "id": "deezer-4311599",
@@ -4237,7 +4279,10 @@
     "genre": "rock",
     "source": "preview",
     "previewId": "deezer:931591",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/d0961fdeb41d8ffdfdde98b533b1d593/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/d0961fdeb41d8ffdfdde98b533b1d593/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "John Mayer"
+    ]
   },
   {
     "id": "deezer-911496",
@@ -5127,7 +5172,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:3988410701",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/368e162b61376cf1a35311d69e5744c8/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/368e162b61376cf1a35311d69e5744c8/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Sabrina Carpenter"
+    ]
   },
   {
     "id": "deezer-3988410671",
@@ -5177,7 +5225,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3988410761",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/368e162b61376cf1a35311d69e5744c8/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/368e162b61376cf1a35311d69e5744c8/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Martin Garrix"
+    ]
   },
   {
     "id": "deezer-679217",
@@ -5197,7 +5248,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:3988410721",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/368e162b61376cf1a35311d69e5744c8/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/368e162b61376cf1a35311d69e5744c8/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Feid"
+    ]
   },
   {
     "id": "deezer-75981528",
@@ -5257,7 +5311,11 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:2205185",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/7b4f3812207263eacc32077c424fd8a9/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/7b4f3812207263eacc32077c424fd8a9/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Chris Cox",
+      "Barry Harris"
+    ]
   },
   {
     "id": "deezer-764492422",
@@ -5297,7 +5355,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:596057",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6a1aeef41619907cc283d4eb1eac2fe6/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6a1aeef41619907cc283d4eb1eac2fe6/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Whitney Houston"
+    ]
   },
   {
     "id": "deezer-374283061",
@@ -5597,7 +5658,14 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:90427391",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/349234409ab33a9fd5f81f08fecdadc2/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/349234409ab33a9fd5f81f08fecdadc2/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Chubby Checker",
+      "Cliff Richard",
+      "Jerry Lee Lewis",
+      "Chuck Berry",
+      "Little Richard"
+    ]
   },
   {
     "id": "deezer-104952384",
@@ -5607,7 +5675,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:104952384",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/134d8488c00bd4cf1d832e5fcd59e19b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/134d8488c00bd4cf1d832e5fcd59e19b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "The Royal Philharmonic Orchestra"
+    ]
   },
   {
     "id": "deezer-1045793",
@@ -5637,7 +5708,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:104952376",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/134d8488c00bd4cf1d832e5fcd59e19b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/134d8488c00bd4cf1d832e5fcd59e19b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "The Royal Philharmonic Orchestra"
+    ]
   },
   {
     "id": "deezer-13141170",
@@ -5807,7 +5881,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:1879746947",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e899057a79bfe5b111c79159cf89b821/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e899057a79bfe5b111c79159cf89b821/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Britney Spears"
+    ]
   },
   {
     "id": "deezer-540191",
@@ -6037,7 +6114,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:2947516331",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/4bd5903f4ce8f2601916bfadb44efe8a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/4bd5903f4ce8f2601916bfadb44efe8a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Bruno Mars"
+    ]
   },
   {
     "id": "deezer-62724015",
@@ -6137,7 +6217,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:925106",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/91276466fbc876d96be9e6926060af60/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/91276466fbc876d96be9e6926060af60/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "JAY Z"
+    ]
   },
   {
     "id": "deezer-118190312",
@@ -6167,7 +6250,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:123883254",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/b8af7ff13a47e2775307299843da9b36/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/b8af7ff13a47e2775307299843da9b36/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Rihanna"
+    ]
   },
   {
     "id": "deezer-14525574",
@@ -6177,7 +6263,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:14525574",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5199f89d5113a83b5086463d5d0c9415/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5199f89d5113a83b5086463d5d0c9415/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Calvin Harris"
+    ]
   },
   {
     "id": "deezer-13529563",
@@ -6197,7 +6286,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:62376291",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/246fb21e05da3d1460eb147123bb906b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/246fb21e05da3d1460eb147123bb906b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Mikky Ekko"
+    ]
   },
   {
     "id": "deezer-60978718",
@@ -6247,7 +6339,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:561856742",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/88a8288e14f61ffa39c14ac2ef9210d8/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/88a8288e14f61ffa39c14ac2ef9210d8/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Bradley Cooper"
+    ]
   },
   {
     "id": "deezer-3214169391",
@@ -6307,7 +6402,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:4709944",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/62f368993ddb68c5364cd03221d07ac6/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/62f368993ddb68c5364cd03221d07ac6/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Beyoncé"
+    ]
   },
   {
     "id": "deezer-3537990861",
@@ -6367,7 +6465,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:568003",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/b329cc8e36d1245b264da86a97dfafed/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/b329cc8e36d1245b264da86a97dfafed/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Shakira"
+    ]
   },
   {
     "id": "deezer-2455091",
@@ -6437,7 +6538,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:38934641",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/81d7aae96ab55297abdfd5370f6b38a0/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/81d7aae96ab55297abdfd5370f6b38a0/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Wiz Khalifa"
+    ]
   },
   {
     "id": "deezer-100004590",
@@ -6457,7 +6561,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:12724819",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/86fb42ca017f0266d0885c1bede988bf/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/86fb42ca017f0266d0885c1bede988bf/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Christina Aguilera"
+    ]
   },
   {
     "id": "deezer-1400843202",
@@ -6487,7 +6594,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:498130042",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6b4d59645e2d1cf7a692782983cee963/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6b4d59645e2d1cf7a692782983cee963/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Cardi B"
+    ]
   },
   {
     "id": "deezer-83124206",
@@ -6567,7 +6677,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:678017492",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/45a1c033dabe1e25689db3f8c9624042/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/45a1c033dabe1e25689db3f8c9624042/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Justin Bieber"
+    ]
   },
   {
     "id": "deezer-142986210",
@@ -6617,7 +6730,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3989395981",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/47ef4963bb2745ad46e4c049e50c0ca9/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/47ef4963bb2745ad46e4c049e50c0ca9/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Ed Sheeran"
+    ]
   },
   {
     "id": "deezer-3579685431",
@@ -6737,7 +6853,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:136889434",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/134778e4c4f19ea71c82408300925a9a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/134778e4c4f19ea71c82408300925a9a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Daft Punk"
+    ]
   },
   {
     "id": "deezer-136889400",
@@ -6747,7 +6866,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:136889400",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/134778e4c4f19ea71c82408300925a9a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/134778e4c4f19ea71c82408300925a9a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Daft Punk"
+    ]
   },
   {
     "id": "deezer-2338371075",
@@ -6757,7 +6879,11 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:2338371075",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/cf979d162bdd9430a742be2ba588c7f6/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/cf979d162bdd9430a742be2ba588c7f6/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "JENNIE",
+      "Lily Rose Depp"
+    ]
   },
   {
     "id": "deezer-908604632",
@@ -6807,7 +6933,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:3210598501",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e4b16c1afe136140bba34368357e8f05/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e4b16c1afe136140bba34368357e8f05/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Playboi Carti"
+    ]
   },
   {
     "id": "deezer-2047662477",
@@ -6817,7 +6946,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2047662477",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/862ab860ff69c30deeb5979db6e46b62/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/862ab860ff69c30deeb5979db6e46b62/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "The Weeknd",
+      "21 Savage"
+    ]
   },
   {
     "id": "deezer-2661514912",
@@ -6917,7 +7050,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:140856305",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/8e6e0c8973442986572a2e8a5492fdd9/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/8e6e0c8973442986572a2e8a5492fdd9/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Dua Lipa"
+    ]
   },
   {
     "id": "deezer-2801558052",
@@ -7087,7 +7223,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:124995668",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e5bf0368c12f211bdafe91deba06cdda/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e5bf0368c12f211bdafe91deba06cdda/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Nicki Minaj"
+    ]
   },
   {
     "id": "deezer-83844556",
@@ -7097,7 +7236,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:83844556",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/b5021d5a88c44071a97416c65d4dbdd9/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/b5021d5a88c44071a97416c65d4dbdd9/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "The Weeknd"
+    ]
   },
   {
     "id": "deezer-4182548232",
@@ -7327,7 +7469,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:13202000",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/ccd5b32450399ff834c7064397c242da/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/ccd5b32450399ff834c7064397c242da/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Mariah Carey"
+    ]
   },
   {
     "id": "deezer-595920",
@@ -7347,7 +7492,11 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:2511969",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/dbd77fe2d938b191c990db84008edbff/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/dbd77fe2d938b191c990db84008edbff/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Jermaine Dupri",
+      "Fatman Scoop"
+    ]
   },
   {
     "id": "deezer-1225539462",
@@ -7467,7 +7616,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:1162676",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5d26879f1c0ceb4fe8f7a6ae44e6af75/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5d26879f1c0ceb4fe8f7a6ae44e6af75/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Kiki Dee"
+    ]
   },
   {
     "id": "deezer-44586971",
@@ -7497,7 +7649,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:71645436",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/fe781ecd9879a82beed80f6d3e80745b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/fe781ecd9879a82beed80f6d3e80745b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Juicy J"
+    ]
   },
   {
     "id": "deezer-17135114",
@@ -7547,7 +7702,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:17135110",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/99578b0bb8c838383c414a5b62b5e15d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/99578b0bb8c838383c414a5b62b5e15d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Snoop Dogg"
+    ]
   },
   {
     "id": "deezer-17135108",
@@ -7587,7 +7745,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:37027991",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/312ece7b31fb86c7a13afd757e99437c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/312ece7b31fb86c7a13afd757e99437c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Nicki Minaj"
+    ]
   },
   {
     "id": "deezer-1425844092",
@@ -7597,7 +7758,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:1425844092",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/dd6fe7fa9267185c4b835bd4f155d1d2/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/dd6fe7fa9267185c4b835bd4f155d1d2/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Justin Bieber"
+    ]
   },
   {
     "id": "deezer-78671337",
@@ -7607,7 +7771,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:78671337",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/3e8aab499d0ea00c411a27521ba3bbe6/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/3e8aab499d0ea00c411a27521ba3bbe6/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Chance the Rapper"
+    ]
   },
   {
     "id": "deezer-3454558661",
@@ -7627,7 +7794,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:9836963",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/0f0d1dd0b134c69948661285068a116e/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/0f0d1dd0b134c69948661285068a116e/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Jaden"
+    ]
   },
   {
     "id": "deezer-1280165222",
@@ -7637,7 +7807,11 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:1280165222",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/87468622c8e7ac9dce7b541be136aa4c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/87468622c8e7ac9dce7b541be136aa4c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Daniel Caesar",
+      "GIVĒON"
+    ]
   },
   {
     "id": "deezer-4679368",
@@ -7727,7 +7901,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:78213551",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/8d0164d7161ac43452ec58201e56e3a4/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/8d0164d7161ac43452ec58201e56e3a4/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Justin Timberlake"
+    ]
   },
   {
     "id": "deezer-565134",
@@ -7777,7 +7954,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:4015341011",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/a7f9bae0243c512059298a68d09f45a1/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/a7f9bae0243c512059298a68d09f45a1/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Burna Boy"
+    ]
   },
   {
     "id": "deezer-990604232",
@@ -7787,7 +7967,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:990604232",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5f69e64c44314ff6b1422829afe08503/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5f69e64c44314ff6b1422829afe08503/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Shakira"
+    ]
   },
   {
     "id": "deezer-3959416821",
@@ -7797,7 +7980,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:3959416821",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/551cb5502b2de3c54cc781314a16cd6c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/551cb5502b2de3c54cc781314a16cd6c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Shakira"
+    ]
   },
   {
     "id": "deezer-3589406821",
@@ -7807,7 +7993,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:3589406821",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/9f4b5ebb20806c3fbf45bc17a83035f4/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/9f4b5ebb20806c3fbf45bc17a83035f4/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Shakira"
+    ]
   },
   {
     "id": "deezer-88897841",
@@ -7827,7 +8016,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:2154046487",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/608e6114bb1e0a7f3a512538d7bd9248/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/608e6114bb1e0a7f3a512538d7bd9248/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Shakira"
+    ]
   },
   {
     "id": "deezer-364957401",
@@ -7937,7 +8129,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:473784012",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/00ba194ad2417b1cc6d79a34113995cb/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/00ba194ad2417b1cc6d79a34113995cb/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Sia"
+    ]
   },
   {
     "id": "deezer-134533214",
@@ -7957,7 +8152,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1065099142",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/815c3d27a09949d79ad5e92b675aea60/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/815c3d27a09949d79ad5e92b675aea60/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Doja Cat",
+      "Sia"
+    ]
   },
   {
     "id": "deezer-3930376831",
@@ -7967,7 +8166,11 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:3930376831",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/4ce5580a7b6c9e8470dd192b364ed0b3/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/4ce5580a7b6c9e8470dd192b364ed0b3/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Sia",
+      "David Guetta"
+    ]
   },
   {
     "id": "deezer-70403437",
@@ -8157,7 +8360,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:4078105011",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/07d6896c8afea3a87dcf9381c3d0e6c7/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/07d6896c8afea3a87dcf9381c3d0e6c7/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Robert Smith"
+    ]
   },
   {
     "id": "deezer-1378342582",
@@ -8267,7 +8473,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:1873297197",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/07d4291391724a969f243406cc92be66/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/07d4291391724a969f243406cc92be66/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Selena Gomez"
+    ]
   },
   {
     "id": "deezer-66404487",
@@ -8287,7 +8496,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:142328215",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e9ec7d8f75708f9a9de5de403cf205c0/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e9ec7d8f75708f9a9de5de403cf205c0/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Selena Gomez"
+    ]
   },
   {
     "id": "deezer-4173779642",
@@ -8297,7 +8509,11 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:4173779642",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5c3c52f4b410b1dbf7e009cb7efe2b7d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5c3c52f4b410b1dbf7e009cb7efe2b7d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Selena Gomez",
+      "Becky G"
+    ]
   },
   {
     "id": "deezer-109169056",
@@ -8317,7 +8533,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:109169062",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/51f0d069107589ed8d7f4dd848e3a33b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/51f0d069107589ed8d7f4dd848e3a33b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "A$AP Rocky"
+    ]
   },
   {
     "id": "deezer-109169058",
@@ -8337,7 +8556,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:383301631",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/710a4fd29381f80e585921d317c30c25/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/710a4fd29381f80e585921d317c30c25/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Gucci Mane"
+    ]
   },
   {
     "id": "deezer-847637202",
@@ -8377,7 +8599,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:113418522",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/46fab8006e0da286831fe157ccc4f31c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/46fab8006e0da286831fe157ccc4f31c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Camila Cabello"
+    ]
   },
   {
     "id": "deezer-447098062",
@@ -8447,7 +8672,14 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:3029916811",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/d6440a2e5dddc4e90acfbd496bd413db/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/d6440a2e5dddc4e90acfbd496bd413db/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Camila Cabello",
+      "Malachiii",
+      "Adam Port",
+      "Keinemusik",
+      "Orso"
+    ]
   },
   {
     "id": "deezer-744266592",
@@ -8467,7 +8699,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:129310248",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/0a7b86a0e2f2bd3e41515adb83e3322b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/0a7b86a0e2f2bd3e41515adb83e3322b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Halsey"
+    ]
   },
   {
     "id": "deezer-1088873812",
@@ -8487,7 +8722,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:439864512",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6f1a92db4d24a9d04f913f3ed9660168/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6f1a92db4d24a9d04f913f3ed9660168/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Halsey"
+    ]
   },
   {
     "id": "deezer-525343612",
@@ -8497,7 +8735,11 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:525343612",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/3ef48b681b594d6b3e36dced51207f69/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/3ef48b681b594d6b3e36dced51207f69/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Halsey",
+      "Khalid"
+    ]
   },
   {
     "id": "deezer-944915112",
@@ -8507,7 +8749,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:944915112",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/abed19f68bb152abfb9b3a14d7ef90d6/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/abed19f68bb152abfb9b3a14d7ef90d6/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Halsey"
+    ]
   },
   {
     "id": "deezer-472400862",
@@ -8537,7 +8782,12 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:1821639397",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e5e859ed1be51a90c41e36b4804a916a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e5e859ed1be51a90c41e36b4804a916a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Justin Timberlake",
+      "Halsey",
+      "Pharrell Williams"
+    ]
   },
   {
     "id": "deezer-105710128",
@@ -8567,7 +8817,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:446082632",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/df5c13b1fc432ae674c700a0b0e47fcf/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/df5c13b1fc432ae674c700a0b0e47fcf/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "SZA"
+    ]
   },
   {
     "id": "deezer-1410738172",
@@ -8597,7 +8850,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:3106586641",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/da5256ff8cacfe9ad90521f6e3792259/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/da5256ff8cacfe9ad90521f6e3792259/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "SZA"
+    ]
   },
   {
     "id": "deezer-2055292027",
@@ -8927,7 +9183,12 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:2438245",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/dc695e1eabfd0dd3d6a789c57176e3db/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/dc695e1eabfd0dd3d6a789c57176e3db/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Lil' Kim",
+      "Mýa",
+      "P!nk"
+    ]
   },
   {
     "id": "deezer-15597831",
@@ -8967,7 +9228,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:72299954",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/eb5b766197ec98b8df0fafec11b50266/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/eb5b766197ec98b8df0fafec11b50266/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Christina Aguilera"
+    ]
   },
   {
     "id": "deezer-967328",
@@ -9277,7 +9541,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:986939372",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/28d40bc883db4866c43f06fd82ab5153/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/28d40bc883db4866c43f06fd82ab5153/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Jason Derulo"
+    ]
   },
   {
     "id": "deezer-76734219",
@@ -9327,7 +9594,11 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:1012527742",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5fc32a751538a51800ba86bbd1051894/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5fc32a751538a51800ba86bbd1051894/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Martin Jensen",
+      "Jason Derulo"
+    ]
   },
   {
     "id": "deezer-13548266",
@@ -9397,7 +9668,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:78527813",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/63bb716faf92942d967f5c053fc8720c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/63bb716faf92942d967f5c053fc8720c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Alesso"
+    ]
   },
   {
     "id": "deezer-2292149325",
@@ -9447,7 +9721,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:951655282",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6a823c3d8d1b8be300e94ea85d713c4c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6a823c3d8d1b8be300e94ea85d713c4c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "OneRepublic"
+    ]
   },
   {
     "id": "deezer-111780380",
@@ -9477,7 +9754,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:542335432",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/0462e8724b04151a5d347b0b06579272/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/0462e8724b04151a5d347b0b06579272/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Sam Smith"
+    ]
   },
   {
     "id": "deezer-111780376",
@@ -9497,7 +9777,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:613138092",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/d0d05906fbe4effeae6bfb8797939342/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/d0d05906fbe4effeae6bfb8797939342/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Normani"
+    ]
   },
   {
     "id": "deezer-1905751117",
@@ -9507,7 +9790,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:1905751117",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/bd454eaa5398663a32af7fca8633b245/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/bd454eaa5398663a32af7fca8633b245/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Kim Petras"
+    ]
   },
   {
     "id": "deezer-606122062",
@@ -9527,7 +9813,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:75526535",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e44468007c45f2523d056a0b19eed80a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e44468007c45f2523d056a0b19eed80a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Sam Smith"
+    ]
   },
   {
     "id": "deezer-4183612302",
@@ -9587,7 +9876,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:1148426902",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/dea9b7e6ae64c3a95b7f5617fc63d3b7/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/dea9b7e6ae64c3a95b7f5617fc63d3b7/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Justin Bieber"
+    ]
   },
   {
     "id": "deezer-2935318981",
@@ -9837,7 +10129,11 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:549810842",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/f2f3e904a7b22986cd4a50fc4ff91bda/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/f2f3e904a7b22986cd4a50fc4ff91bda/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Ella Eyre",
+      "Meghan Trainor"
+    ]
   },
   {
     "id": "deezer-692002972",
@@ -9867,7 +10163,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1379257332",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/04a4f0c38a0a8c975ebee592e26c5c38/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/04a4f0c38a0a8c975ebee592e26c5c38/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Jonas Brothers"
+    ]
   },
   {
     "id": "deezer-2151871307",
@@ -9907,7 +10206,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:3180092121",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/992792b34251ffb4504578b8105d09bd/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/992792b34251ffb4504578b8105d09bd/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Jonas Brothers"
+    ]
   },
   {
     "id": "deezer-3278141801",
@@ -10047,7 +10349,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:10392073",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/4c9fd7e1257024bff5be2a795fc7e5ca/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/4c9fd7e1257024bff5be2a795fc7e5ca/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Elton John"
+    ]
   },
   {
     "id": "deezer-10392088",
@@ -10097,7 +10402,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:10392085",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/4c9fd7e1257024bff5be2a795fc7e5ca/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/4c9fd7e1257024bff5be2a795fc7e5ca/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Mary J. Blige"
+    ]
   },
   {
     "id": "deezer-8112357",
@@ -10227,7 +10535,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:906584",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/dae9c863ba27686af441666135693de2/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/dae9c863ba27686af441666135693de2/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Diana Ross"
+    ]
   },
   {
     "id": "deezer-918048",
@@ -10257,7 +10568,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:16645492",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5942f6e431f993f72fa5e0f24058c2c6/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5942f6e431f993f72fa5e0f24058c2c6/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Willie Nelson"
+    ]
   },
   {
     "id": "deezer-2531485",
@@ -10317,7 +10631,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:916445",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/ec3c8ed67427064c70f67e5815b74cef/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/ec3c8ed67427064c70f67e5815b74cef/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Nate Dogg"
+    ]
   },
   {
     "id": "deezer-6461432",
@@ -10337,7 +10654,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:6461440",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/be682506145061814eddee648edb7c59/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/be682506145061814eddee648edb7c59/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Rihanna"
+    ]
   },
   {
     "id": "deezer-916427",
@@ -10347,7 +10667,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:916427",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/ec3c8ed67427064c70f67e5815b74cef/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/ec3c8ed67427064c70f67e5815b74cef/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Dina Rae"
+    ]
   },
   {
     "id": "deezer-1109730",
@@ -10357,7 +10680,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1109730",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e2b36a9fda865cb2e9ed1476b6291a7d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e2b36a9fda865cb2e9ed1476b6291a7d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Dido"
+    ]
   },
   {
     "id": "deezer-1109737",
@@ -10377,7 +10703,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:72160317",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/b6938db3addc3ccd9575d6d12220e466/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/b6938db3addc3ccd9575d6d12220e466/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Rihanna"
+    ]
   },
   {
     "id": "deezer-124603270",
@@ -10387,7 +10716,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:124603270",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/56bdb7a86a27fadb96332c0c8f1b8e81/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/56bdb7a86a27fadb96332c0c8f1b8e81/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Wizkid",
+      "Kyla"
+    ]
   },
   {
     "id": "deezer-124603286",
@@ -10437,7 +10770,12 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:4302194",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e1e3e58f8f395010769d435ae3f14bb4/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e1e3e58f8f395010769d435ae3f14bb4/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Kanye West",
+      "Lil Wayne",
+      "Eminem"
+    ]
   },
   {
     "id": "deezer-4022917821",
@@ -10467,7 +10805,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:4022917781",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/cccf5e9af10b6aae96f5cdd5a27c2aff/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/cccf5e9af10b6aae96f5cdd5a27c2aff/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Future",
+      "Molly Santana"
+    ]
   },
   {
     "id": "deezer-533609392",
@@ -10497,7 +10839,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:456011702",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/13869a0eae29bc107b9bf5f545c14095/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/13869a0eae29bc107b9bf5f545c14095/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Kendrick Lamar"
+    ]
   },
   {
     "id": "deezer-67929157",
@@ -10507,7 +10852,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:67929157",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/b5be27644d505bad7bdb516fe4165475/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/b5be27644d505bad7bdb516fe4165475/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Jay Rock"
+    ]
   },
   {
     "id": "deezer-350171311",
@@ -10527,7 +10875,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:3106586681",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/da5256ff8cacfe9ad90521f6e3792259/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/da5256ff8cacfe9ad90521f6e3792259/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Lefty Gunplay"
+    ]
   },
   {
     "id": "deezer-52735971",
@@ -10577,7 +10928,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:528869461",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/069a5dba671436da9301aad36fc9a983/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/069a5dba671436da9301aad36fc9a983/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Syleena Johnson"
+    ]
   },
   {
     "id": "deezer-7667065",
@@ -10587,7 +10941,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:7667065",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/742aba8510ba803bea51d304cf2ca786/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/742aba8510ba803bea51d304cf2ca786/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Pusha T"
+    ]
   },
   {
     "id": "deezer-1184309",
@@ -10597,7 +10954,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1184309",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/7cbfc94084895e59b5a313a98ab1bd9a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/7cbfc94084895e59b5a313a98ab1bd9a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Jamie Foxx"
+    ]
   },
   {
     "id": "deezer-589730632",
@@ -10607,7 +10967,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:589730632",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/89f4347a47338cecb4ebd849d4d3ce9c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/89f4347a47338cecb4ebd849d4d3ce9c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Kanye West"
+    ]
   },
   {
     "id": "deezer-630827252",
@@ -10627,7 +10990,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:630827302",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/8c6578a2099561992fb7544e6826f767/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/8c6578a2099561992fb7544e6826f767/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Dwele"
+    ]
   },
   {
     "id": "deezer-785411522",
@@ -10707,7 +11073,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:939689012",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/c960f0b900832a1c8ece116ccc789a27/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/c960f0b900832a1c8ece116ccc789a27/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Travis Scott",
+      "Kid Cudi"
+    ]
   },
   {
     "id": "deezer-841897092",
@@ -10717,7 +11087,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:841897092",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/d1ed81aebe34697130d8caf2459e0d72/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/d1ed81aebe34697130d8caf2459e0d72/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Travis Scott"
+    ]
   },
   {
     "id": "deezer-2386586105",
@@ -10747,7 +11120,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:602456552",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/1aa3dfe91b3e5d3bc71eca6b6e9c8d39/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/1aa3dfe91b3e5d3bc71eca6b6e9c8d39/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Swae Lee"
+    ]
   },
   {
     "id": "deezer-491446942",
@@ -10757,7 +11133,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:491446942",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/c000a4d39f31f3716bf3f11aa5fab080/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/c000a4d39f31f3716bf3f11aa5fab080/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "21 Savage"
+    ]
   },
   {
     "id": "deezer-747399352",
@@ -10787,7 +11166,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:137726987",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/efd66ec02dc81074e5b3e7825db4c380/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/efd66ec02dc81074e5b3e7825db4c380/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Quavo"
+    ]
   },
   {
     "id": "deezer-706719772",
@@ -10797,7 +11179,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:706719772",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/a34c120da927629e8c174d4ff3a29eed/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/a34c120da927629e8c174d4ff3a29eed/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Young Thug"
+    ]
   },
   {
     "id": "deezer-2780753191",
@@ -10807,7 +11192,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2780753191",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/b9c8cc4fd597a9bc516445e6573501cf/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/b9c8cc4fd597a9bc516445e6573501cf/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Morgan Wallen"
+    ]
   },
   {
     "id": "deezer-491446962",
@@ -10817,7 +11205,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:491446962",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/c000a4d39f31f3716bf3f11aa5fab080/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/c000a4d39f31f3716bf3f11aa5fab080/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Ty Dolla $ign"
+    ]
   },
   {
     "id": "deezer-747399382",
@@ -10827,7 +11218,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:747399382",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/4642b8e3e0a89f92a6e2bfed13d8f31c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/4642b8e3e0a89f92a6e2bfed13d8f31c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Ozzy Osbourne",
+      "Travis Scott"
+    ]
   },
   {
     "id": "deezer-607452332",
@@ -10847,7 +11242,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:633351172",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/06c24af0b3cc699a329eada8a42aa76f/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/06c24af0b3cc699a329eada8a42aa76f/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Bruno Mars"
+    ]
   },
   {
     "id": "deezer-482986842",
@@ -10857,7 +11255,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:482986842",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/9617334140532d2a13584042f38e67fa/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/9617334140532d2a13584042f38e67fa/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Bad Bunny",
+      "J Balvin"
+    ]
   },
   {
     "id": "deezer-1044791832",
@@ -10887,7 +11289,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:699056232",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/3cfd6900fd2b342ec0e478faf300f6a2/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/3cfd6900fd2b342ec0e478faf300f6a2/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Cardi B"
+    ]
   },
   {
     "id": "deezer-453844402",
@@ -10897,7 +11302,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:453844402",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/fbf468e6ead9a88670c36e236787bfce/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/fbf468e6ead9a88670c36e236787bfce/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Nicki Minaj",
+      "Cardi B"
+    ]
   },
   {
     "id": "deezer-4198445322",
@@ -10957,7 +11366,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:796342592",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/7f4412829dda081518fcad597601c778/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/7f4412829dda081518fcad597601c778/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Nicki Minaj"
+    ]
   },
   {
     "id": "deezer-412843352",
@@ -10977,7 +11389,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:7653920",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e9ee223bd07b201a840c45ea5f274aef/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e9ee223bd07b201a840c45ea5f274aef/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Rihanna"
+    ]
   },
   {
     "id": "deezer-91543346",
@@ -11017,7 +11432,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:62376331",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/1d7d038fff8c50b3a2f064f49fc46c73/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/1d7d038fff8c50b3a2f064f49fc46c73/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Lil Wayne"
+    ]
   },
   {
     "id": "deezer-91543332",
@@ -11027,7 +11445,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:91543332",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/ebbcc26be4391b139475aed5ce6a6c3e/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/ebbcc26be4391b139475aed5ce6a6c3e/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Beyoncé"
+    ]
   },
   {
     "id": "deezer-139103331",
@@ -11037,7 +11458,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:139103331",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/eea35658898e296aa8b5d817827e6aaf/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/eea35658898e296aa8b5d817827e6aaf/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Pharrell Williams",
+      "Uncle Charlie Wilson"
+    ]
   },
   {
     "id": "deezer-14954267",
@@ -11047,7 +11472,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:14954267",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e38dc3b732af18dde99c07953dd9a22c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e38dc3b732af18dde99c07953dd9a22c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Wiz Khalifa"
+    ]
   },
   {
     "id": "deezer-1573529",
@@ -11057,7 +11485,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1573529",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/15418874bed9008240c23f986c3970c9/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/15418874bed9008240c23f986c3970c9/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "R. Kelly"
+    ]
   },
   {
     "id": "deezer-2132919007",
@@ -11067,7 +11498,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2132919007",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/36cffacf94fdcc49921affe8a865f6f1/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/36cffacf94fdcc49921affe8a865f6f1/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Snoop Dogg"
+    ]
   },
   {
     "id": "deezer-1573566",
@@ -11077,7 +11511,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1573566",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/15418874bed9008240c23f986c3970c9/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/15418874bed9008240c23f986c3970c9/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Akon"
+    ]
   },
   {
     "id": "deezer-1761297117",
@@ -11087,7 +11524,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1761297117",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/50c3dfd7d76332c4a97d3cafb7ad3f76/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/50c3dfd7d76332c4a97d3cafb7ad3f76/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Pharrell Williams"
+    ]
   },
   {
     "id": "deezer-658675162",
@@ -11097,7 +11537,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:658675162",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/c09cf4b8b0bf62e4900bda0459910067/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/c09cf4b8b0bf62e4900bda0459910067/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "LUDMILLA",
+      "Snoop Dogg"
+    ]
   },
   {
     "id": "deezer-3914655361",
@@ -11137,7 +11581,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:128743581",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/0d9a24d054cbc5ab11843beed9f1422b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/0d9a24d054cbc5ab11843beed9f1422b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Snoop Dogg"
+    ]
   },
   {
     "id": "deezer-128743595",
@@ -11147,7 +11594,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:128743595",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/0d9a24d054cbc5ab11843beed9f1422b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/0d9a24d054cbc5ab11843beed9f1422b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Snoop Dogg"
+    ]
   },
   {
     "id": "deezer-128743593",
@@ -11157,7 +11607,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:128743593",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/0d9a24d054cbc5ab11843beed9f1422b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/0d9a24d054cbc5ab11843beed9f1422b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Eminem"
+    ]
   },
   {
     "id": "deezer-9806802",
@@ -11167,7 +11620,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:9806802",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/a71f29ab2cfa97c88f69afa9041e5f35/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/a71f29ab2cfa97c88f69afa9041e5f35/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Eminem",
+      "Skylar Grey"
+    ]
   },
   {
     "id": "deezer-128743585",
@@ -11177,7 +11634,13 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:128743585",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/0d9a24d054cbc5ab11843beed9f1422b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/0d9a24d054cbc5ab11843beed9f1422b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Hittman",
+      "Six-Two",
+      "Nate Dogg",
+      "Kurupt"
+    ]
   },
   {
     "id": "deezer-128743587",
@@ -11187,7 +11650,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:128743587",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/0d9a24d054cbc5ab11843beed9f1422b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/0d9a24d054cbc5ab11843beed9f1422b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Eminem",
+      "Xzibit"
+    ]
   },
   {
     "id": "deezer-3138798",
@@ -11207,7 +11674,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:7725556",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/fdc8b6533930fc4369b467befc2d76ef/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/fdc8b6533930fc4369b467befc2d76ef/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Snoop Dogg",
+      "Akon"
+    ]
   },
   {
     "id": "deezer-1644466572",
@@ -11217,7 +11688,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1644466572",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/41638914227d14417f309713a904e741/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/41638914227d14417f309713a904e741/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Eminem"
+    ]
   },
   {
     "id": "deezer-1510293612",
@@ -11237,7 +11711,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:910693",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/49856d92a31e284c7fe34b7971dba0b0/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/49856d92a31e284c7fe34b7971dba0b0/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Talent"
+    ]
   },
   {
     "id": "deezer-1761388347",
@@ -11247,7 +11724,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1761388347",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/7a0d1efa5902af92d7f33abc1a8a487e/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/7a0d1efa5902af92d7f33abc1a8a487e/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "The Outlawz"
+    ]
   },
   {
     "id": "deezer-12901222",
@@ -11267,7 +11747,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:87960517",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/924830874f01bb19bfa6153f0e428e15/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/924830874f01bb19bfa6153f0e428e15/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Roger Troutman",
+      "Dr. Dre"
+    ]
   },
   {
     "id": "deezer-87960491",
@@ -11287,7 +11771,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:910682",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/49856d92a31e284c7fe34b7971dba0b0/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/49856d92a31e284c7fe34b7971dba0b0/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Snoop Dogg"
+    ]
   },
   {
     "id": "deezer-12901264",
@@ -11307,7 +11794,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2426335",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/bf9c33463ded1ebef32c5426d67f814e/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/bf9c33463ded1ebef32c5426d67f814e/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Elton John"
+    ]
   },
   {
     "id": "deezer-12901240",
@@ -11397,7 +11887,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1256900902",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/c1a74b7fa8de503d015f37ab85b1ad1c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/c1a74b7fa8de503d015f37ab85b1ad1c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Diddy"
+    ]
   },
   {
     "id": "deezer-82492160",
@@ -11417,7 +11910,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:90533119",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e0edb930ad843bb002c04956a81ce7de/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e0edb930ad843bb002c04956a81ce7de/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Alicia Keys"
+    ]
   },
   {
     "id": "deezer-90533115",
@@ -11427,7 +11923,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:90533115",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e0edb930ad843bb002c04956a81ce7de/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e0edb930ad843bb002c04956a81ce7de/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Rihanna",
+      "Kanye West"
+    ]
   },
   {
     "id": "deezer-1098059",
@@ -11437,7 +11937,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1098059",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/67172da6c3b7e81c67a0cefac460f1af/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/67172da6c3b7e81c67a0cefac460f1af/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Beyoncé"
+    ]
   },
   {
     "id": "deezer-676946",
@@ -11447,7 +11950,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:676946",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/7245b8fe756d39f20a53020163168dbe/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/7245b8fe756d39f20a53020163168dbe/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Linkin Park"
+    ]
   },
   {
     "id": "deezer-676960",
@@ -11457,7 +11963,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:676960",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/7245b8fe756d39f20a53020163168dbe/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/7245b8fe756d39f20a53020163168dbe/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Linkin Park"
+    ]
   },
   {
     "id": "deezer-676951",
@@ -11467,7 +11976,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:676951",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/7245b8fe756d39f20a53020163168dbe/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/7245b8fe756d39f20a53020163168dbe/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Linkin Park"
+    ]
   },
   {
     "id": "deezer-377242021",
@@ -11487,7 +11999,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:676956",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/7245b8fe756d39f20a53020163168dbe/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/7245b8fe756d39f20a53020163168dbe/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Linkin Park"
+    ]
   },
   {
     "id": "deezer-2950438",
@@ -11507,7 +12022,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1439691952",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/a65e86966cfd34b2aa292856136ef9ac/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/a65e86966cfd34b2aa292856136ef9ac/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Jack Harlow"
+    ]
   },
   {
     "id": "deezer-1283264142",
@@ -11567,7 +12085,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2864239752",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/a9237e8ba6402e4373522f72f4c57ea5/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/a9237e8ba6402e4373522f72f4c57ea5/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Lil Nas X"
+    ]
   },
   {
     "id": "deezer-1493915962",
@@ -11637,7 +12158,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1410738112",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/1e012b5bba83edac911b09ca1ab29e1e/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/1e012b5bba83edac911b09ca1ab29e1e/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "The Weeknd"
+    ]
   },
   {
     "id": "deezer-1410738082",
@@ -11667,7 +12191,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1400843102",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/62d6f17a706ac04fdd3dccddfdb65653/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/62d6f17a706ac04fdd3dccddfdb65653/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Megan Thee Stallion"
+    ]
   },
   {
     "id": "deezer-4076148901",
@@ -11677,7 +12204,12 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:4076148901",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/60878feed688ac9f2d596bd66be80b6e/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/60878feed688ac9f2d596bd66be80b6e/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "David Guetta",
+      "EJAE",
+      "Megan Thee Stallion"
+    ]
   },
   {
     "id": "deezer-1679489667",
@@ -11687,7 +12219,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1679489667",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/98233168a56468d138825c7d517584c7/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/98233168a56468d138825c7d517584c7/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Dua Lipa"
+    ]
   },
   {
     "id": "deezer-3125530581",
@@ -11747,7 +12282,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2585772662",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/13915d5c40ba254eb72c485bf83d3525/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/13915d5c40ba254eb72c485bf83d3525/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Megan Thee Stallion"
+    ]
   },
   {
     "id": "deezer-897666672",
@@ -11827,7 +12365,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:3262816671",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/81865df2933eeeb054a317ab161e637a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/81865df2933eeeb054a317ab161e637a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Childish Gambino",
+      "Kali Uchis"
+    ]
   },
   {
     "id": "deezer-2830790702",
@@ -11877,7 +12419,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1048706132",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/8c9d7505ab6c7f3dccc5a4dc0ddfd79e/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/8c9d7505ab6c7f3dccc5a4dc0ddfd79e/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Amber Coffman",
+      "cults"
+    ]
   },
   {
     "id": "deezer-1591188152",
@@ -11927,7 +12473,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1372275222",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/1956b602e48e7d0cc9898a0288446234/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/1956b602e48e7d0cc9898a0288446234/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "21 Savage",
+      "Morray"
+    ]
   },
   {
     "id": "deezer-3827462211",
@@ -11937,7 +12487,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:3827462211",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/ba58221a878715b6d99912ce63ea63d5/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/ba58221a878715b6d99912ce63ea63d5/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Burna Boy"
+    ]
   },
   {
     "id": "deezer-1591188142",
@@ -11957,7 +12510,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2171212507",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/dfba38fff66d14d01656adb7f8c5b457/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/dfba38fff66d14d01656adb7f8c5b457/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "J. Cole"
+    ]
   },
   {
     "id": "deezer-847699482",
@@ -11987,7 +12543,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2047662397",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/862ab860ff69c30deeb5979db6e46b62/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/862ab860ff69c30deeb5979db6e46b62/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Future",
+      "Chris Brown"
+    ]
   },
   {
     "id": "deezer-1733245187",
@@ -12007,7 +12567,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2047662407",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/862ab860ff69c30deeb5979db6e46b62/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/862ab860ff69c30deeb5979db6e46b62/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Future",
+      "Don Toliver"
+    ]
   },
   {
     "id": "deezer-2715581062",
@@ -12017,7 +12581,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2715581062",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/2d20cf6d65607e406213afbb3b62ce0d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/2d20cf6d65607e406213afbb3b62ce0d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Metro Boomin",
+      "Kendrick Lamar"
+    ]
   },
   {
     "id": "deezer-122703266",
@@ -12037,7 +12605,12 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2715581042",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/2d20cf6d65607e406213afbb3b62ce0d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/2d20cf6d65607e406213afbb3b62ce0d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Metro Boomin",
+      "Travis Scott",
+      "Playboi Carti"
+    ]
   },
   {
     "id": "deezer-2614584352",
@@ -12067,7 +12640,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:4022917831",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/cccf5e9af10b6aae96f5cdd5a27c2aff/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/cccf5e9af10b6aae96f5cdd5a27c2aff/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "21 Savage"
+    ]
   },
   {
     "id": "deezer-607697962",
@@ -12087,7 +12663,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1999525067",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/4599d79a2bea5890737328996e2e7077/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/4599d79a2bea5890737328996e2e7077/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "21 Savage"
+    ]
   },
   {
     "id": "deezer-2386586195",
@@ -12107,7 +12686,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2047662487",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/862ab860ff69c30deeb5979db6e46b62/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/862ab860ff69c30deeb5979db6e46b62/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Travis Scott",
+      "21 Savage"
+    ]
   },
   {
     "id": "deezer-1097090192",
@@ -12117,7 +12700,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1097090192",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/c11792c28d745fbed8522fba064f7ebe/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/c11792c28d745fbed8522fba064f7ebe/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Metro Boomin"
+    ]
   },
   {
     "id": "deezer-1097090202",
@@ -12127,7 +12713,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1097090202",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/c11792c28d745fbed8522fba064f7ebe/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/c11792c28d745fbed8522fba064f7ebe/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Metro Boomin"
+    ]
   },
   {
     "id": "deezer-384157591",
@@ -12187,7 +12776,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:12292154",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/65d4a36d03918097176d42f8f55900af/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/65d4a36d03918097176d42f8f55900af/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Frank Ocean"
+    ]
   },
   {
     "id": "deezer-681009692",
@@ -12237,7 +12829,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:127247963",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/552f4b953a02ecb92268b1c7a80d9b2d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/552f4b953a02ecb92268b1c7a80d9b2d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Wiz Khalifa",
+      "Imagine Dragons"
+    ]
   },
   {
     "id": "deezer-8035981",
@@ -12267,7 +12863,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:67344566",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/3dc90e4691d3f58eab63e4dfce0559bf/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/3dc90e4691d3f58eab63e4dfce0559bf/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Wiz Khalifa"
+    ]
   },
   {
     "id": "deezer-1284345762",
@@ -12307,7 +12906,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:3629966032",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/93cd5c98fe2d3d5f18d9b7c70d22bd47/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/93cd5c98fe2d3d5f18d9b7c70d22bd47/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Empire of the Sun"
+    ]
   },
   {
     "id": "deezer-3140488501",
@@ -12317,7 +12919,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:3140488501",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/630615b7ad4b539c89c42412e004aa1b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/630615b7ad4b539c89c42412e004aa1b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Ty Dolla $ign",
+      "Wiz Khalifa"
+    ]
   },
   {
     "id": "deezer-61424045",
@@ -12357,7 +12963,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:397729462",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/01cd93c5a9e67df6f5156b01267c29eb/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/01cd93c5a9e67df6f5156b01267c29eb/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Kesha"
+    ]
   },
   {
     "id": "deezer-61424047",
@@ -12387,7 +12996,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:649846792",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/62433abda88cc83bc916e5b4ce58eaed/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/62433abda88cc83bc916e5b4ce58eaed/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Macklemore"
+    ]
   },
   {
     "id": "deezer-119060240",
@@ -12417,7 +13029,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:4162078",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5b3f74432c67d166d5d69139a651c97f/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5b3f74432c67d166d5d69139a651c97f/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Kesha"
+    ]
   },
   {
     "id": "deezer-6489970",
@@ -12457,7 +13072,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2809780",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/58dc9260c84688e74eaef07ed39ffec9/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/58dc9260c84688e74eaef07ed39ffec9/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Kesha"
+    ]
   },
   {
     "id": "deezer-97786984",
@@ -12517,7 +13135,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:10308117",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/93806e3105596219e5c241af4b7e1955/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/93806e3105596219e5c241af4b7e1955/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Afrojack",
+      "Ne-Yo"
+    ]
   },
   {
     "id": "deezer-8930372",
@@ -12527,7 +13149,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:8930372",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/d3df69d1356e25bf018df6cb66f8376b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/d3df69d1356e25bf018df6cb66f8376b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Pitbull"
+    ]
   },
   {
     "id": "deezer-15597245",
@@ -12547,7 +13172,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:71403230",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/c70750fc7943ae13d3e6ccad60c3c0af/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/c70750fc7943ae13d3e6ccad60c3c0af/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Kesha"
+    ]
   },
   {
     "id": "deezer-89597767",
@@ -12557,7 +13185,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:89597767",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/c088c1cf616f8fb50439cb3eab11f795/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/c088c1cf616f8fb50439cb3eab11f795/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Pitbull"
+    ]
   },
   {
     "id": "deezer-4216277",
@@ -12817,7 +13448,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:3098806",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/a0145b6d53b18562b7939331e9e0eb71/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/a0145b6d53b18562b7939331e9e0eb71/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Dr. Dre",
+      "MC Ren"
+    ]
   },
   {
     "id": "deezer-41069491",
@@ -12837,7 +13472,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:3102197",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/76e9157379fdce1e5965cd8c65c20923/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/76e9157379fdce1e5965cd8c65c20923/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Mack 10",
+      "Ms. Toi"
+    ]
   },
   {
     "id": "deezer-15692600",
@@ -12847,7 +13486,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:15692600",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/63e5c9de85fb9c5e023b9008b22f043d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/63e5c9de85fb9c5e023b9008b22f043d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Snoop Dogg",
+      "Lil Jon"
+    ]
   },
   {
     "id": "deezer-1530366892",
@@ -12887,7 +13530,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:145429544",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/58ec83e8f74b55096f2115523eb9e7df/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/58ec83e8f74b55096f2115523eb9e7df/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "OLIVIA"
+    ]
   },
   {
     "id": "deezer-145429556",
@@ -12897,7 +13543,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:145429556",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/58ec83e8f74b55096f2115523eb9e7df/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/58ec83e8f74b55096f2115523eb9e7df/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Justin Timberlake",
+      "Timbaland"
+    ]
   },
   {
     "id": "deezer-1141674",
@@ -12927,7 +13577,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1141677",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/8f4dd4d8abf85ceda96b6b4adf217590/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/8f4dd4d8abf85ceda96b6b4adf217590/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Nate Dogg"
+    ]
   },
   {
     "id": "deezer-145429546",
@@ -12947,7 +13600,12 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:1575472",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/90b0b4820d5483d707132b79605d870b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/90b0b4820d5483d707132b79605d870b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "50 Cent",
+      "Cashis",
+      "Lloyd Banks"
+    ]
   },
   {
     "id": "deezer-145429554",
@@ -12967,7 +13625,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:145429568",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/58ec83e8f74b55096f2115523eb9e7df/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/58ec83e8f74b55096f2115523eb9e7df/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Ne-Yo"
+    ]
   },
   {
     "id": "deezer-2047662437",
@@ -12977,7 +13638,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2047662437",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/862ab860ff69c30deeb5979db6e46b62/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/862ab860ff69c30deeb5979db6e46b62/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Travis Scott",
+      "Young Thug"
+    ]
   },
   {
     "id": "deezer-423097622",
@@ -12997,7 +13662,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:578715472",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/7288c4a7cb8112ed0f301d25ec733d6c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/7288c4a7cb8112ed0f301d25ec733d6c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Gunna"
+    ]
   },
   {
     "id": "deezer-2309928755",
@@ -13007,7 +13675,11 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2309928755",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/bec6e38cb8986f3e5b3b7bd70e154d4f/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/bec6e38cb8986f3e5b3b7bd70e154d4f/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "A$AP Rocky",
+      "Roisee"
+    ]
   },
   {
     "id": "deezer-2047662447",
@@ -13017,7 +13689,10 @@
     "genre": "hiphop",
     "source": "preview",
     "previewId": "deezer:2047662447",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/862ab860ff69c30deeb5979db6e46b62/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/862ab860ff69c30deeb5979db6e46b62/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Don Toliver"
+    ]
   },
   {
     "id": "deezer-66609426",
@@ -13027,7 +13702,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:66609426",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/bc49adb87758e0c8c4e508a9c5cce85d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/bc49adb87758e0c8c4e508a9c5cce85d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Pharrell Williams",
+      "Nile Rodgers"
+    ]
   },
   {
     "id": "deezer-3135553",
@@ -13047,7 +13726,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:67238732",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/311bba0fc112d15f72c8b5a65f0456c1/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/311bba0fc112d15f72c8b5a65f0456c1/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Julian Casablancas"
+    ]
   },
   {
     "id": "deezer-67238733",
@@ -13057,7 +13739,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:67238733",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/311bba0fc112d15f72c8b5a65f0456c1/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/311bba0fc112d15f72c8b5a65f0456c1/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Pharrell Williams"
+    ]
   },
   {
     "id": "deezer-3135556",
@@ -13177,7 +13862,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:129313094",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/eed47f7aa8765df6c4e8891a4a70d298/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/eed47f7aa8765df6c4e8891a4a70d298/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Bebe Rexha"
+    ]
   },
   {
     "id": "deezer-2102633427",
@@ -13207,7 +13895,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:4142452541",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/180aa9765fc833587bc684ea1791244b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/180aa9765fc833587bc684ea1791244b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "U2"
+    ]
   },
   {
     "id": "deezer-459955592",
@@ -13217,7 +13908,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:459955592",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/862df8ff35c64da597ac223317233707/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/862df8ff35c64da597ac223317233707/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Martin Garrix",
+      "Brooks"
+    ]
   },
   {
     "id": "deezer-1777963277",
@@ -13227,7 +13922,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1777963277",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/96ae3fd68ad30fe3b5f44552dca3f5b8/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/96ae3fd68ad30fe3b5f44552dca3f5b8/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Martin Garrix"
+    ]
   },
   {
     "id": "deezer-4019413531",
@@ -13237,7 +13935,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:4019413531",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/7d24d3e2a51948235285c9a1357ba587/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/7d24d3e2a51948235285c9a1357ba587/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Dan Tyminski"
+    ]
   },
   {
     "id": "deezer-90726629",
@@ -13247,7 +13948,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:90726629",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/28a8beab24b92bcbbd1e80df83c4bd24/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/28a8beab24b92bcbbd1e80df83c4bd24/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Conrad Sewell"
+    ]
   },
   {
     "id": "deezer-3938068391",
@@ -13257,7 +13961,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3938068391",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/98c765497fc1555dab018cab0b8669ab/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/98c765497fc1555dab018cab0b8669ab/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Carter Faith"
+    ]
   },
   {
     "id": "deezer-96818170",
@@ -13267,7 +13974,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:96818170",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5a96a24fce83fe1533ea01ecd5e68598/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5a96a24fce83fe1533ea01ecd5e68598/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Parson James"
+    ]
   },
   {
     "id": "deezer-511515962",
@@ -13277,7 +13987,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:511515962",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/c288a08d946253bd81c6dd2243b748dc/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/c288a08d946253bd81c6dd2243b748dc/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Imagine Dragons"
+    ]
   },
   {
     "id": "deezer-2615621912",
@@ -13287,7 +14000,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:2615621912",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/81122a1cd6f057ba510cfb6673601df0/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/81122a1cd6f057ba510cfb6673601df0/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Ava Max"
+    ]
   },
   {
     "id": "deezer-4124628921",
@@ -13297,7 +14013,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:4124628921",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/b6990487aabf5677cbb4a216a3633f2e/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/b6990487aabf5677cbb4a216a3633f2e/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Max McNown"
+    ]
   },
   {
     "id": "deezer-701281342",
@@ -13307,7 +14026,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:701281342",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5f45ec14c6cc67e1428a60e3548be46c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5f45ec14c6cc67e1428a60e3548be46c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Whitney Houston"
+    ]
   },
   {
     "id": "deezer-62847142",
@@ -13337,7 +14059,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3862691491",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/8771220d57522e79a4655759f0b4fc0a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/8771220d57522e79a4655759f0b4fc0a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "David Guetta"
+    ]
   },
   {
     "id": "deezer-5400243",
@@ -13387,7 +14112,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3580188661",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/34fdbc4aa1b7552d23d19117b02593d8/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/34fdbc4aa1b7552d23d19117b02593d8/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Teddy Swims",
+      "Tones and I"
+    ]
   },
   {
     "id": "deezer-62847144",
@@ -13457,7 +14186,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:393460732",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/8fa73ee0a709c115d3f2f46e9fe09010/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/8fa73ee0a709c115d3f2f46e9fe09010/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Sandro Cavazza"
+    ]
   },
   {
     "id": "deezer-70266759",
@@ -13477,7 +14209,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:393460712",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/8fa73ee0a709c115d3f2f46e9fe09010/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/8fa73ee0a709c115d3f2f46e9fe09010/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Rita Ora"
+    ]
   },
   {
     "id": "deezer-675656882",
@@ -13507,7 +14242,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:60842359",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/a6e59fada64940a751de6eaa01229e8b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/a6e59fada64940a751de6eaa01229e8b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "John Martin"
+    ]
   },
   {
     "id": "deezer-1713175757",
@@ -13517,7 +14255,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1713175757",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/9bd2f0768b8b53cb3338f546526796ec/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/9bd2f0768b8b53cb3338f546526796ec/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "The Weeknd"
+    ]
   },
   {
     "id": "deezer-4163913612",
@@ -13527,7 +14268,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:4163913612",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/4ceb9caf4b4bfcf1112b443f6b63ac6c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/4ceb9caf4b4bfcf1112b443f6b63ac6c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Lykke Li"
+    ]
   },
   {
     "id": "deezer-11234004",
@@ -13547,7 +14291,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:6588199",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e3e9696629c759ee9dea60ff9463d489/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e3e9696629c759ee9dea60ff9463d489/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Pharrell Williams"
+    ]
   },
   {
     "id": "deezer-1713175737",
@@ -13557,7 +14304,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1713175737",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/9bd2f0768b8b53cb3338f546526796ec/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/9bd2f0768b8b53cb3338f546526796ec/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Connie Constance"
+    ]
   },
   {
     "id": "deezer-3413895351",
@@ -13577,7 +14327,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:2959712811",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/0524843d8146d554432ceef74d4433e6/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/0524843d8146d554432ceef74d4433e6/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Alicia Keys"
+    ]
   },
   {
     "id": "deezer-3261010661",
@@ -13587,7 +14340,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3261010661",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/221fb683e0c54403fcec8d9349da8c5d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/221fb683e0c54403fcec8d9349da8c5d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Alan Walker"
+    ]
   },
   {
     "id": "deezer-141822951",
@@ -13607,7 +14363,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:645583792",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/cfc6d9793a6d36ffa98ce6a19cf02acb/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/cfc6d9793a6d36ffa98ce6a19cf02acb/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Sabrina Carpenter",
+      "Alan Walker"
+    ]
   },
   {
     "id": "deezer-829185532",
@@ -13617,7 +14377,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:829185532",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5950c85f789a083d4be4dfaba9054483/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5950c85f789a083d4be4dfaba9054483/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Ava Max"
+    ]
   },
   {
     "id": "deezer-2465103545",
@@ -13627,7 +14390,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:2465103545",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5f1285f205c7ba650f7ee123c1545a1c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5f1285f205c7ba650f7ee123c1545a1c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Dash Berlin",
+      "Vikkstar"
+    ]
   },
   {
     "id": "deezer-401358872",
@@ -13647,7 +14414,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1425356982",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/ecad765e2d0081810245db925e51cc4b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/ecad765e2d0081810245db925e51cc4b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Alok"
+    ]
   },
   {
     "id": "deezer-1384261522",
@@ -13657,7 +14427,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1384261522",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/63931fe3199acaa4f12a6aef5715d5c2/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/63931fe3199acaa4f12a6aef5715d5c2/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Imanbek"
+    ]
   },
   {
     "id": "deezer-530231361",
@@ -13667,7 +14440,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:530231361",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6b9fa41f51607a9f43211a2ee5f55be7/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6b9fa41f51607a9f43211a2ee5f55be7/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Au/Ra",
+      "Tomine Harket"
+    ]
   },
   {
     "id": "deezer-2513276091",
@@ -13677,7 +14454,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:2513276091",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/1ec923b410cb70914c838d55053fafce/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/1ec923b410cb70914c838d55053fafce/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Luísa Sonza"
+    ]
   },
   {
     "id": "deezer-391727202",
@@ -13697,7 +14477,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3238336151",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/b16a72141973a56c23361646da46da9d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/b16a72141973a56c23361646da46da9d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Anne-Marie"
+    ]
   },
   {
     "id": "deezer-125244224",
@@ -13717,7 +14500,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:2169294337",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/2b8405c04f2c888f47970878fc65fc99/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/2b8405c04f2c888f47970878fc65fc99/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Manuel Turizo"
+    ]
   },
   {
     "id": "deezer-2503047111",
@@ -13727,7 +14513,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:2503047111",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/b155612a44ab6fb14aee1457dd347b13/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/b155612a44ab6fb14aee1457dd347b13/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Marshmello"
+    ]
   },
   {
     "id": "deezer-1016968502",
@@ -13737,7 +14526,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1016968502",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/7a03f611f0d25cb00d19e4e01623178f/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/7a03f611f0d25cb00d19e4e01623178f/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Marshmello"
+    ]
   },
   {
     "id": "deezer-3048826701",
@@ -13767,7 +14559,12 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:2545396411",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/b182bb4fb44ee09911220b6955b753a7/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/b182bb4fb44ee09911220b6955b753a7/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Tiësto",
+      "Dido",
+      "W&W"
+    ]
   },
   {
     "id": "deezer-1087667882",
@@ -13787,7 +14584,12 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:499994962",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/bab7fb0d0bfd1e98756aa70f8efe9128/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/bab7fb0d0bfd1e98756aa70f8efe9128/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Dzeko",
+      "Preme",
+      "Post Malone"
+    ]
   },
   {
     "id": "deezer-1048015732",
@@ -13797,7 +14599,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1048015732",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/d5bfe6e81fe3d56cac114edb3e860190/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/d5bfe6e81fe3d56cac114edb3e860190/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Vintage Culture"
+    ]
   },
   {
     "id": "deezer-685843722",
@@ -13807,7 +14612,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:685843722",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5e0101413ddcf2c692b8c81647ff3c9e/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5e0101413ddcf2c692b8c81647ff3c9e/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Jonas Blue",
+      "Rita Ora"
+    ]
   },
   {
     "id": "deezer-3562589601",
@@ -13827,7 +14636,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3185112831",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/d7685130a304368a8b7f7461cf04d6af/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/d7685130a304368a8b7f7461cf04d6af/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Oaks"
+    ]
   },
   {
     "id": "deezer-78933237",
@@ -13847,7 +14659,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1522607422",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/2f9e29c06281f8269a172c1705c658d7/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/2f9e29c06281f8269a172c1705c658d7/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Ava Max"
+    ]
   },
   {
     "id": "deezer-60904700",
@@ -13857,7 +14672,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:60904700",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6b8a51cd4d5e2a277c8a1c4f88d59489/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6b8a51cd4d5e2a277c8a1c4f88d59489/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Foxes"
+    ]
   },
   {
     "id": "deezer-630711912",
@@ -13867,7 +14685,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:630711912",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/886ab0494b34cf091444e5e0da86285b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/886ab0494b34cf091444e5e0da86285b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Katy Perry"
+    ]
   },
   {
     "id": "deezer-99554798",
@@ -13877,7 +14698,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:99554798",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/4fbd5afbc6ad97de063b0b8d5730d765/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/4fbd5afbc6ad97de063b0b8d5730d765/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Jon Bellion"
+    ]
   },
   {
     "id": "deezer-79942796",
@@ -13887,7 +14711,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:79942796",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/d1941bbbb615993e9ca18d7710dca024/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/d1941bbbb615993e9ca18d7710dca024/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Hayley Williams"
+    ]
   },
   {
     "id": "deezer-527894901",
@@ -13897,7 +14724,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:527894901",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6e0f9fade33fb548b959fa5f5516084a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6e0f9fade33fb548b959fa5f5516084a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Elley Duhe"
+    ]
   },
   {
     "id": "deezer-99554796",
@@ -13907,7 +14737,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:99554796",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/4fbd5afbc6ad97de063b0b8d5730d765/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/4fbd5afbc6ad97de063b0b8d5730d765/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Selena Gomez"
+    ]
   },
   {
     "id": "deezer-60904698",
@@ -13917,7 +14750,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:60904698",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6b8a51cd4d5e2a277c8a1c4f88d59489/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6b8a51cd4d5e2a277c8a1c4f88d59489/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Matthew Koma"
+    ]
   },
   {
     "id": "deezer-79942808",
@@ -13927,7 +14763,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:79942808",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/d1941bbbb615993e9ca18d7710dca024/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/d1941bbbb615993e9ca18d7710dca024/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Matthew Koma",
+      "Miriam Bryant"
+    ]
   },
   {
     "id": "deezer-378752661",
@@ -13937,7 +14777,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:378752661",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/c0665c68a4d5d560e01b84a676be65bf/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/c0665c68a4d5d560e01b84a676be65bf/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Liam Payne"
+    ]
   },
   {
     "id": "deezer-1019940102",
@@ -13947,7 +14790,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1019940102",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/288db761be7d56942075709071454932/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/288db761be7d56942075709071454932/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Jasmine Thompson"
+    ]
   },
   {
     "id": "deezer-95963378",
@@ -13957,7 +14803,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:95963378",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/f26a87471422a3800e576cf18bde4184/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/f26a87471422a3800e576cf18bde4184/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Skrillex",
+      "Diplo"
+    ]
   },
   {
     "id": "deezer-25746431",
@@ -13967,7 +14817,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:25746431",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/40ab9c65f8abe0bf3268d77e3fbba30b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/40ab9c65f8abe0bf3268d77e3fbba30b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Damian Marley"
+    ]
   },
   {
     "id": "deezer-12493507",
@@ -13987,7 +14840,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:128949480",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/552f4b953a02ecb92268b1c7a80d9b2d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/552f4b953a02ecb92268b1c7a80d9b2d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Rick Ross"
+    ]
   },
   {
     "id": "deezer-15781392",
@@ -14007,7 +14863,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1415334812",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/9088f26718d55070174c39781c82ce77/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/9088f26718d55070174c39781c82ce77/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Skrillex"
+    ]
   },
   {
     "id": "deezer-1468488982",
@@ -14017,7 +14876,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1468488982",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6f78f04653c6b485b4eb4095452f3a47/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6f78f04653c6b485b4eb4095452f3a47/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Justin Bieber",
+      "Don Toliver"
+    ]
   },
   {
     "id": "deezer-95963374",
@@ -14027,7 +14890,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:95963374",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/f26a87471422a3800e576cf18bde4184/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/f26a87471422a3800e576cf18bde4184/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Skrillex",
+      "Diplo"
+    ]
   },
   {
     "id": "deezer-14615940",
@@ -14057,7 +14924,12 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1899047597",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/ce3e00cb0303cc35ff3cad770477b11d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/ce3e00cb0303cc35ff3cad770477b11d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Kaskade",
+      "Kx5",
+      "Hayla"
+    ]
   },
   {
     "id": "deezer-3582295",
@@ -14067,7 +14939,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3582295",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/16ef717ac4ace268f7bb6d346ad671df/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/16ef717ac4ace268f7bb6d346ad671df/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Deadmau5"
+    ]
   },
   {
     "id": "deezer-89844275",
@@ -14087,7 +14962,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:60437441",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6270191b9efc08ae3f6a1418a1edd5ee/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6270191b9efc08ae3f6a1418a1edd5ee/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Chris James"
+    ]
   },
   {
     "id": "deezer-2292325385",
@@ -14097,7 +14975,12 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:2292325385",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/d5f05179845225d917113b97df08d22b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/d5f05179845225d917113b97df08d22b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Benny Benassi",
+      "Gary Go",
+      "Bynx"
+    ]
   },
   {
     "id": "deezer-4225670",
@@ -14107,7 +14990,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:4225670",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6575821fb3ed4803e9e937f16e87115b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6575821fb3ed4803e9e937f16e87115b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Rob Swire"
+    ]
   },
   {
     "id": "deezer-69220489",
@@ -14117,7 +15003,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:69220489",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/21312c6506b0878f37347fa13be51cb2/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/21312c6506b0878f37347fa13be51cb2/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Deadmau5"
+    ]
   },
   {
     "id": "deezer-5150304",
@@ -14147,7 +15036,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:119302924",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/900c088fb241de8000b5ed849eba8536/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/900c088fb241de8000b5ed849eba8536/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Daya"
+    ]
   },
   {
     "id": "deezer-2438677035",
@@ -14157,7 +15049,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:2438677035",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/b972a3cbf1140585bb02d6d622e68022/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/b972a3cbf1140585bb02d6d622e68022/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "The Chainsmokers",
+      "Mae Stephens"
+    ]
   },
   {
     "id": "deezer-3944920411",
@@ -14167,7 +15063,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3944920411",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/7c433c827fa75b7234e29dc755732627/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/7c433c827fa75b7234e29dc755732627/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Oaks"
+    ]
   },
   {
     "id": "deezer-139904165",
@@ -14207,7 +15106,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3913212711",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/2e560e6a82f97689baaa001532f24225/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/2e560e6a82f97689baaa001532f24225/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "The Chainsmokers",
+      "Ilsey"
+    ]
   },
   {
     "id": "deezer-2687704402",
@@ -14217,7 +15120,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:2687704402",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e22d134aa86cf6ffbb7eacd5f05e3b99/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e22d134aa86cf6ffbb7eacd5f05e3b99/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "The Chainsmokers",
+      "Ink"
+    ]
   },
   {
     "id": "deezer-452769552",
@@ -14227,7 +15134,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:452769552",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/666f254b772127dd8b15954d4f52af16/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/666f254b772127dd8b15954d4f52af16/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Zeeba",
+      "Bruno Martini"
+    ]
   },
   {
     "id": "deezer-3864481301",
@@ -14237,7 +15148,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3864481301",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/a999519e654c3cfb5925080e133e7e81/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/a999519e654c3cfb5925080e133e7e81/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Khalid"
+    ]
   },
   {
     "id": "deezer-4131204451",
@@ -14257,7 +15171,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1775000867",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/43402430bf3ac81e442c287277ded4c8/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/43402430bf3ac81e442c287277ded4c8/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Ella Eyre",
+      "Kenny Dope"
+    ]
   },
   {
     "id": "deezer-1079905512",
@@ -14267,7 +15185,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1079905512",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/10074d0e64c2fea9edf9f791d738b12d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/10074d0e64c2fea9edf9f791d738b12d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Ilkay Sencan"
+    ]
   },
   {
     "id": "deezer-1122723472",
@@ -14277,7 +15198,14 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1122723472",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e81e956d42238a37ad42e67ed161047d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e81e956d42238a37ad42e67ed161047d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Alok",
+      "Djay W",
+      "Mc Davi",
+      "MC Ryan SP",
+      "Salvador da Rima"
+    ]
   },
   {
     "id": "deezer-3843250831",
@@ -14287,7 +15215,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3843250831",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/eaff4b20aaf2256ce5d5c5787bf2f85b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/eaff4b20aaf2256ce5d5c5787bf2f85b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "SIDEPIECE",
+      "Victor Ruiz"
+    ]
   },
   {
     "id": "deezer-355740191",
@@ -14297,7 +15229,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:355740191",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/33af72cf5d034401a550047993904f26/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/33af72cf5d034401a550047993904f26/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Bruno Martini",
+      "Zeeba"
+    ]
   },
   {
     "id": "deezer-3253986151",
@@ -14327,7 +15263,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:78357790",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/83320cecfd1d0dd15de27b1ab81c743a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/83320cecfd1d0dd15de27b1ab81c743a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Robin Schulz"
+    ]
   },
   {
     "id": "deezer-136804060",
@@ -14337,7 +15276,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:136804060",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e8d963e84786b6bb62400497e8c1354c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e8d963e84786b6bb62400497e8c1354c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "David Guetta",
+      "Cheat Codes"
+    ]
   },
   {
     "id": "deezer-1853534317",
@@ -14347,7 +15290,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1853534317",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5060fb31127ee4e2439ff5dec71fd94f/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5060fb31127ee4e2439ff5dec71fd94f/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Robin Schulz"
+    ]
   },
   {
     "id": "deezer-585595432",
@@ -14407,7 +15353,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:2993784201",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/c2504109b0054c4ce4603f6d5b667db7/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/c2504109b0054c4ce4603f6d5b667db7/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Cyril"
+    ]
   },
   {
     "id": "deezer-113876568",
@@ -14417,7 +15366,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:113876568",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/fde2708e9cdbcdb9b6286c4852db3e74/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/fde2708e9cdbcdb9b6286c4852db3e74/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "DJ Snake"
+    ]
   },
   {
     "id": "deezer-569166572",
@@ -14427,7 +15379,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:569166572",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/fd04cc1cae7d8b60fd07035aedd4aedf/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/fd04cc1cae7d8b60fd07035aedd4aedf/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Pabllo Vittar",
+      "Anitta"
+    ]
   },
   {
     "id": "deezer-876295002",
@@ -14437,7 +15393,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:876295002",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/0e8ec9a13e5e41aecb8d66d0574df5e5/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/0e8ec9a13e5e41aecb8d66d0574df5e5/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Mc Lan",
+      "Anitta"
+    ]
   },
   {
     "id": "deezer-2523324911",
@@ -14457,7 +15417,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:715555812",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/38dc027b0eae49a8e7fd7af3312a00a6/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/38dc027b0eae49a8e7fd7af3312a00a6/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Major Lazer",
+      "Shatta Wale"
+    ]
   },
   {
     "id": "deezer-569166552",
@@ -14467,7 +15431,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:569166552",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/fd04cc1cae7d8b60fd07035aedd4aedf/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/fd04cc1cae7d8b60fd07035aedd4aedf/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Nyla",
+      "Fuse ODG"
+    ]
   },
   {
     "id": "deezer-797349232",
@@ -14477,7 +15445,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:797349232",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/48538160e9a7d4ac56b31dc5c6b065ea/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/48538160e9a7d4ac56b31dc5c6b065ea/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Ciara",
+      "Major Lazer"
+    ]
   },
   {
     "id": "deezer-825112142",
@@ -14497,7 +15469,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1284316942",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6104961c1d14fcd3830d7956d909c808/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6104961c1d14fcd3830d7956d909c808/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Sia",
+      "Labrinth"
+    ]
   },
   {
     "id": "deezer-4165427352",
@@ -14507,7 +15483,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:4165427352",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/823fd502d2bef7bc369e11bccf4c9edc/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/823fd502d2bef7bc369e11bccf4c9edc/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Diplo"
+    ]
   },
   {
     "id": "deezer-862847042",
@@ -14517,7 +15496,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:862847042",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/34cb1dcadca75c2d57a4a2bcb2d9f0fd/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/34cb1dcadca75c2d57a4a2bcb2d9f0fd/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Disclosure"
+    ]
   },
   {
     "id": "deezer-936736162",
@@ -14527,7 +15509,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:936736162",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6233b002023b8914609a3d879b7817a4/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6233b002023b8914609a3d879b7817a4/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Disclosure"
+    ]
   },
   {
     "id": "deezer-75526546",
@@ -14537,7 +15522,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:75526546",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e44468007c45f2523d056a0b19eed80a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e44468007c45f2523d056a0b19eed80a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "London Grammar"
+    ]
   },
   {
     "id": "deezer-104226826",
@@ -14547,7 +15535,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:104226826",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/11fbbd3c76e11c5a095dbe079d63d2ee/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/11fbbd3c76e11c5a095dbe079d63d2ee/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Sam Smith"
+    ]
   },
   {
     "id": "deezer-75526543",
@@ -14557,7 +15548,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:75526543",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/e44468007c45f2523d056a0b19eed80a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/e44468007c45f2523d056a0b19eed80a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Eliza Doolittle"
+    ]
   },
   {
     "id": "deezer-2813082002",
@@ -14577,7 +15571,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:107351022",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/3f83505decbef336626d7d5db2914ec8/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/3f83505decbef336626d7d5db2914ec8/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Lorde"
+    ]
   },
   {
     "id": "deezer-1059203032",
@@ -14587,7 +15584,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1059203032",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/422f2f1c6cae42f3d902fe03a42d4496/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/422f2f1c6cae42f3d902fe03a42d4496/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Kehlani",
+      "Syd"
+    ]
   },
   {
     "id": "deezer-3801561902",
@@ -14627,7 +15628,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3653300512",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/d59c812f6ea86613050fd59b9e3307e8/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/d59c812f6ea86613050fd59b9e3307e8/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "The Rolling Stones"
+    ]
   },
   {
     "id": "deezer-4028918301",
@@ -14637,7 +15641,12 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:4028918301",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/361ffd7083fe81d17502b2b461196f35/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/361ffd7083fe81d17502b2b461196f35/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Fatboy Slim",
+      "Carola",
+      "7KY"
+    ]
   },
   {
     "id": "deezer-3801693252",
@@ -14677,7 +15686,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3374252341",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/af334459b69870400fd07bdf3d18623e/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/af334459b69870400fd07bdf3d18623e/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Raye"
+    ]
   },
   {
     "id": "deezer-546583602",
@@ -14707,7 +15719,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1411479342",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/92725cfab59638f2e38fe15bf941eb1d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/92725cfab59638f2e38fe15bf941eb1d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Mark Ronson"
+    ]
   },
   {
     "id": "deezer-8147216",
@@ -14857,7 +15872,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:568846222",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/31a802fa45d60b085fcb135c86b48420/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/31a802fa45d60b085fcb135c86b48420/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "BLACKPINK"
+    ]
   },
   {
     "id": "deezer-1097366402",
@@ -14867,7 +15885,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:1097366402",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/08b26a84be2b1030aef7c13a1720cf50/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/08b26a84be2b1030aef7c13a1720cf50/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Selena Gomez"
+    ]
   },
   {
     "id": "deezer-1915471137",
@@ -14987,7 +16008,14 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3314045411",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/2782ca04969c44e8c88b6b73a0f9d993/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/2782ca04969c44e8c88b6b73a0f9d993/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "TWICE",
+      "Little Simz",
+      "Burna Boy",
+      "Elyanna",
+      "TINI"
+    ]
   },
   {
     "id": "deezer-1255928962",
@@ -15167,7 +16195,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3496410431",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/2da83f667965683428b9aecaab159771/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/2da83f667965683428b9aecaab159771/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "NewJeans"
+    ]
   },
   {
     "id": "deezer-2813349902",
@@ -15337,7 +16368,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3069037841",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/3c5960cac02ec6a7c122d03d601ace2a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/3c5960cac02ec6a7c122d03d601ace2a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "David Guetta"
+    ]
   },
   {
     "id": "deezer-3153143521",
@@ -15407,7 +16441,11 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:4076508991",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/0c22c441eb7f5519886c8a386a963e7c/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/0c22c441eb7f5519886c8a386a963e7c/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "ILLIT",
+      "KATSEYE"
+    ]
   },
   {
     "id": "deezer-4032818971",
@@ -15427,7 +16465,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3614444782",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/3cdf87dacd1187c642269f2073a63680/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/3cdf87dacd1187c642269f2073a63680/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "j-hope"
+    ]
   },
   {
     "id": "deezer-3976069491",
@@ -15607,7 +16648,11 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:635271962",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5cd690175b2b66b3f2c0f4b302d48f14/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5cd690175b2b66b3f2c0f4b302d48f14/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Lay",
+      "NCT 127"
+    ]
   },
   {
     "id": "deezer-45616751",
@@ -16107,7 +17152,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:79088205",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/3dc384c3f16347a803d95e7c559e39d2/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/3dc384c3f16347a803d95e7c559e39d2/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Snoop Dogg"
+    ]
   },
   {
     "id": "deezer-1868666367",
@@ -16127,7 +17175,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:62439404",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/c2dbc00187578b39519720eba413b42a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/c2dbc00187578b39519720eba413b42a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "MC Hammer"
+    ]
   },
   {
     "id": "deezer-1868666427",
@@ -16137,7 +17188,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:1868666427",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/717e0166ec0bd8842b13da15a10713e0/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/717e0166ec0bd8842b13da15a10713e0/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Ray"
+    ]
   },
   {
     "id": "deezer-1449495372",
@@ -16157,7 +17211,12 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3702763482",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/924765736839ae4de2a7a3ffc31a99b3/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/924765736839ae4de2a7a3ffc31a99b3/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Choi kyung Hun",
+      "Lee Joo Hyon",
+      "Bang Ji-Hwan"
+    ]
   },
   {
     "id": "deezer-2153937227",
@@ -16167,7 +17226,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:2153937227",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6df3753062012e5427f939a1583b11cc/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6df3753062012e5427f939a1583b11cc/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Speed Radio"
+    ]
   },
   {
     "id": "deezer-2364618815",
@@ -16197,7 +17259,11 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:2023640587",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/170f7bcf7c23b66f498e917a7fc3ebb4/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/170f7bcf7c23b66f498e917a7fc3ebb4/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "BTS",
+      "FIFA Sound"
+    ]
   },
   {
     "id": "deezer-2473397771",
@@ -16337,7 +17403,11 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:2320250915",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/93fccb5c0ffd8eca0d4d3b3bc52dd3f6/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/93fccb5c0ffd8eca0d4d3b3bc52dd3f6/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Fast & Furious: The Fast Saga",
+      "Jvke"
+    ]
   },
   {
     "id": "deezer-2592844192",
@@ -16397,7 +17467,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3241971481",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/81865df2933eeeb054a317ab161e637a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/81865df2933eeeb054a317ab161e637a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Doechii"
+    ]
   },
   {
     "id": "deezer-3262816611",
@@ -16407,7 +17480,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3262816611",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/81865df2933eeeb054a317ab161e637a/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/81865df2933eeeb054a317ab161e637a/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Dua Lipa"
+    ]
   },
   {
     "id": "deezer-3262816701",
@@ -16447,7 +17523,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:2764316861",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/f8b237788ce8d8b9b491c3b0c45208c0/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/f8b237788ce8d8b9b491c3b0c45208c0/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "JENNIE"
+    ]
   },
   {
     "id": "deezer-3050380851",
@@ -16457,7 +17536,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3050380851",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/258e6042338ce64bb4157c0c94b232ac/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/258e6042338ce64bb4157c0c94b232ac/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Bruno Mars"
+    ]
   },
   {
     "id": "deezer-3124823321",
@@ -16517,7 +17599,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3432933071",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/8acb057fd224d90228a326734f0c76e0/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/8acb057fd224d90228a326734f0c76e0/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Rosé"
+    ]
   },
   {
     "id": "deezer-1272979652",
@@ -17257,7 +18342,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3863349421",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5329876b7bb3f6ec31dcd01a9c0f119b/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5329876b7bb3f6ec31dcd01a9c0f119b/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Pabllo Vittar"
+    ]
   },
   {
     "id": "deezer-3481014691",
@@ -17267,7 +18355,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3481014691",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/7015b46cb4ba30b3d126a5c61acbbc8d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/7015b46cb4ba30b3d126a5c61acbbc8d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "NMIXX"
+    ]
   },
   {
     "id": "deezer-4006888161",
@@ -17357,7 +18448,11 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3100773221",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/bed36c64864b0e8080515301a82a11cd/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/bed36c64864b0e8080515301a82a11cd/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "TAEYANG",
+      "Daesung"
+    ]
   },
   {
     "id": "deezer-3245615741",
@@ -17367,7 +18462,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3245615741",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/1df2cf819c4baf941fa75eac73d1b692/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/1df2cf819c4baf941fa75eac73d1b692/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Anderson .Paak"
+    ]
   },
   {
     "id": "deezer-3245615751",
@@ -17457,7 +18555,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:2106960037",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5676294be47aa0c2684c6b0a425cf992/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5676294be47aa0c2684c6b0a425cf992/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Jimin"
+    ]
   },
   {
     "id": "deezer-2253917197",
@@ -17467,7 +18568,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:2253917197",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/46232d81c83b4b1dbf9a969c3c8744fb/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/46232d81c83b4b1dbf9a969c3c8744fb/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "LISA"
+    ]
   },
   {
     "id": "deezer-3069850551",
@@ -17487,7 +18591,28 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3334190191",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/ecbf30d1ea29df1390f5b2740ae755f4/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/ecbf30d1ea29df1390f5b2740ae755f4/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Hwang Jung Min",
+      "Defconn",
+      "Hong Jin Kyung",
+      "JEONG HYUNG DON",
+      "CHO SAEHO",
+      "Kian84",
+      "ANH SUNG JAE",
+      "TAEYANG",
+      "Jung Hae In",
+      "Hwang Kwang Hee",
+      "Yim Si Wan",
+      "LEE SOO HYUK",
+      "Daesung",
+      "Code Kunst",
+      "CL",
+      "KIM GOEUN",
+      "Day6",
+      "BSS(SEVENTEEN)",
+      "aespa"
+    ]
   },
   {
     "id": "deezer-2253917207",
@@ -17507,7 +18632,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:2253917237",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/46232d81c83b4b1dbf9a969c3c8744fb/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/46232d81c83b4b1dbf9a969c3c8744fb/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Bryan Chase"
+    ]
   },
   {
     "id": "deezer-2253917217",
@@ -17527,7 +18655,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:2253917227",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/46232d81c83b4b1dbf9a969c3c8744fb/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/46232d81c83b4b1dbf9a969c3c8744fb/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Beenzino"
+    ]
   },
   {
     "id": "deezer-1918544717",
@@ -17557,7 +18688,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3722413412",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/5520816037fb1a525826e42abd1e9e68/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/5520816037fb1a525826e42abd1e9e68/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Lilas"
+    ]
   },
   {
     "id": "deezer-532421232",
@@ -17577,7 +18711,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3808434262",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/298c7316b83085fac576c10301e61c77/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/298c7316b83085fac576c10301e61c77/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Crush"
+    ]
   },
   {
     "id": "deezer-1839456937",
@@ -17607,7 +18744,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:3773453032",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/fde3a8bc4164057073d3a165b17387ef/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/fde3a8bc4164057073d3a165b17387ef/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Crush"
+    ]
   },
   {
     "id": "deezer-1829014327",
@@ -17767,7 +18907,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:2724263752",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/6052a7a7f51209e8a477abd233b4d41d/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/6052a7a7f51209e8a477abd233b4d41d/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Jungkook"
+    ]
   },
   {
     "id": "deezer-2724263792",
@@ -17977,7 +19120,10 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:728553142",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/29f3571966612e28b38ca15a6ff712c8/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/29f3571966612e28b38ca15a6ff712c8/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Verbal Jint"
+    ]
   },
   {
     "id": "deezer-3085337441",
@@ -18267,7 +19413,12 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:101160352",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/d512d11bd8b69d41d75962aed5b06d5f/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/d512d11bd8b69d41d75962aed5b06d5f/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "CL",
+      "Riff Raff",
+      "Og Maco"
+    ]
   },
   {
     "id": "deezer-1515103142",
@@ -18397,7 +19548,12 @@
     "genre": "kpop",
     "source": "preview",
     "previewId": "deezer:1433675452",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/8f425d8f2e36475364e2d8f362d22327/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/8f425d8f2e36475364e2d8f362d22327/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Monsta X",
+      "BRAVEGIRLS",
+      "ATEEZ"
+    ]
   },
   {
     "id": "deezer-1847878757",
@@ -18537,7 +19693,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:3371081661",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/c873465f7fcca50960c004a687074e14/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/c873465f7fcca50960c004a687074e14/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Jelly Roll"
+    ]
   },
   {
     "id": "deezer-781317182",
@@ -18577,7 +19736,11 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:3684756822",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/4c783c422cd5a4229a4837370afe3676/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/4c783c422cd5a4229a4837370afe3676/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Marina Sena",
+      "Pabllo Vittar"
+    ]
   },
   {
     "id": "deezer-696605552",
@@ -18587,7 +19750,11 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:696605552",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/a15282b72b322e55fb7b4409cb02ace6/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/a15282b72b322e55fb7b4409cb02ace6/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Majur",
+      "Pabllo Vittar"
+    ]
   },
   {
     "id": "deezer-1177800012",
@@ -18597,7 +19764,11 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:1177800012",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/08d07179ba7fe23cd3e3ba6cb86dcb03/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/08d07179ba7fe23cd3e3ba6cb86dcb03/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Pabllo Vittar",
+      "Anitta"
+    ]
   },
   {
     "id": "deezer-396246642",
@@ -18627,7 +19798,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:3104918621",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/360d53616acaea06e7e2337ea7a127f7/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/360d53616acaea06e7e2337ea7a127f7/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Pabllo Vittar"
+    ]
   },
   {
     "id": "deezer-1954205497",
@@ -18637,7 +19811,10 @@
     "genre": "pop",
     "source": "preview",
     "previewId": "deezer:1954205497",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/98af556e20a020cb81f341e9e9dae0fa/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/98af556e20a020cb81f341e9e9dae0fa/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Gloria Groove"
+    ]
   },
   {
     "id": "deezer-3358826401",
@@ -18647,7 +19824,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3358826401",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/148aa6ef8c66a631d16dd63b2f411286/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/148aa6ef8c66a631d16dd63b2f411286/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Diplo"
+    ]
   },
   {
     "id": "deezer-3563081291",
@@ -18657,7 +19837,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:3563081291",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/fdf8cfc0169328e0a2be09cde2fc0148/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/fdf8cfc0169328e0a2be09cde2fc0148/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Diplo"
+    ]
   },
   {
     "id": "deezer-2965418671",
@@ -18667,7 +19850,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:2965418671",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/8ab1eb28860fd05b3824c6bce2da912e/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/8ab1eb28860fd05b3824c6bce2da912e/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Diplo"
+    ]
   },
   {
     "id": "deezer-571277792",
@@ -18677,7 +19863,11 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:571277792",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/60106af4d3ad335af1844b293fc97af4/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/60106af4d3ad335af1844b293fc97af4/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Diplo",
+      "Swae Lee"
+    ]
   },
   {
     "id": "deezer-1637138382",
@@ -18687,7 +19877,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:1637138382",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/b27b968664dacdd6cfa4cdf2c1487013/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/b27b968664dacdd6cfa4cdf2c1487013/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Miguel"
+    ]
   },
   {
     "id": "deezer-70540905",
@@ -18707,6 +19900,10 @@
     "genre": "eletronica",
     "source": "preview",
     "previewId": "deezer:951822302",
-    "cover": "https://cdn-images.dzcdn.net/images/cover/76d38161e65b78e5a72ed30e4192b929/250x250-000000-80-0-0.jpg"
+    "cover": "https://cdn-images.dzcdn.net/images/cover/76d38161e65b78e5a72ed30e4192b929/250x250-000000-80-0-0.jpg",
+    "featuring": [
+      "Diplo",
+      "Kareen Lomax"
+    ]
   }
 ]

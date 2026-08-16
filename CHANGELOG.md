@@ -3,6 +3,48 @@
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 Versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.5.0] — 2026-08-16
+
+### Adicionado
+
+- **Efeitos sonoros no site todo**, gerados na hora por Web Audio — nenhum
+  arquivo de áudio, seguindo a mesma lógica das faixas de exemplo. Acerto, erro,
+  pulo, revelação, vitória, chat, entrada de jogador e o tique da contagem
+  regressiva. **Efeito nenhum toca por cima do trecho**: o jogo pede para
+  reconhecer 0,2s de música, e um blip ali seria sabotagem, não enfeite. Tem
+  botão de mudo no cabeçalho, com a preferência guardada.
+- **Filtro de gênero no lobby da sala**, escolhido pelo anfitrião e propagado
+  para todo mundo. Quem não decide agora vê o resumo do que vem aí (modo,
+  rodadas, gênero) em vez de um "esperando" sem contexto.
+- **"Como funciona a sala"**, com a curva 6→1 desenhada. A regra que mais
+  importa só aparecia depois de a pessoa já estar jogando.
+- **Conversa da sala**, recolhida por padrão e com contador do que chegou —
+  numa tela de celular a partida precisa do espaço mais do que o chat. Quem
+  entra e quem sai aparece na mesma lista, deduzido da presença: não custa
+  mensagem nenhuma a mais.
+- **Aviso de tempo acabando**: o cronômetro da sala vira alerta nos últimos 15s.
+- **Confirmação ao sair da sala**, já que sair apaga os pontos e a sessão — o
+  diálogo explica que fechar a aba deixa voltar.
+- **Pódio** no lugar do placar no fim da partida, no duelo também.
+- **Busca e pontuação por artista convidado.** Procurar "Anitta" não achava
+  "Major Lazer - Sua Cara", porque o Deezer devolve o título dessa faixa sem o
+  featuring. O campo `featuring` (novo) foi preenchido em 343 das 1871 músicas
+  por `npm run catalog:featuring`, e chutar a convidada agora marca amarelo.
+- **Voltar para a sala recente.** Quem fecha a aba sem querer encontra o
+  caminho de volta em `/sala`, e abrir o link da sala de novo reentra sozinho.
+
+### Corrigido
+
+- **Áudio mudo depois de sair do app no celular.** Trocar de app no iOS manda o
+  `AudioContext` para `interrupted`, e ao voltar o `resume()` sozinho muitas
+  vezes não ressuscita: o contexto ficava preso e o jogo só sabia dizer que o
+  navegador tinha bloqueado o áudio. Agora ele é jogado fora e outro é aberto —
+  junto com o cache de buffers, que pertencem ao contexto morto.
+- **Recarregar a página não perde mais a partida da sala.** O placar indexa os
+  pontos pelo id do jogador, e esse id nascia aleatório a cada carregamento:
+  quem atualizava voltava zerada e aparecia duas vezes na lista. A sessão agora
+  é guardada por duas horas e reentrar na mesma sala reusa o id.
+
 ## [0.4.0] — 2026-08-15
 
 ### Adicionado
@@ -155,6 +197,7 @@ Primeira versão jogável.
 - Reimportar o catálogo muda as respostas do puzzle diário, porque o sorteio
   deriva da lista de músicas.
 
+[0.5.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.5.0
 [0.4.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.4.0
 [0.3.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.3.0
 [0.2.1]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.2.1

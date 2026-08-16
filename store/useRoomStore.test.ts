@@ -58,6 +58,31 @@ vi.mock('@/lib/room/client', () => ({
   },
 }));
 
+/**
+ * Um localStorage por jogador.
+ *
+ * O ambiente do Vitest e node, sem window — e mesmo com jsdom haveria um
+ * storage so, o que juntaria as sessoes de dois jogadores que na vida real
+ * estao em navegadores diferentes. Cada "aba" ganha o seu Map e `asBrowser`
+ * escolhe qual esta na frente.
+ */
+const storages = new Map<string, Map<string, string>>();
+let currentStorage = new Map<string, string>();
+
+(globalThis as { window?: unknown }).window = {
+  localStorage: {
+    getItem: (key: string) => currentStorage.get(key) ?? null,
+    setItem: (key: string, value: string) => void currentStorage.set(key, value),
+    removeItem: (key: string) => void currentStorage.delete(key),
+  },
+};
+
+function asBrowser(owner: string): void {
+  const existing = storages.get(owner) ?? new Map<string, string>();
+  storages.set(owner, existing);
+  currentStorage = existing;
+}
+
 const { createRoomStore } = await import('@/store/useRoomStore');
 const { getSong, songs } = await import('@/lib/game/catalog');
 
@@ -67,6 +92,7 @@ const CODE = 'ABCD';
 
 /** Entra na sala e espera a presenca circular. */
 async function enter(name: string, rounds = 2): Promise<Store> {
+  asBrowser(name);
   const store = createRoomStore();
   await store.getState().join(CODE, name, 'trecho', rounds);
   await tick();
@@ -101,6 +127,8 @@ let stores: Store[] = [];
 beforeEach(() => {
   rooms.clear();
   stores = [];
+  storages.clear();
+  currentStorage = new Map();
 });
 
 afterEach(() => {
@@ -129,7 +157,7 @@ describe('entrar na sala', () => {
 
   it('o anfitriao propaga modo e rodadas ainda no lobby', async () => {
     const ana = track(await enter('Ana', 3));
-    ana.getState().configure('banda', 10);
+    ana.getState().configure('banda', 10, 'rock');
     await tick();
 
     const bia = track(await enter('Bia', 5));
@@ -138,6 +166,74 @@ describe('entrar na sala', () => {
 
     expect(bia.getState().snapshot.mode).toBe('banda');
     expect(bia.getState().snapshot.totalRounds).toBe(10);
+    expect(bia.getState().snapshot.genre).toBe('rock');
+  });
+});
+
+describe('mural', () => {
+  it('anuncia quem entra depois de voce, mas nao a sala que ja estava la', async () => {
+    const ana = track(await enter('Ana'));
+    await tick();
+    // Ana entrou numa sala vazia: nada a anunciar.
+    expect(ana.getState().feed).toHaveLength(0);
+
+    track(await enter('Bia'));
+    await tick();
+
+    expect(ana.getState().feed).toEqual([
+      expect.objectContaining({ kind: 'joined', name: 'Bia' }),
+    ]);
+  });
+
+  it('nao anuncia a propria entrada', async () => {
+    track(await enter('Ana'));
+    const bia = track(await enter('Bia'));
+    await tick();
+
+    expect(bia.getState().feed.some((event) => event.name === 'Bia')).toBe(false);
+  });
+
+  it('anuncia quem sai', async () => {
+    const ana = track(await enter('Ana'));
+    const bia = track(await enter('Bia'));
+    await tick();
+
+    bia.getState().leave();
+    await tick();
+    await tick();
+
+    expect(ana.getState().feed).toContainEqual(
+      expect.objectContaining({ kind: 'left', name: 'Bia' }),
+    );
+  });
+
+  it('entrega o chat para todo mundo, inclusive para quem falou', async () => {
+    const ana = track(await enter('Ana'));
+    const bia = track(await enter('Bia'));
+    await tick();
+
+    ana.getState().say('  oi   gente  ');
+    await tick();
+    await tick();
+
+    for (const store of [ana, bia]) {
+      expect(store.getState().feed).toContainEqual(
+        expect.objectContaining({ kind: 'chat', name: 'Ana', text: 'oi gente' }),
+      );
+    }
+  });
+
+  it('nao manda mensagem vazia', async () => {
+    const ana = track(await enter('Ana'));
+    const bia = track(await enter('Bia'));
+    await tick();
+    const antes = bia.getState().feed.length;
+
+    ana.getState().say('   ');
+    await tick();
+    await tick();
+
+    expect(bia.getState().feed).toHaveLength(antes);
   });
 });
 
@@ -248,6 +344,63 @@ describe('rodada', () => {
     await bust(ana);
 
     expect(bia.getState().snapshot.scores[biaId]).toBe(4);
+  });
+});
+
+describe('recarregar a pagina', () => {
+  it('volta com o mesmo id e reencontra os proprios pontos', async () => {
+    const ana = track(await enter('Ana'));
+    const bia = track(await enter('Bia'));
+    await tick();
+    ana.getState().startMatch();
+    await tick();
+    await tick();
+
+    const anaId = ana.getState().me?.id ?? '';
+    await hit(ana);
+    await bust(bia);
+    expect(bia.getState().snapshot.scores[anaId]).toBe(6);
+
+    // F5: a aba morre sem "sair da sala", entao a sessao sobrevive.
+    asBrowser('Ana');
+    ana.getState().leave();
+    await tick();
+    await tick();
+
+    const deVolta = track(await enter('Ana'));
+    await tick();
+    await tick();
+
+    expect(deVolta.getState().me?.id).toBe(anaId);
+    expect(deVolta.getState().snapshot.scores[anaId]).toBe(6);
+  });
+
+  it('sair de proposito apaga o caminho de volta', async () => {
+    const ana = track(await enter('Ana'));
+    const idAntigo = ana.getState().me?.id;
+
+    asBrowser('Ana');
+    ana.getState().leave(true);
+    await tick();
+
+    const outra = track(await enter('Ana'));
+    expect(outra.getState().me?.id).not.toBe(idAntigo);
+  });
+
+  it('entrar em outra sala nao herda os pontos da anterior', async () => {
+    const ana = track(await enter('Ana'));
+    const idNaPrimeira = ana.getState().me?.id;
+
+    asBrowser('Ana');
+    ana.getState().leave();
+    await tick();
+
+    const store = createRoomStore();
+    track(store);
+    await store.getState().join('WXYZ', 'Ana', 'trecho', 2);
+    await tick();
+
+    expect(store.getState().me?.id).not.toBe(idNaPrimeira);
   });
 });
 

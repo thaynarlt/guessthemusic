@@ -11,6 +11,6 @@ export default defineConfig({
     environment: 'node',
     // `store` entra por causa da sala online: a coreografia entre os clientes
     // mora na store, e o teste a exercita com um canal falso.
-    include: ['lib/**/*.test.ts', 'store/**/*.test.ts'],
+    include: ['lib/**/*.test.ts', 'store/**/*.test.ts', 'scripts/**/*.test.ts'],
   },
 });
