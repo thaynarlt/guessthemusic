@@ -3,6 +3,17 @@
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 Versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [Não lançado]
+
+### Adicionado
+
+- **Filtro de catálogo por gênero, época e artista** no duelo e na sala, tudo
+  múltipla escolha. A época sai de graça do campo `year`, que já existia limpo
+  nas 1871 músicas; antes de 1990 vira um balde só, porque o catálogo tem 4
+  músicas dos anos 60 e 27 dos 70. A contagem aparece ao vivo e o botão de
+  começar trava quando sobra pouca música — cruzar dois filtros esvazia rápido
+  (k-pop antes de 1990 são zero músicas), e descobrir isso jogando seria pior.
+
 ## [0.5.0] — 2026-08-16
 
 ### Adicionado

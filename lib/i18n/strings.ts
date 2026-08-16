@@ -94,6 +94,21 @@ const pt = {
     'Quando todo mundo responde ou quando estouram {seconds}s — assim quem fechou a aba nao trava a sala. Empate no fim vai para quem respondeu mais rapido no acumulado.',
 
   genre: 'Genero',
+  era: 'Epoca',
+  eras: {
+    ate1989: 'Ate 1989',
+    '1990': 'Anos 90',
+    '2000': 'Anos 2000',
+    '2010': 'Anos 2010',
+    '2020': 'Anos 2020',
+  } as Record<string, string>,
+  artists: 'Artistas',
+  searchArtist: 'Buscar artista...',
+  filterAll: 'Sorteando entre as {n} musicas',
+  filterCount: '{n} musicas nesse filtro',
+  filterThin: 'Vao repetir.',
+  filterTooNarrow: 'Poucas musicas para uma partida. Marque mais alguma coisa.',
+  filterClear: 'Limpar filtro',
   genres: {
     todos: 'Todos',
     rock: 'Rock',
@@ -271,6 +286,21 @@ const en: Dictionary = {
     'When everyone has answered, or after {seconds}s — that way someone who closed their tab does not block the room. Ties are broken by total answering time.',
 
   genre: 'Genre',
+  era: 'Era',
+  eras: {
+    ate1989: 'Up to 1989',
+    '1990': "'90s",
+    '2000': '2000s',
+    '2010': '2010s',
+    '2020': '2020s',
+  },
+  artists: 'Artists',
+  searchArtist: 'Search artist...',
+  filterAll: 'Drawing from all {n} songs',
+  filterCount: '{n} songs in this filter',
+  filterThin: 'They will repeat.',
+  filterTooNarrow: 'Too few songs for a match. Pick something else too.',
+  filterClear: 'Clear filter',
   genres: {
     todos: 'All',
     rock: 'Rock',
