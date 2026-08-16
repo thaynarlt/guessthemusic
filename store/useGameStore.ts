@@ -1,6 +1,7 @@
 'use client';
 
 import { create } from 'zustand';
+import { playSfx, sfxForResult } from '@/lib/audio/sfx';
 import { createGame, skip as skipTurn, submitGuess } from '@/lib/game/machine';
 import {
   applyResult,
@@ -13,7 +14,13 @@ import {
   type Stats,
 } from '@/lib/game/stats';
 import { reportResult } from '@/lib/stats/global';
-import { sessionId, type GameMode, type GameState, type GameVariant, type Song } from '@/lib/game/types';
+import {
+  sessionId,
+  type GameMode,
+  type GameState,
+  type GameVariant,
+  type Song,
+} from '@/lib/game/types';
 
 /** Placar da sessao livre — vive so na memoria, some ao recarregar. */
 export interface FreeScore {
@@ -84,6 +91,10 @@ function applyMove(
   const next = advance(current);
   const finished = next.status !== 'playing';
   const last = next.attempts[next.attempts.length - 1];
+
+  // Dispara daqui, e nao das telas: toda variante do jogo passa por este ponto,
+  // entao ninguem precisa lembrar de ligar o som na tela nova.
+  playSfx(sfxForResult(last?.result, finished, next.status === 'won'));
 
   let stats = get().stats[mode] ?? emptyStats();
   let free = get().free[session] ?? { rounds: 0, wins: 0 };
