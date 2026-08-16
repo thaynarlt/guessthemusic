@@ -66,7 +66,7 @@
   /*
    * Estica um bloco para alem da coluna de leitura, centralizado — usado no
    * painel de audio, onde a barra precisa de largura para os primeiros
-   * trechos (0,1s de 15s) aparecerem. Os 2rem descontados cobrem a barra de
+   * trechos (0,2s de 15s) aparecerem. Os 2rem descontados cobrem a barra de
    * rolagem e o respiro lateral, entao a pagina nunca rola na horizontal.
    */
   /* Range nativo nao aceita Tailwind no thumb: precisa dos seletores do vendor. */

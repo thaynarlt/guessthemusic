@@ -18,7 +18,7 @@ const HEAD_GUARD = 0.4;
 
 /**
  * Janela curta usada para reprovar um comeco mudo. Precisa ser da ordem das
- * primeiras tentativas do modo Trecho (0,1s), senao o jogo entrega silencio.
+ * primeiras tentativas do modo Trecho (0,2s), senao o jogo entrega silencio.
  */
 const ONSET_WINDOW = 0.25;
 
@@ -85,6 +85,11 @@ export function snippetStart(audio: SampledAudio, seed: number, needed: number):
   return (audible[Math.min(pick, audible.length - 1)] as { at: number }).at;
 }
 
-/** Semente estavel de uma partida: mesma musica no mesmo puzzle, mesmo trecho. */
-export const startSeed = (songId: string, puzzleNumber: number): number =>
-  hashString(`${songId}:${puzzleNumber}`);
+/**
+ * Semente estavel de uma partida: mesma musica no mesmo puzzle, mesmo trecho.
+ *
+ * O segundo argumento aceita texto porque nem toda partida e numerada: a sala
+ * online identifica a rodada por codigo da sala + numero.
+ */
+export const startSeed = (songId: string, round: number | string): number =>
+  hashString(`${songId}:${round}`);

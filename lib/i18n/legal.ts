@@ -56,7 +56,7 @@ const pt: LegalPage = {
         },
         {
           term: 'Songless',
-          text: 'a curva de duracao do modo Trecho (0,1s ate 15s) e o player da revelacao.',
+          text: 'a curva de duracao do modo Trecho (0,2s ate 15s) e o player da revelacao.',
           href: 'https://www.songless.app',
         },
         {
@@ -146,7 +146,7 @@ const en: LegalPage = {
         },
         {
           term: 'Songless',
-          text: 'the snippet curve of the Snippet mode (0.1s up to 15s) and the reveal player.',
+          text: 'the snippet curve of the Snippet mode (0.2s up to 15s) and the reveal player.',
           href: 'https://www.songless.app',
         },
         {
