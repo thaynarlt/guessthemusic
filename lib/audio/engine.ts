@@ -121,13 +121,56 @@ export class AudioEngine {
 
   /**
    * Retoma o contexto. Precisa ser chamado dentro do gesto do usuario, senao
-   * o navegador mantem o audio suspenso. No iOS o estado tambem pode virar
-   * "interrupted" (ligacao, outro app tocando), e dai o resume e necessario
-   * de novo.
+   * o navegador mantem o audio suspenso.
+   *
+   * No iOS o estado vira "interrupted" quando o app sai de foco (ligacao, outro
+   * app, trocar de aba) e, ao voltar, `resume()` sozinho muitas vezes nao
+   * ressuscita o contexto: ele fica preso em "interrupted" para sempre e o jogo
+   * so sabe dizer que o navegador bloqueou o audio. A saida e jogar fora o
+   * contexto e abrir outro.
    */
   async resume(): Promise<void> {
     const ctx = this.getContext();
-    if (ctx.state !== 'running') await ctx.resume();
+    if (ctx.state === 'running') return;
+
+    try {
+      await ctx.resume();
+    } catch {
+      /* contexto perdido: a recriacao abaixo resolve */
+    }
+
+    if (this.context && this.context.state !== 'running') await this.recreate();
+  }
+
+  /**
+   * Abre um AudioContext novo no lugar do que morreu.
+   *
+   * Os AudioBuffer pertencem ao contexto que os decodificou, entao o cache vai
+   * junto — reaproveitar buffer velho em contexto novo da silencio, que e pior
+   * que recarregar.
+   */
+  private async recreate(): Promise<void> {
+    const dead = this.context;
+    this.context = null;
+    this.master = null;
+    this.output = null;
+    this.cache.clear();
+    this.clearTracks();
+
+    try {
+      await dead?.close();
+    } catch {
+      /* ja estava fechado */
+    }
+
+    const ctx = this.getContext();
+    if (ctx.state !== 'running') {
+      try {
+        await ctx.resume();
+      } catch {
+        /* sem gesto do usuario nao da; a proxima tentativa resolve */
+      }
+    }
   }
 
   /** Estado do contexto, para a interface conseguir explicar o silencio. */

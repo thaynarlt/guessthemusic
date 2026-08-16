@@ -9,6 +9,15 @@ export interface CatalogEntry {
   haystack: string;
 }
 
+/**
+ * Todos os artistas creditados: o principal e as participacoes.
+ *
+ * Musica com participacao e reconhecida pela voz do convidado tanto quanto pela
+ * do dono da faixa, entao os dois valem para a busca e para o palpite.
+ */
+export const creditedArtists = (song: Song): string[] =>
+  [song.artist, ...(song.featuring ?? [])].map(normalize).filter((name) => name.length > 0);
+
 /** Monta o indice de busca do catalogo. */
 export function buildIndex(songs: readonly Song[]): CatalogEntry[] {
   return songs
@@ -16,7 +25,13 @@ export function buildIndex(songs: readonly Song[]): CatalogEntry[] {
       song,
       label: `${song.artist} - ${song.title}`,
       haystack: normalize(
-        [song.artist, song.title, String(song.year), ...(song.aliases ?? [])].join(' '),
+        [
+          song.artist,
+          song.title,
+          String(song.year),
+          ...(song.featuring ?? []),
+          ...(song.aliases ?? []),
+        ].join(' '),
       ),
     }))
     .sort((a, b) => a.label.localeCompare(b.label));
@@ -39,9 +54,18 @@ export function search(index: readonly CatalogEntry[], query: string, limit = 8)
     .slice(0, limit);
 }
 
-/** Classifica um palpite contra a resposta do dia. */
+/**
+ * Classifica um palpite contra a resposta do dia.
+ *
+ * O amarelo sai quando os creditos se cruzam em qualquer direcao: chutar a
+ * convidada da resposta conta, e chutar uma faixa onde o artista da resposta e
+ * o convidado tambem. Quem reconheceu a voz certa acertou o artista.
+ */
 export function evaluateGuess(guess: Song, answer: Song): GuessResult {
   if (guess.id === answer.id) return 'correct';
-  if (normalize(guess.artist) === normalize(answer.artist)) return 'artist';
+
+  const credited = new Set(creditedArtists(answer));
+  if (creditedArtists(guess).some((artist) => credited.has(artist))) return 'artist';
+
   return 'wrong';
 }

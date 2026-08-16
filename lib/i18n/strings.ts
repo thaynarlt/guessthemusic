@@ -71,6 +71,7 @@ const pt = {
   roomOfflineHint:
     'Faltam as variaveis NEXT_PUBLIC_SUPABASE_URL e NEXT_PUBLIC_SUPABASE_ANON_KEY. O duelo local funciona sem nenhuma configuracao.',
   roomCodeInvalid: 'Codigo invalido. Sao 4 letras.',
+  backToRoom: 'Voltar para a sala {code}',
 
   genre: 'Genero',
   genres: {
@@ -226,6 +227,7 @@ const en: Dictionary = {
   roomOfflineHint:
     'NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are missing. The local duel works with no configuration at all.',
   roomCodeInvalid: 'Invalid code. It has 4 letters.',
+  backToRoom: 'Back to room {code}',
 
   genre: 'Genre',
   genres: {

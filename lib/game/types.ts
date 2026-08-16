@@ -40,6 +40,14 @@ export interface Song {
   previewId?: string;
   /** Grafias alternativas aceitas na busca. */
   aliases?: string[];
+  /**
+   * Artistas convidados, alem do principal.
+   *
+   * Existe porque o titulo nem sempre carrega a participacao: o Deezer entrega
+   * "Sua Cara" seco, e sem isso ninguem acha a musica procurando por "Anitta".
+   * Preenchido por `npm run catalog:featuring`.
+   */
+  featuring?: string[];
   /** Genero para o filtro do modo livre (ex.: "rock", "pop", "kpop"). */
   genre?: string;
 }

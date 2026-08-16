@@ -21,6 +21,7 @@ import {
   type RoomPlayer,
   type RoomSnapshot,
 } from '@/lib/room/protocol';
+import { clearSession, loadSession, playerIdFor, saveSession } from '@/lib/room/session';
 
 /** Quantas musicas guardar para nao repetir dentro da mesma partida. */
 const RECENT_MEMORY = 16;
@@ -41,7 +42,8 @@ export interface RoomStore {
   error: string | null;
 
   join: (code: string, name: string, mode: GameMode, totalRounds: number) => Promise<void>;
-  leave: () => void;
+  /** `forget` apaga a sessao guardada — so quando a pessoa sai de proposito. */
+  leave: (forget?: boolean) => void;
   configure: (mode: GameMode, totalRounds: number) => void;
   startMatch: () => void;
   nextRound: () => void;
@@ -192,13 +194,19 @@ export const createRoomStore = () =>
       error: null,
 
       join: async (code, name, mode, totalRounds) => {
+        // Antes do leave, para nao perder a sessao que vamos reaproveitar.
+        const previous = loadSession();
         get().leave();
 
+        const fresh = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
         const me: RoomPlayer = {
-          id: `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
+          // Voltar para a MESMA sala reusa o id: e assim que a pessoa
+          // reencontra os proprios pontos depois de recarregar a pagina.
+          id: playerIdFor(code, previous, fresh),
           name,
           joinedAt: Date.now(),
         };
+        saveSession({ code, name, playerId: me.id });
 
         recent = [];
         set({
@@ -224,10 +232,18 @@ export const createRoomStore = () =>
         }
       },
 
-      leave: () => {
+      /**
+       * `forget` separa sair de proposito de simplesmente sair da tela.
+       *
+       * Recarregar a pagina tambem desmonta o componente, e ali a sessao PRECISA
+       * sobreviver — e o unico jeito de a pessoa voltar com os pontos dela. So o
+       * botao de sair apaga o caminho de volta.
+       */
+      leave: (forget = false) => {
         clearDeadline();
         connection?.leave();
         connection = null;
+        if (forget) clearSession();
         set({ code: null, me: null, players: [], status: 'closed', game: null });
       },
 

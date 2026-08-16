@@ -41,6 +41,7 @@ Abra `http://localhost:3000`. **Não precisa de backend, banco nem arquivo de á
 | `npm run lint` | ESLint (`eslint-config-next`) |
 | `npm run catalog:check` | Valida `data/songs.json` sozinho |
 | `npm run catalog:import` | Importa músicas reais das APIs do Deezer/iTunes |
+| `npm run catalog:featuring` | Preenche os artistas convidados de cada música |
 | `npm run format` | Prettier |
 
 ## Stack
@@ -51,7 +52,7 @@ Abra `http://localhost:3000`. **Não precisa de backend, banco nem arquivo de á
 - **Web Audio API** — corte no milissegundo, fade de 80 ms e trilhas sincronizadas (não usa `<audio>`)
 - **Route Handlers (Node)** — puzzle do dia, prévias de áudio e estatísticas globais opcionais
 - **Supabase Realtime** — só a sala online, e só os canais: sem tabela e carregado sob demanda
-- **Vitest** — 159 testes sobre a lógica pura e a sala, sem tocar na UI
+- **Vitest** — 184 testes sobre a lógica pura, a sala e os scripts, sem tocar na UI
 
 ```
 app/            rotas (menu, /trecho, /banda, /duelo, /sala) + /api
@@ -89,7 +90,18 @@ npm run catalog:import -- --fonte deezer --busca "rock nacional" --limite 30 --j
 
 O importador descarta versões ao vivo, remix e karaokê (atrapalham o reconhecimento) e evita que a mesma música entre duas vezes por causa de "Remastered".
 
-Depois rode `npm run catalog:check`.
+Depois rode `npm run catalog:featuring` e `npm run catalog:check`.
+
+### Artistas convidados
+
+O Deezer é inconsistente com participações: "Uptown Funk (feat. Bruno Mars)" vem com o crédito no título, mas "Sua Cara" vem seco — e aí ninguém acha a música procurando por "Anitta". Os convidados só existem em `/track/{id}`, que os endpoints de busca e de chart não trazem, então buscá-los faria o importador demorar o dobro. Por isso é um passo à parte:
+
+```bash
+npm run catalog:featuring              # preenche só o que falta
+npm run catalog:featuring -- --forcar  # refaz tudo
+```
+
+O script **só acrescenta o campo `featuring`**: não mexe em `id`, na ordem do array nem em nenhum valor existente. Isso importa porque o sorteio do puzzle diário deriva da lista de músicas — mudar a ordem faria todo mundo perder a partida do dia. Os convidados entram na busca e valem como "artista certo" no palpite.
 
 Duas coisas que o importador resolve por você:
 
@@ -189,7 +201,7 @@ Normalmente vem do `catalog:import`, mas dá pra escrever à mão:
 
 `root` é uma nota MIDI, `progression` são semitons relativos à tônica (um acorde por compasso) e `seed` deixa o resultado determinístico. O gerador (`lib/audio/synth.ts`) monta as 6 trilhas separadas, então **músicas `synth` funcionam nos dois modos**.
 
-Campos opcionais úteis: `cover` (sem ele, uma capa em gradiente é gerada a partir do `id`) e `aliases` (grafias alternativas aceitas na busca — a busca já ignora acentos e maiúsculas).
+Campos opcionais úteis: `cover` (sem ele, uma capa em gradiente é gerada a partir do `id`), `aliases` (grafias alternativas aceitas na busca — a busca já ignora acentos e maiúsculas) e `featuring` (artistas convidados, preenchido por `catalog:featuring`).
 
 ## Trocando o provedor de áudio
 
