@@ -3,7 +3,7 @@
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 Versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
-## [Não lançado]
+## [0.6.0] — 2026-08-16
 
 ### Adicionado
 
@@ -217,6 +217,7 @@ Primeira versão jogável.
 - Reimportar o catálogo muda as respostas do puzzle diário, porque o sorteio
   deriva da lista de músicas.
 
+[0.6.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.6.0
 [0.5.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.5.0
 [0.4.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.4.0
 [0.3.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.3.0
