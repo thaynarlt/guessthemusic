@@ -73,6 +73,21 @@ const pt = {
   roomCodeInvalid: 'Codigo invalido. Sao 4 letras.',
   backToRoom: 'Voltar para a sala {code}',
 
+  formatRitmo: 'No seu ritmo',
+  formatRitmoHint: 'Cada um libera o proprio trecho, sem pressa.',
+  formatCorrida: 'Corrida',
+  formatCorridaHint: 'O trecho cresce no relogio para todos. Esperar custa ponto.',
+  raceLocked: 'Travado por {n}s',
+  raceCorrectSoFar: '{n} ja acertaram',
+  raceLastCall: 'Ultima chamada!',
+  racePot: 'Rodada vale x{n}',
+  racePotNext: 'Ninguem acertou: a proxima vale x{n}',
+  racePlace: '{n}o lugar',
+  raceBonus: '+{n} de bonus',
+  howToRace:
+    'No formato Corrida o trecho cresce sozinho, a cada {seconds}s, igual para todo mundo ao mesmo tempo. Ninguem e punido por ouvir com calma: e aposta. Arrisca agora valendo mais, ou espera ouvir mais e vale menos — sabendo que alguem pode levar antes.',
+  howToRaceExtra:
+    'Quem chega em 1o, 2o e 3o ganha bonus, entao a rodada nao morre no primeiro acerto. Errar trava seu palpite por {lockout}s, e pular nem existe: o degrau nao e seu. Rodada em que ninguem acerta faz a proxima valer em dobro.',
   roomChat: 'Conversa',
   roomChatEmpty: 'Ninguem falou nada ainda.',
   roomChatPlaceholder: 'Diga alguma coisa...',
@@ -160,7 +175,8 @@ const pt = {
   loadingAudio: 'Preparando o audio...',
   audioError: 'Nao foi possivel carregar o audio desta musica.',
   audioBlocked: 'O navegador bloqueou o audio.',
-  audioHint: 'No iPhone, confira a chave de silencioso na lateral: ela cala o som do jogo mesmo com o volume alto.',
+  audioHint:
+    'No iPhone, confira a chave de silencioso na lateral: ela cala o som do jogo mesmo com o volume alto.',
   retry: 'Tentar de novo',
   stems: {
     drums: 'Bateria',
@@ -265,6 +281,21 @@ const en: Dictionary = {
   roomCodeInvalid: 'Invalid code. It has 4 letters.',
   backToRoom: 'Back to room {code}',
 
+  formatRitmo: 'At your own pace',
+  formatRitmoHint: 'Everyone unlocks their own snippet, no rush.',
+  formatCorrida: 'Race',
+  formatCorridaHint: 'The snippet grows on a shared clock. Waiting costs points.',
+  raceLocked: 'Locked for {n}s',
+  raceCorrectSoFar: '{n} already got it',
+  raceLastCall: 'Last call!',
+  racePot: 'Round is worth x{n}',
+  racePotNext: 'Nobody got it: next one is worth x{n}',
+  racePlace: 'place {n}',
+  raceBonus: '+{n} bonus',
+  howToRace:
+    'In Race the snippet grows on its own every {seconds}s, the same for everyone at the same time. Nobody is punished for listening carefully: it is a bet. Risk it now for more, or hear more and settle for less — knowing someone may take it first.',
+  howToRaceExtra:
+    'First, second and third get a bonus, so the round does not die on the first correct answer. A miss locks your guess for {lockout}s, and there is no skip: the step is not yours. A round nobody gets doubles the next one.',
   roomChat: 'Chat',
   roomChatEmpty: 'Nobody has said anything yet.',
   roomChatPlaceholder: 'Say something...',

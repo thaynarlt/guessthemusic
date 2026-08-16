@@ -10,9 +10,15 @@ import { useStrings } from '@/store/useSettings';
 interface GuessInputProps {
   disabled: boolean;
   onGuess: (song: Song) => void;
-  onSkip: () => void;
+  /**
+   * Ausente esconde o botao de pular.
+   *
+   * Na corrida o degrau vem do relogio, entao pular nao adiantaria o trecho —
+   * so gastaria uma tentativa em troca de nada.
+   */
+  onSkip?: () => void;
   /** Rotulo do botao de pular, com o custo da jogada. */
-  skipLabel: string;
+  skipLabel?: string;
 }
 
 /** Combobox acessivel: so aceita palpites que existem no catalogo. */
@@ -160,16 +166,18 @@ export function GuessInput({ disabled, onGuess, onSkip, skipLabel }: GuessInputP
       </div>
 
       <div className="flex gap-2">
-        <button
-          type="button"
-          className="btn-ghost flex-1"
-          onClick={onSkip}
-          disabled={disabled}
-          title={strings.skip}
-        >
-          <SkipForward size={16} aria-hidden="true" />
-          {skipLabel}
-        </button>
+        {onSkip && (
+          <button
+            type="button"
+            className="btn-ghost flex-1"
+            onClick={onSkip}
+            disabled={disabled}
+            title={strings.skip}
+          >
+            <SkipForward size={16} aria-hidden="true" />
+            {skipLabel ?? strings.skip}
+          </button>
+        )}
         <button
           type="button"
           className="btn-primary flex-1 disabled:opacity-40"

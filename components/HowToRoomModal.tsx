@@ -1,9 +1,10 @@
 'use client';
 
+import { Timer } from 'lucide-react';
 import { Modal } from '@/components/Modal';
 import { MAX_POINTS } from '@/lib/game/score';
 import { SNIPPET_STEPS, formatSeconds } from '@/lib/game/types';
-import { ROUND_TIMEOUT_MS } from '@/lib/room/protocol';
+import { RACE_LOCKOUT_MS, RACE_STEP_MS, ROUND_TIMEOUT_MS } from '@/lib/room/protocol';
 import { useStrings } from '@/store/useSettings';
 
 /** A curva 6..1 desenhada: o degrau curto vale mais, e isso e a regra do jogo. */
@@ -45,6 +46,22 @@ export function HowToRoomModal({ open, onClose }: { open: boolean; onClose: () =
         <section className="space-y-2">
           <h3 className="font-bold">{strings.howToRoomRoundTitle}</h3>
           <p className="muted">{strings.howToRoomRound.replace('{seconds}', String(seconds))}</p>
+        </section>
+
+        <section className="space-y-2">
+          <h3 className="flex items-center gap-2 font-bold">
+            <Timer size={16} aria-hidden="true" className="text-grape-500" />
+            {strings.formatCorrida}
+          </h3>
+          <p className="muted">
+            {strings.howToRace.replace('{seconds}', String(Math.round(RACE_STEP_MS / 1000)))}
+          </p>
+          <p className="muted">
+            {strings.howToRaceExtra.replace(
+              '{lockout}',
+              String(Math.round(RACE_LOCKOUT_MS / 1000)),
+            )}
+          </p>
         </section>
 
         <button type="button" className="btn-primary w-full" onClick={onClose}>
