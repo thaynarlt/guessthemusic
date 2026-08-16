@@ -157,7 +157,7 @@ describe('entrar na sala', () => {
 
   it('o anfitriao propaga modo e rodadas ainda no lobby', async () => {
     const ana = track(await enter('Ana', 3));
-    ana.getState().configure('banda', 10, 'rock');
+    ana.getState().configure('banda', 10, { genres: ['rock'], eras: ['2010'], artists: [] });
     await tick();
 
     const bia = track(await enter('Bia', 5));
@@ -166,7 +166,11 @@ describe('entrar na sala', () => {
 
     expect(bia.getState().snapshot.mode).toBe('banda');
     expect(bia.getState().snapshot.totalRounds).toBe(10);
-    expect(bia.getState().snapshot.genre).toBe('rock');
+    expect(bia.getState().snapshot.filter).toEqual({
+      genres: ['rock'],
+      eras: ['2010'],
+      artists: [],
+    });
   });
 });
 

@@ -8,7 +8,7 @@ import { AudioDeck } from '@/components/AudioDeck';
 import { ConfirmDialog } from '@/components/ConfirmDialog';
 import { CoverArt } from '@/components/CoverArt';
 import { FullTrackPlayer } from '@/components/FullTrackPlayer';
-import { GenrePicker } from '@/components/GenrePicker';
+import { CatalogFilterPicker } from '@/components/CatalogFilterPicker';
 import { GuessInput } from '@/components/GuessInput';
 import { HowToRoomModal } from '@/components/HowToRoomModal';
 import { Podium } from '@/components/Podium';
@@ -16,8 +16,14 @@ import { RoomFeed } from '@/components/RoomFeed';
 import { Scoreboard } from '@/components/Scoreboard';
 import { playSfx } from '@/lib/audio/sfx';
 import { useSnippetPlayer } from '@/lib/audio/useSnippetPlayer';
-import { getSong, songUsesStems } from '@/lib/game/catalog';
-import { genreLabel } from '@/lib/game/genres';
+import { getSong, songs, songUsesStems } from '@/lib/game/catalog';
+import {
+  countFiltered,
+  filterPlayable,
+  isEmptyFilter,
+  type CatalogFilter,
+} from '@/lib/game/filter';
+import { ALL_GENRES } from '@/lib/game/genres';
 import { attemptsRemaining, unlockedLevel } from '@/lib/game/machine';
 import { formatSeconds, SNIPPET_STEPS, type GameMode } from '@/lib/game/types';
 import { roomsEnabled } from '@/lib/room/client';
@@ -325,7 +331,7 @@ interface RoomLobbyProps {
   snapshot: RoomSnapshot;
   enoughPlayers: boolean;
   onCopy: () => void;
-  onConfigure: (mode: GameMode, totalRounds: number, genre: string) => void;
+  onConfigure: (mode: GameMode, totalRounds: number, filter: CatalogFilter) => void;
   onStart: () => void;
 }
 
@@ -357,7 +363,7 @@ function RoomLobby({
                 key={option}
                 type="button"
                 aria-pressed={snapshot.mode === option}
-                onClick={() => onConfigure(option, snapshot.totalRounds, snapshot.genre)}
+                onClick={() => onConfigure(option, snapshot.totalRounds, snapshot.filter)}
                 className={`tap rounded-xl border px-3 py-3 text-sm font-bold transition ${
                   snapshot.mode === option ? 'border-transparent bg-grape-600 text-white' : ''
                 }`}
@@ -374,7 +380,7 @@ function RoomLobby({
                 key={option}
                 type="button"
                 aria-pressed={snapshot.totalRounds === option}
-                onClick={() => onConfigure(snapshot.mode, option, snapshot.genre)}
+                onClick={() => onConfigure(snapshot.mode, option, snapshot.filter)}
                 className={`tap rounded-xl border px-3 py-3 text-sm font-bold transition ${
                   snapshot.totalRounds === option
                     ? 'border-transparent bg-grape-600 text-white'
@@ -391,15 +397,15 @@ function RoomLobby({
             ))}
           </div>
 
-          <GenrePicker
-            value={snapshot.genre}
-            onChange={(genre) => onConfigure(snapshot.mode, snapshot.totalRounds, genre)}
+          <CatalogFilterPicker
+            value={snapshot.filter}
+            onChange={(filter) => onConfigure(snapshot.mode, snapshot.totalRounds, filter)}
           />
 
           <button
             type="button"
             className="btn-primary w-full disabled:opacity-40"
-            disabled={!enoughPlayers}
+            disabled={!enoughPlayers || !filterPlayable(songs, snapshot.filter)}
             onClick={onStart}
           >
             <Play size={18} aria-hidden="true" />
@@ -414,7 +420,9 @@ function RoomLobby({
             {' · '}
             {snapshot.totalRounds} {strings.rounds.toLowerCase()}
             {' · '}
-            {genreLabel(snapshot.genre, strings.genres)}
+            {isEmptyFilter(snapshot.filter)
+              ? strings.genres[ALL_GENRES]
+              : strings.filterCount.replace('{n}', String(countFiltered(songs, snapshot.filter)))}
           </p>
           <p className="text-center text-sm muted">{strings.waitingHost}</p>
         </>

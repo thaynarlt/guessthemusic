@@ -1,4 +1,4 @@
-import { ALL_GENRES } from '@/lib/game/genres';
+import { EMPTY_FILTER, type CatalogFilter } from '@/lib/game/filter';
 import { pointsForGame } from '@/lib/game/score';
 import type { GameMode, GameState } from '@/lib/game/types';
 
@@ -37,8 +37,8 @@ export type RoomPhase = 'lobby' | 'playing' | 'intermission' | 'finished';
 export interface RoomSnapshot {
   phase: RoomPhase;
   mode: GameMode;
-  /** Filtro de genero do sorteio, escolhido pelo anfitriao. */
-  genre: string;
+  /** Filtro do sorteio (genero, epoca, artista), escolhido pelo anfitriao. */
+  filter: CatalogFilter;
   /** 0 no lobby; 1 na primeira rodada. */
   round: number;
   totalRounds: number;
@@ -71,11 +71,11 @@ export interface RoomPlayer {
 export const emptySnapshot = (
   mode: GameMode,
   totalRounds: number,
-  genre: string = ALL_GENRES,
+  filter: CatalogFilter = EMPTY_FILTER,
 ): RoomSnapshot => ({
   phase: 'lobby',
   mode,
-  genre,
+  filter,
   round: 0,
   totalRounds,
   songId: null,

@@ -20,7 +20,7 @@ import {
   type GameVariant,
   type Song,
 } from '@/lib/game/types';
-import { freeRound, resolveDaily } from '@/lib/puzzle/today';
+import { freeRound, genreFilter, resolveDaily } from '@/lib/puzzle/today';
 import { useGameStore } from '@/store/useGameStore';
 import { useAutoHowTo, useSettings, useStrings } from '@/store/useSettings';
 
@@ -66,7 +66,7 @@ export function GameScreen({ mode, variant = 'diario' }: GameScreenProps) {
     let active = true;
 
     if (isFree) {
-      const song = freeRound(mode, recent.current, freeGenre);
+      const song = freeRound(mode, recent.current, genreFilter(freeGenre));
       recent.current = [song.id, ...recent.current].slice(0, RECENT_MEMORY);
       setAnswer(song);
       setLabel(`#${round}`);

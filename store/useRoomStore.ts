@@ -2,9 +2,9 @@
 
 import { create } from 'zustand';
 import { playSfx } from '@/lib/audio/sfx';
-import { getSong } from '@/lib/game/catalog';
+import { getSong, songs } from '@/lib/game/catalog';
+import { pruneFilter, type CatalogFilter } from '@/lib/game/filter';
 import { createGame, skip as skipTurn, submitGuess } from '@/lib/game/machine';
-import { ALL_GENRES } from '@/lib/game/genres';
 import { freeRound } from '@/lib/puzzle/today';
 import type { GameMode, GameState, Song } from '@/lib/game/types';
 import { joinRoom, type ConnectionStatus, type RoomConnection } from '@/lib/room/client';
@@ -51,7 +51,7 @@ export interface RoomStore {
   join: (code: string, name: string, mode: GameMode, totalRounds: number) => Promise<void>;
   /** `forget` apaga a sessao guardada — so quando a pessoa sai de proposito. */
   leave: (forget?: boolean) => void;
-  configure: (mode: GameMode, totalRounds: number, genre: string) => void;
+  configure: (mode: GameMode, totalRounds: number, filter: CatalogFilter) => void;
   startMatch: () => void;
   nextRound: () => void;
   guess: (song: Song) => void;
@@ -70,9 +70,9 @@ export const createRoomStore = () =>
     let deadline: ReturnType<typeof setTimeout> | null = null;
     let recent: string[] = [];
 
-    /** Sorteia a proxima musica da sala, no genero escolhido e sem repetir. */
+    /** Sorteia a proxima musica da sala, dentro do filtro e sem repetir. */
     const draw = (snapshot: RoomSnapshot): Song => {
-      const song = freeRound(snapshot.mode, recent, snapshot.genre);
+      const song = freeRound(snapshot.mode, recent, snapshot.filter);
       recent = [song.id, ...recent].slice(0, RECENT_MEMORY);
       return song;
     };
@@ -300,10 +300,12 @@ export const createRoomStore = () =>
         set({ code: null, me: null, players: [], status: 'closed', game: null });
       },
 
-      configure: (mode, totalRounds, genre) => {
+      configure: (mode, totalRounds, filter) => {
         const { snapshot } = get();
         if (!iAmHost() || snapshot.phase !== 'lobby') return;
-        publish({ ...snapshot, mode, totalRounds, genre });
+        // Poda antes de publicar: filtro guardado de um catalogo antigo pode
+        // trazer genero ou artista que nao existe mais.
+        publish({ ...snapshot, mode, totalRounds, filter: pruneFilter(songs, filter) });
       },
 
       // `adopt` ja arma o cronometro da rodada para quem e anfitriao.

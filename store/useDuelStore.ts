@@ -4,7 +4,7 @@ import { create } from 'zustand';
 import { playSfx } from '@/lib/audio/sfx';
 import { getSong } from '@/lib/game/catalog';
 import { createDuel, duelGuess, duelNextRound, duelSkip, type DuelState } from '@/lib/game/duel';
-import { ALL_GENRES } from '@/lib/game/genres';
+import { EMPTY_FILTER, type CatalogFilter } from '@/lib/game/filter';
 import { freeRound } from '@/lib/puzzle/today';
 import type { GameMode, Song } from '@/lib/game/types';
 
@@ -13,10 +13,10 @@ const RECENT_MEMORY = 12;
 
 interface DuelStore {
   duel: DuelState | null;
-  genre: string;
+  filter: CatalogFilter;
   /** Muda a cada jogada, para a animacao de erro sacudir a linha certa. */
   nonce: number;
-  start: (mode: GameMode, names: string[], rounds: number, genre: string) => void;
+  start: (mode: GameMode, names: string[], rounds: number, filter: CatalogFilter) => void;
   guess: (song: Song) => void;
   skip: () => void;
   next: () => void;
@@ -40,8 +40,8 @@ export const useDuelStore = create<DuelStore>((set, get) => {
   };
 
   /** Sorteia a proxima musica evitando as ultimas do duelo. */
-  const draw = (mode: GameMode, genre: string): Song => {
-    const song = freeRound(mode, recent, genre);
+  const draw = (mode: GameMode, filter: CatalogFilter): Song => {
+    const song = freeRound(mode, recent, filter);
     recent.unshift(song.id);
     recent.length = Math.min(recent.length, RECENT_MEMORY);
     return song;
@@ -49,12 +49,12 @@ export const useDuelStore = create<DuelStore>((set, get) => {
 
   return {
     duel: null,
-    genre: ALL_GENRES,
+    filter: EMPTY_FILTER,
     nonce: 0,
 
-    start: (mode, names, rounds, genre) => {
+    start: (mode, names, rounds, filter) => {
       recent.length = 0;
-      set({ duel: createDuel(mode, names, rounds, draw(mode, genre).id), genre, nonce: 0 });
+      set({ duel: createDuel(mode, names, rounds, draw(mode, filter).id), filter, nonce: 0 });
     },
 
     guess: (song) => {
@@ -78,9 +78,9 @@ export const useDuelStore = create<DuelStore>((set, get) => {
     },
 
     next: () => {
-      const { duel, genre } = get();
+      const { duel, filter } = get();
       if (!duel) return;
-      set({ duel: duelNextRound(duel, draw(duel.mode, genre).id), nonce: 0 });
+      set({ duel: duelNextRound(duel, draw(duel.mode, filter).id), nonce: 0 });
     },
 
     reset: () => {
