@@ -49,10 +49,10 @@ Abra `http://localhost:3000`. **Não precisa de backend, banco nem arquivo de á
 - **Next.js 14.2** (App Router) + **React 18.3** + **TypeScript 5.5** (`strict`, alias `@/*`)
 - **Tailwind CSS 3.4** — tema claro/escuro por classe, respeitando `prefers-color-scheme`
 - **Zustand 4** — estado de jogo e preferências, persistidos em `localStorage`
-- **Web Audio API** — corte no milissegundo, fade de 80 ms e trilhas sincronizadas (não usa `<audio>`)
+- **Web Audio API** — corte no milissegundo, fade de 80 ms, trilhas sincronizadas (não usa `<audio>`) e os efeitos de interface, gerados na hora em vez de servidos como arquivo
 - **Route Handlers (Node)** — puzzle do dia, prévias de áudio e estatísticas globais opcionais
 - **Supabase Realtime** — só a sala online, e só os canais: sem tabela e carregado sob demanda
-- **Vitest** — 197 testes sobre a lógica pura, a sala e os scripts, sem tocar na UI
+- **Vitest** — 211 testes sobre a lógica pura, a sala e os scripts, sem tocar na UI
 
 ```
 app/            rotas (menu, /trecho, /banda, /duelo, /sala) + /api
@@ -280,3 +280,5 @@ O modo Banda **não** exige separação de stems: com prévias ele revela por fa
 ## Acessibilidade
 
 Navegação completa por teclado (`Espaço` toca/para, `Enter` envia, setas percorrem o autocomplete, `Esc` fecha), foco visível, `aria-live` anunciando cada tentativa, combobox com `role`/`aria-activedescendant`, alvos de toque ≥44px, contraste AA e `prefers-reduced-motion` respeitado.
+
+Nada depende só de som: os efeitos sonoros duplicam informação que já está na tela, e o botão de mudo no cabeçalho desliga todos. Na sala, o cronômetro é anunciado uma vez ao entrar na reta final, e não a cada segundo — repetir seria impossível de acompanhar por leitor de tela.

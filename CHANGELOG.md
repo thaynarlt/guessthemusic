@@ -5,6 +5,15 @@ Versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
 ## [Não lançado]
 
+### Adicionado
+
+- **Efeitos sonoros no site todo**, gerados na hora por Web Audio — nenhum
+  arquivo de áudio, seguindo a mesma lógica das faixas de exemplo. Acerto, erro,
+  pulo, revelação, vitória, chat, entrada de jogador e o tique da contagem
+  regressiva. **Efeito nenhum toca por cima do trecho**: o jogo pede para
+  reconhecer 0,2s de música, e um blip ali seria sabotagem, não enfeite. Tem
+  botão de mudo no cabeçalho, com a preferência guardada.
+
 ### Adicionado (sala)
 
 - **Filtro de gênero no lobby**, escolhido pelo anfitrião e propagado para todo
