@@ -16,12 +16,15 @@ interface SettingsState {
   volume: number;
   /** Genero escolhido no modo livre. */
   freeGenre: string;
+  /** Efeitos de interface. Separado do volume, que e da musica. */
+  sfx: boolean;
   /** Falso ate o localStorage ser lido — sem isso o "Como jogar" reabre sozinho. */
   hydrated: boolean;
   setLocale: (locale: Locale) => void;
   setTheme: (theme: ThemeChoice) => void;
   setVolume: (volume: number) => void;
   setFreeGenre: (genre: string) => void;
+  setSfx: (sfx: boolean) => void;
   markHowToSeen: () => void;
 }
 
@@ -40,21 +43,24 @@ export const useSettings = create<SettingsState>()(
       seenHowTo: false,
       volume: 0.6,
       freeGenre: ALL_GENRES,
+      sfx: true,
       hydrated: false,
       setLocale: (locale) => set({ locale }),
       setTheme: (theme) => set({ theme }),
       setVolume: (volume) => set({ volume: Math.min(1, Math.max(0, volume)) }),
       setFreeGenre: (freeGenre) => set({ freeGenre }),
+      setSfx: (sfx) => set({ sfx }),
       markHowToSeen: () => set({ seenHowTo: true }),
     }),
     {
       name: settingsKey(),
-      partialize: ({ locale, theme, seenHowTo, volume, freeGenre }) => ({
+      partialize: ({ locale, theme, seenHowTo, volume, freeGenre, sfx }) => ({
         locale,
         theme,
         seenHowTo,
         volume,
         freeGenre,
+        sfx,
       }),
       onRehydrateStorage: () => () => {
         useSettings.setState({ hydrated: true });

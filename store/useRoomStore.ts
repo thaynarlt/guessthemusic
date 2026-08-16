@@ -1,6 +1,7 @@
 'use client';
 
 import { create } from 'zustand';
+import { playSfx } from '@/lib/audio/sfx';
 import { getSong } from '@/lib/game/catalog';
 import { createGame, skip as skipTurn, submitGuess } from '@/lib/game/machine';
 import { ALL_GENRES } from '@/lib/game/genres';
@@ -126,6 +127,11 @@ export const createRoomStore = () =>
       const previous = get().snapshot;
       const newRound = snapshot.phase === 'playing' && snapshot.round !== previous.round;
 
+      // A rodada fechando e a partida acabando sao os dois momentos em que todo
+      // mundo olha para a tela ao mesmo tempo.
+      if (previous.phase === 'playing' && snapshot.phase === 'intermission') playSfx('reveal');
+      if (previous.phase !== 'finished' && snapshot.phase === 'finished') playSfx('victory');
+
       set({
         snapshot,
         ...(newRound
@@ -166,6 +172,8 @@ export const createRoomStore = () =>
       }
 
       if (message.kind === 'chat') {
+        // So avisa do que veio de fora: o proprio eco nao precisa de blip.
+        if (message.playerId !== get().me?.id) playSfx('chat');
         push({
           kind: 'chat',
           id: message.playerId,
@@ -191,6 +199,7 @@ export const createRoomStore = () =>
       if (before.length > 0) {
         const { joined, left } = presenceDiff(before, players);
         const at = Date.now();
+        if (joined.some((player) => player.id !== me.id)) playSfx('join');
         push(
           ...joined
             .filter((player) => player.id !== me.id)
@@ -318,6 +327,9 @@ export const createRoomStore = () =>
 
         const next = submitGuess(game, song, answer);
         set((state) => ({ game: next, nonce: state.nonce + 1 }));
+        // Sem 'victory' aqui: acertar a rodada nao e ganhar a partida, e a
+        // fanfarra sai quando o placar final aparece.
+        playSfx(next.status === 'won' ? 'correct' : 'wrong');
         announce(next);
       },
 
@@ -327,6 +339,7 @@ export const createRoomStore = () =>
 
         const next = skipTurn(game);
         set((state) => ({ game: next, nonce: state.nonce + 1 }));
+        playSfx('skip');
         announce(next);
       },
 

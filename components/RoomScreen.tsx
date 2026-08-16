@@ -14,6 +14,7 @@ import { HowToRoomModal } from '@/components/HowToRoomModal';
 import { Podium } from '@/components/Podium';
 import { RoomFeed } from '@/components/RoomFeed';
 import { Scoreboard } from '@/components/Scoreboard';
+import { playSfx } from '@/lib/audio/sfx';
 import { useSnippetPlayer } from '@/lib/audio/useSnippetPlayer';
 import { getSong, songUsesStems } from '@/lib/game/catalog';
 import { genreLabel } from '@/lib/game/genres';
@@ -438,9 +439,17 @@ function RoundClock({ startedAt }: { startedAt: number | null }) {
     return () => clearInterval(timer);
   }, []);
 
-  if (startedAt === null) return null;
-  const left = Math.max(0, Math.ceil((startedAt + ROUND_TIMEOUT_MS - now) / 1000));
-  const warning = left <= WARNING_SECONDS;
+  const left =
+    startedAt === null ? null : Math.max(0, Math.ceil((startedAt + ROUND_TIMEOUT_MS - now) / 1000));
+  const warning = left !== null && left <= WARNING_SECONDS;
+
+  // Um tique por segundo na reta final. O `playSfx` ja se cala enquanto o
+  // trecho toca, entao isso nunca atropela a musica.
+  useEffect(() => {
+    if (warning && left !== null && left > 0) playSfx('tick');
+  }, [warning, left]);
+
+  if (left === null) return null;
 
   return (
     <span
