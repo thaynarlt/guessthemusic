@@ -14,6 +14,7 @@ import { getSong, songUsesStems } from '@/lib/game/catalog';
 import { attemptsRemaining, unlockedLevel } from '@/lib/game/machine';
 import { formatSeconds, SNIPPET_STEPS, type GameMode } from '@/lib/game/types';
 import { roomsEnabled } from '@/lib/room/client';
+import { loadSession } from '@/lib/room/session';
 import {
   hostId,
   roomRanking,
@@ -51,8 +52,21 @@ export function RoomScreen({ code }: { code: string }) {
   const [name, setName] = useState('');
   const [copied, setCopied] = useState(false);
 
-  // Sair da sala ao desmontar: sem isso a presenca so cai no timeout do canal.
+  // Solta a presenca ao sair da tela; sem isso ela so cai no timeout do canal.
+  // Sem `forget`: recarregar tambem passa por aqui, e a sessao precisa
+  // sobreviver para a pessoa voltar com os pontos dela.
   useEffect(() => leave, [leave]);
+
+  /**
+   * Recarregou a pagina no meio da partida? Volta sozinha, com o mesmo id — e
+   * portanto com os pontos ja conquistados. Perguntar o nome de novo aqui seria
+   * pedir para a pessoa reconstruir algo que o navegador ja sabe.
+   */
+  useEffect(() => {
+    if (me) return;
+    const saved = loadSession();
+    if (saved?.code === code) void join(code, saved.name, 'trecho', 5);
+  }, [me, code, join]);
 
   const song = snapshot.songId ? getSong(snapshot.songId) : undefined;
   const myGameOver = game !== null && game.status !== 'playing';
@@ -260,7 +274,7 @@ export function RoomScreen({ code }: { code: string }) {
           </>
         )}
 
-        <button type="button" className="btn-ghost mx-auto" onClick={leave}>
+        <button type="button" className="btn-ghost mx-auto" onClick={() => leave(true)}>
           {strings.roomLeave}
         </button>
       </main>
