@@ -29,10 +29,10 @@ const other: Song = { ...answer, id: 'c', title: 'Paper Airplane', artist: 'The 
 const newGame = (): GameState => createGame('trecho', 142, answer.id);
 
 describe('transicoes', () => {
-  it('comeca jogando, com 0.1s e so a bateria', () => {
+  it('comeca jogando, com 0.2s e so a bateria', () => {
     const state = newGame();
     expect(state.status).toBe('playing');
-    expect(snippetDuration(state)).toBe(0.1);
+    expect(snippetDuration(state)).toBe(0.2);
     expect(unlockedStems(state)).toEqual(['drums']);
     expect(attemptsRemaining(state)).toBe(MAX_ATTEMPTS);
   });
@@ -44,7 +44,7 @@ describe('transicoes', () => {
       state = submitGuess(state, other, answer);
       curva.push(snippetDuration(state));
     }
-    expect(curva).toEqual([0.1, 0.5, 2, 4, 8, 15]);
+    expect(curva).toEqual([0.2, 0.5, 2, 4, 8, 15]);
   });
 
   it('erro libera o proximo trecho e a proxima trilha', () => {
@@ -70,7 +70,7 @@ describe('transicoes', () => {
   });
 
   it('formata os segundos sem casas sobrando', () => {
-    expect(formatSeconds(0.1)).toBe('0.1s');
+    expect(formatSeconds(0.2)).toBe('0.2s');
     expect(formatSeconds(2)).toBe('2s');
     expect(formatSeconds(15)).toBe('15s');
   });

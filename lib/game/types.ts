@@ -61,9 +61,9 @@ export const MAX_ATTEMPTS = 6;
  * Duracao liberada (em segundos) por tentativa no modo Trecho.
  * Mesma curva do Songless: comeca em um piscar de olho e cresce rapido.
  */
-export const SNIPPET_STEPS = [0.1, 0.5, 2, 4, 8, 15] as const;
+export const SNIPPET_STEPS = [0.2, 0.5, 2, 4, 8, 15] as const;
 
-/** Formata a duracao do trecho sem casas decimais desnecessarias (0.1s, 2s). */
+/** Formata a duracao do trecho sem casas decimais desnecessarias (0.2s, 2s). */
 export const formatSeconds = (value: number): string =>
   `${Number(value.toFixed(1))}s`;
 
