@@ -48,6 +48,14 @@ function validate(song: Song, index: number, seen: Set<string>): void {
   if (seen.has(song.id)) fail(id, 'id duplicado');
   seen.add(song.id);
 
+  for (const field of ['aliases', 'featuring'] as const) {
+    const list = song[field];
+    if (list === undefined) continue;
+    if (!Array.isArray(list) || list.some((item) => typeof item !== 'string' || !item.trim())) {
+      fail(id, `${field} precisa ser uma lista de textos nao vazios`);
+    }
+  }
+
   if (song.cover) checkPublicFile(id, 'cover', song.cover);
 
   switch (song.source) {
