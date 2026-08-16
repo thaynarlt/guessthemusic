@@ -7,6 +7,15 @@ Versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
 ### Adicionado
 
+- **Formato Corrida na sala online.** O trecho cresce sozinho a cada 8s, igual
+  para todo mundo ao mesmo tempo, e vale um ponto a menos por degrau — a dúvida
+  "arrisco agora ou ouço mais?" é o jogo. A versão ingênua de "quem acerta
+  primeiro" premiaria quem digita rápido e chuta muito, porque errar liberaria
+  mais música; o relógio compartilhado corrige isso. Vem com bônus de 1º, 2º e
+  3º (senão a rodada morre no primeiro acerto), trava de 4s ao errar, contador
+  de quantos já acertaram, última chamada e pote que dobra depois de rodada
+  seca. A ordem de chegada é decidida pelo relógio do anfitrião, não pelo
+  cronômetro de cada aparelho — senão quem tem internet pior ganharia a corrida.
 - **Filtro de catálogo por gênero, época e artista** no duelo e na sala, tudo
   múltipla escolha. A época sai de graça do campo `year`, que já existia limpo
   nas 1871 músicas; antes de 1990 vira um balde só, porque o catálogo tem 4
