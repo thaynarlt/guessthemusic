@@ -3,6 +3,37 @@
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 Versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [Não lançado]
+
+### Adicionado
+
+- **Duelo local (`/duelo`).** De 2 a 4 pessoas em um aparelho só, disputando a
+  mesma música: quem está com a vez ouve o trecho atual e chuta; se errar ou
+  pular, a vez passa para a próxima, que ouve mais tempo e vale menos pontos.
+  Quem acertar leva os pontos do degrau e encerra a rodada. Quem abre a rodada
+  roda a cada rodada, porque começar vale mais mas entrega o degrau seguinte de
+  graça a quem vem depois.
+- **Sala online (`/sala`).** Código de 4 letras, até 8 pessoas, todo mundo com a
+  mesma música ao mesmo tempo — cada um no seu ritmo. A rodada fecha quando
+  todos respondem ou quando estouram 90s, para quem fechou a aba não travar a
+  sala. **Não precisa de banco**: usa só os canais de Realtime do Supabase
+  (Broadcast + Presence), sem tabela nenhuma, e fica desligada até
+  `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_ANON_KEY` existirem.
+- **Pontuação por degrau** (`lib/game/score.ts`), base dos dois modos: 6 pontos
+  em 0,2s, caindo um a cada degrau liberado até 1 em 15s, e zero para quem não
+  acertou. Como errar e pular consomem o mesmo degrau, custam a mesma coisa —
+  pular nunca é vantagem, só economia de tempo.
+
+### Alterado
+
+- **Primeira tentativa do Trecho passou de 0,1s para 0,2s.** Em 0,1s o ouvido
+  mal registrava um transiente — a tentativa virava chute puro. A curva agora é
+  `0,2s → 0,5s → 2s → 4s → 8s → 15s`.
+- **Núcleo de áudio virou um hook** (`lib/audio/useSnippetPlayer.ts`) com o
+  bloco visual em `components/AudioDeck.tsx`. Os três modos mostram o mesmo
+  player em cima do mesmo comportamento; sem isso, duelo e sala teriam copiado
+  a parte mais delicada do jogo. O comportamento do diário e do livre não mudou.
+
 ## [0.3.0] — 2026-08-15
 
 ### Adicionado
