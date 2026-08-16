@@ -3,6 +3,26 @@
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 Versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.6.0] — 2026-08-16
+
+### Adicionado
+
+- **Formato Corrida na sala online.** O trecho cresce sozinho a cada 8s, igual
+  para todo mundo ao mesmo tempo, e vale um ponto a menos por degrau — a dúvida
+  "arrisco agora ou ouço mais?" é o jogo. A versão ingênua de "quem acerta
+  primeiro" premiaria quem digita rápido e chuta muito, porque errar liberaria
+  mais música; o relógio compartilhado corrige isso. Vem com bônus de 1º, 2º e
+  3º (senão a rodada morre no primeiro acerto), trava de 4s ao errar, contador
+  de quantos já acertaram, última chamada e pote que dobra depois de rodada
+  seca. A ordem de chegada é decidida pelo relógio do anfitrião, não pelo
+  cronômetro de cada aparelho — senão quem tem internet pior ganharia a corrida.
+- **Filtro de catálogo por gênero, época e artista** no duelo e na sala, tudo
+  múltipla escolha. A época sai de graça do campo `year`, que já existia limpo
+  nas 1871 músicas; antes de 1990 vira um balde só, porque o catálogo tem 4
+  músicas dos anos 60 e 27 dos 70. A contagem aparece ao vivo e o botão de
+  começar trava quando sobra pouca música — cruzar dois filtros esvazia rápido
+  (k-pop antes de 1990 são zero músicas), e descobrir isso jogando seria pior.
+
 ## [0.5.0] — 2026-08-16
 
 ### Adicionado
@@ -197,6 +217,7 @@ Primeira versão jogável.
 - Reimportar o catálogo muda as respostas do puzzle diário, porque o sorteio
   deriva da lista de músicas.
 
+[0.6.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.6.0
 [0.5.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.5.0
 [0.4.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.4.0
 [0.3.0]: https://github.com/thaynarlt/guessthemusic/releases/tag/v0.3.0

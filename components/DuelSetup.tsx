@@ -2,14 +2,15 @@
 
 import { useState } from 'react';
 import { AudioLines, Headphones, Plus, Swords, X } from 'lucide-react';
-import { GenrePicker } from '@/components/GenrePicker';
+import { CatalogFilterPicker } from '@/components/CatalogFilterPicker';
+import { songs } from '@/lib/game/catalog';
 import { MAX_PLAYERS, MIN_PLAYERS, ROUND_OPTIONS } from '@/lib/game/duel';
-import { ALL_GENRES } from '@/lib/game/genres';
+import { EMPTY_FILTER, filterPlayable, type CatalogFilter } from '@/lib/game/filter';
 import type { GameMode } from '@/lib/game/types';
 import { useStrings } from '@/store/useSettings';
 
 interface DuelSetupProps {
-  onStart: (mode: GameMode, names: string[], rounds: number, genre: string) => void;
+  onStart: (mode: GameMode, names: string[], rounds: number, filter: CatalogFilter) => void;
 }
 
 /** Nome padrao de quem nao digitou nada — o duelo nunca trava por campo vazio. */
@@ -21,7 +22,7 @@ export function DuelSetup({ onStart }: DuelSetupProps) {
   const [names, setNames] = useState<string[]>(['', '']);
   const [rounds, setRounds] = useState<number>(5);
   const [mode, setMode] = useState<GameMode>('trecho');
-  const [genre, setGenre] = useState(ALL_GENRES);
+  const [filter, setFilter] = useState<CatalogFilter>(EMPTY_FILTER);
 
   const rename = (index: number, value: string) =>
     setNames((current) => current.map((name, i) => (i === index ? value : name)));
@@ -31,7 +32,7 @@ export function DuelSetup({ onStart }: DuelSetupProps) {
       mode,
       names.map((name, index) => name.trim() || fallbackName(strings.playerNumber, index)),
       rounds,
-      genre,
+      filter,
     );
 
   return (
@@ -130,12 +131,14 @@ export function DuelSetup({ onStart }: DuelSetupProps) {
         </div>
       </section>
 
-      <section className="space-y-2">
-        <h2 className="text-xs font-bold uppercase tracking-wider muted">{strings.genre}</h2>
-        <GenrePicker value={genre} onChange={setGenre} />
-      </section>
+      <CatalogFilterPicker value={filter} onChange={setFilter} />
 
-      <button type="button" className="btn-primary w-full" onClick={start}>
+      <button
+        type="button"
+        className="btn-primary w-full disabled:opacity-40"
+        disabled={!filterPlayable(songs, filter)}
+        onClick={start}
+      >
         <Swords size={18} aria-hidden="true" />
         {strings.startDuel}
       </button>

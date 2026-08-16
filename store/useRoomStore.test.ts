@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 // Só o tipo: o módulo em si é substituído pelo `vi.mock` logo abaixo.
 import type { RoomHandlers } from '@/lib/room/client';
-import type { RoomPlayer } from '@/lib/room/protocol';
+import { RACE_LOCKOUT_MS, type RoomPlayer } from '@/lib/room/protocol';
 
 /**
  * Barramento em memoria no lugar do canal do Supabase.
@@ -157,7 +157,9 @@ describe('entrar na sala', () => {
 
   it('o anfitriao propaga modo e rodadas ainda no lobby', async () => {
     const ana = track(await enter('Ana', 3));
-    ana.getState().configure('banda', 10, 'rock');
+    ana
+      .getState()
+      .configure('banda', 10, { genres: ['rock'], eras: ['2010'], artists: [] }, 'corrida');
     await tick();
 
     const bia = track(await enter('Bia', 5));
@@ -166,7 +168,104 @@ describe('entrar na sala', () => {
 
     expect(bia.getState().snapshot.mode).toBe('banda');
     expect(bia.getState().snapshot.totalRounds).toBe(10);
-    expect(bia.getState().snapshot.genre).toBe('rock');
+    expect(bia.getState().snapshot.filter).toEqual({
+      genres: ['rock'],
+      eras: ['2010'],
+      artists: [],
+    });
+    expect(bia.getState().snapshot.format).toBe('corrida');
+  });
+});
+
+describe('corrida na sala', () => {
+  /** Sobe uma sala ja no formato corrida, com a partida rodando. */
+  async function corrida() {
+    const ana = track(await enter('Ana'));
+    const bia = track(await enter('Bia'));
+    await tick();
+
+    ana.getState().configure('trecho', 2, { genres: [], eras: [], artists: [] }, 'corrida');
+    await tick();
+    await tick();
+
+    ana.getState().startMatch();
+    await tick();
+    await tick();
+    return { ana, bia };
+  }
+
+  it('todo mundo entra no formato corrida', async () => {
+    const { ana, bia } = await corrida();
+    expect(ana.getState().snapshot.format).toBe('corrida');
+    expect(bia.getState().snapshot.format).toBe('corrida');
+    expect(bia.getState().snapshot.phase).toBe('playing');
+  });
+
+  it('errar trava o palpite por alguns segundos', async () => {
+    const { ana } = await corrida();
+    const errado = wrongFor(ana);
+    if (!errado) throw new Error('catalogo com uma musica so');
+
+    ana.getState().guess(errado);
+    await tick();
+
+    const travadoAte = ana.getState().lockedUntil;
+    expect(travadoAte).not.toBeNull();
+    expect((travadoAte as number) - Date.now()).toBeGreaterThan(0);
+  });
+
+  it('o palpite e ignorado enquanto a trava esta de pe', async () => {
+    const { ana } = await corrida();
+    const errado = wrongFor(ana);
+    if (!errado) throw new Error('catalogo com uma musica so');
+
+    ana.getState().guess(errado);
+    await tick();
+    const depoisDoPrimeiro = ana.getState().game?.attempts.length;
+
+    ana.getState().guess(errado);
+    await tick();
+    expect(ana.getState().game?.attempts.length).toBe(depoisDoPrimeiro);
+  });
+
+  it('quem acerta primeiro leva o bonus maior', async () => {
+    const { ana, bia } = await corrida();
+    const anaId = ana.getState().me?.id ?? '';
+    const biaId = bia.getState().me?.id ?? '';
+
+    await hit(ana);
+    await hit(bia);
+    await tick();
+    await tick();
+
+    const placar = bia.getState().snapshot.scores;
+    expect(placar[anaId]).toBeGreaterThan(placar[biaId] as number);
+  });
+
+  it('a trava expira e a rodada seguinte comeca limpa', async () => {
+    const { ana, bia } = await corrida();
+    const errado = wrongFor(ana);
+    if (!errado) throw new Error('catalogo com uma musica so');
+
+    ana.getState().guess(errado);
+    await tick();
+    expect(ana.getState().lockedUntil).not.toBeNull();
+
+    // Esperar e o unico jeito honesto de sair da trava: ela e de tempo, e nao
+    // ha atalho — que e exatamente o ponto dela.
+    await new Promise((resolve) => setTimeout(resolve, RACE_LOCKOUT_MS + 100));
+
+    await hit(ana);
+    await hit(bia);
+    await tick();
+    await tick();
+
+    ana.getState().nextRound();
+    await tick();
+    await tick();
+
+    expect(ana.getState().lockedUntil).toBeNull();
+    expect(ana.getState().snapshot.round).toBe(2);
   });
 });
 
@@ -180,9 +279,7 @@ describe('mural', () => {
     track(await enter('Bia'));
     await tick();
 
-    expect(ana.getState().feed).toEqual([
-      expect.objectContaining({ kind: 'joined', name: 'Bia' }),
-    ]);
+    expect(ana.getState().feed).toEqual([expect.objectContaining({ kind: 'joined', name: 'Bia' })]);
   });
 
   it('nao anuncia a propria entrada', async () => {

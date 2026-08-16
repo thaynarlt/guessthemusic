@@ -1,14 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Check, Copy, DoorOpen, Play, Radio, SkipForward, Trophy } from 'lucide-react';
+import { Check, Copy, DoorOpen, Play, Radio, SkipForward, Timer, Trophy } from 'lucide-react';
 import { AppHeader } from '@/components/AppHeader';
 import { AttemptList } from '@/components/AttemptList';
 import { AudioDeck } from '@/components/AudioDeck';
 import { ConfirmDialog } from '@/components/ConfirmDialog';
 import { CoverArt } from '@/components/CoverArt';
 import { FullTrackPlayer } from '@/components/FullTrackPlayer';
-import { GenrePicker } from '@/components/GenrePicker';
+import { CatalogFilterPicker } from '@/components/CatalogFilterPicker';
 import { GuessInput } from '@/components/GuessInput';
 import { HowToRoomModal } from '@/components/HowToRoomModal';
 import { Podium } from '@/components/Podium';
@@ -16,17 +16,28 @@ import { RoomFeed } from '@/components/RoomFeed';
 import { Scoreboard } from '@/components/Scoreboard';
 import { playSfx } from '@/lib/audio/sfx';
 import { useSnippetPlayer } from '@/lib/audio/useSnippetPlayer';
-import { getSong, songUsesStems } from '@/lib/game/catalog';
-import { genreLabel } from '@/lib/game/genres';
+import { getSong, songs, songUsesStems } from '@/lib/game/catalog';
+import {
+  countFiltered,
+  filterPlayable,
+  isEmptyFilter,
+  type CatalogFilter,
+} from '@/lib/game/filter';
+import { ALL_GENRES } from '@/lib/game/genres';
 import { attemptsRemaining, unlockedLevel } from '@/lib/game/machine';
+import { pointsForLevel } from '@/lib/game/score';
 import { formatSeconds, SNIPPET_STEPS, type GameMode } from '@/lib/game/types';
 import { roomsEnabled } from '@/lib/room/client';
 import { loadSession } from '@/lib/room/session';
 import {
+  correctSoFar,
   hostId,
+  LAST_CALL_MS,
+  raceLevel,
   roomRanking,
   ROOM_ROUND_OPTIONS,
-  ROUND_TIMEOUT_MS,
+  roundDeadline,
+  type RoomFormat,
   type RoomSnapshot,
 } from '@/lib/room/protocol';
 import { useRoomStore } from '@/store/useRoomStore';
@@ -61,10 +72,25 @@ export function RoomScreen({ code }: { code: string }) {
   const skip = useRoomStore((state) => state.skip);
   const say = useRoomStore((state) => state.say);
 
+  const lockedUntil = useRoomStore((state) => state.lockedUntil);
+
   const [name, setName] = useState('');
   const [copied, setCopied] = useState(false);
   const [showHowTo, setShowHowTo] = useState(false);
   const [confirmLeave, setConfirmLeave] = useState(false);
+
+  /**
+   * Relogio da tela.
+   *
+   * Na corrida o degrau vem do tempo, entao a tela precisa de um pulso proprio:
+   * sem isso o trecho so cresceria quando outra coisa causasse re-render. Meio
+   * segundo da folga de sobra para degraus de oito.
+   */
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    const timer = setInterval(() => setNow(Date.now()), 500);
+    return () => clearInterval(timer);
+  }, []);
 
   // Solta a presenca ao sair da tela; sem isso ela so cai no timeout do canal.
   // Sem `forget`: recarregar tambem passa por aqui, e a sessao precisa
@@ -86,10 +112,19 @@ export function RoomScreen({ code }: { code: string }) {
   const myGameOver = game !== null && game.status !== 'playing';
   const revealed = snapshot.phase !== 'playing' || myGameOver;
 
+  const isRace = snapshot.format === 'corrida';
+  const elapsed = snapshot.startedAt === null ? 0 : now - snapshot.startedAt;
+
+  // Na corrida o degrau e do relogio da sala, igual para todos ao mesmo tempo;
+  // no ritmo, de quantas tentativas cada um ja gastou.
+  const level = isRace ? raceLevel(elapsed) : game ? unlockedLevel(game) : 0;
+
+  const lockedFor = lockedUntil === null ? 0 : Math.max(0, Math.ceil((lockedUntil - now) / 1000));
+
   const player = useSnippetPlayer({
     song: song ?? null,
     mode: snapshot.mode,
-    level: game ? unlockedLevel(game) : 0,
+    level,
     seed: `${code}:${snapshot.round}`,
     revealed,
   });
@@ -215,21 +250,38 @@ export function RoomScreen({ code }: { code: string }) {
 
             {snapshot.phase === 'playing' && !myGameOver ? (
               <>
+                <RaceStatus snapshot={snapshot} level={level} now={now} visible={isRace} />
+
                 <p className="text-center text-sm muted">
                   {attemptsRemaining(game)} {strings.attemptsLeft}
                   {' · '}
-                  <RoundClock startedAt={snapshot.startedAt} />
+                  <RoundClock snapshot={snapshot} now={now} />
                 </p>
-                <GuessInput
-                  disabled={false}
-                  onGuess={guess}
-                  onSkip={skip}
-                  skipLabel={
-                    snapshot.mode === 'trecho'
-                      ? `${strings.skip} (+${formatSeconds(nextStepGain(unlockedLevel(game)))})`
-                      : strings.skip
-                  }
-                />
+
+                {lockedFor > 0 ? (
+                  // Trava do erro: some com o campo em vez de so desabilitar,
+                  // para a espera ficar impossivel de confundir com travamento.
+                  <p
+                    className="surface p-4 text-center font-display text-lg font-bold text-amber-500"
+                    role="status"
+                  >
+                    {strings.raceLocked.replace('{n}', String(lockedFor))}
+                  </p>
+                ) : (
+                  <GuessInput
+                    disabled={false}
+                    onGuess={guess}
+                    {...(isRace
+                      ? {}
+                      : {
+                          onSkip: skip,
+                          skipLabel:
+                            snapshot.mode === 'trecho'
+                              ? `${strings.skip} (+${formatSeconds(nextStepGain(level))})`
+                              : strings.skip,
+                        })}
+                  />
+                )}
               </>
             ) : (
               <section className="surface animate-pop-in space-y-4 p-4" aria-live="polite">
@@ -325,7 +377,12 @@ interface RoomLobbyProps {
   snapshot: RoomSnapshot;
   enoughPlayers: boolean;
   onCopy: () => void;
-  onConfigure: (mode: GameMode, totalRounds: number, genre: string) => void;
+  onConfigure: (
+    mode: GameMode,
+    totalRounds: number,
+    filter: CatalogFilter,
+    format: RoomFormat,
+  ) => void;
   onStart: () => void;
 }
 
@@ -351,13 +408,44 @@ function RoomLobby({
 
       {amHost ? (
         <>
+          {/* O formato vem antes do modo: muda o jogo, nao so o audio. */}
+          <div className="grid gap-2 sm:grid-cols-2">
+            {(['ritmo', 'corrida'] as const).map((option) => {
+              const active = snapshot.format === option;
+              return (
+                <button
+                  key={option}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() =>
+                    onConfigure(snapshot.mode, snapshot.totalRounds, snapshot.filter, option)
+                  }
+                  className={`tap flex flex-col gap-0.5 rounded-xl border px-3 py-3 text-left transition ${
+                    active ? 'border-transparent bg-grape-600 text-white' : ''
+                  }`}
+                  style={active ? undefined : { borderColor: 'rgb(var(--border))' }}
+                >
+                  <span className="flex items-center gap-2 text-sm font-bold">
+                    {option === 'corrida' && <Timer size={16} aria-hidden="true" />}
+                    {option === 'ritmo' ? strings.formatRitmo : strings.formatCorrida}
+                  </span>
+                  <span className={`text-xs ${active ? 'text-white/80' : 'muted'}`}>
+                    {option === 'ritmo' ? strings.formatRitmoHint : strings.formatCorridaHint}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
           <div className="grid grid-cols-2 gap-2">
             {(['trecho', 'banda'] as const).map((option) => (
               <button
                 key={option}
                 type="button"
                 aria-pressed={snapshot.mode === option}
-                onClick={() => onConfigure(option, snapshot.totalRounds, snapshot.genre)}
+                onClick={() =>
+                  onConfigure(option, snapshot.totalRounds, snapshot.filter, snapshot.format)
+                }
                 className={`tap rounded-xl border px-3 py-3 text-sm font-bold transition ${
                   snapshot.mode === option ? 'border-transparent bg-grape-600 text-white' : ''
                 }`}
@@ -374,7 +462,7 @@ function RoomLobby({
                 key={option}
                 type="button"
                 aria-pressed={snapshot.totalRounds === option}
-                onClick={() => onConfigure(snapshot.mode, option, snapshot.genre)}
+                onClick={() => onConfigure(snapshot.mode, option, snapshot.filter, snapshot.format)}
                 className={`tap rounded-xl border px-3 py-3 text-sm font-bold transition ${
                   snapshot.totalRounds === option
                     ? 'border-transparent bg-grape-600 text-white'
@@ -391,15 +479,17 @@ function RoomLobby({
             ))}
           </div>
 
-          <GenrePicker
-            value={snapshot.genre}
-            onChange={(genre) => onConfigure(snapshot.mode, snapshot.totalRounds, genre)}
+          <CatalogFilterPicker
+            value={snapshot.filter}
+            onChange={(filter) =>
+              onConfigure(snapshot.mode, snapshot.totalRounds, filter, snapshot.format)
+            }
           />
 
           <button
             type="button"
             className="btn-primary w-full disabled:opacity-40"
-            disabled={!enoughPlayers}
+            disabled={!enoughPlayers || !filterPlayable(songs, snapshot.filter)}
             onClick={onStart}
           >
             <Play size={18} aria-hidden="true" />
@@ -414,7 +504,9 @@ function RoomLobby({
             {' · '}
             {snapshot.totalRounds} {strings.rounds.toLowerCase()}
             {' · '}
-            {genreLabel(snapshot.genre, strings.genres)}
+            {isEmptyFilter(snapshot.filter)
+              ? strings.genres[ALL_GENRES]
+              : strings.filterCount.replace('{n}', String(countFiltered(songs, snapshot.filter)))}
           </p>
           <p className="text-center text-sm muted">{strings.waitingHost}</p>
         </>
@@ -424,23 +516,69 @@ function RoomLobby({
 }
 
 /**
+ * Placar da corrida: quanto o degrau paga agora, quantos ja acertaram e o pote.
+ *
+ * O contador de acertos e o que mete pressao — voce sabe que esta ficando para
+ * tras sem ganhar pista nenhuma sobre a musica.
+ */
+function RaceStatus({
+  snapshot,
+  level,
+  now,
+  visible,
+}: {
+  snapshot: RoomSnapshot;
+  level: number;
+  now: number;
+  visible: boolean;
+}) {
+  const strings = useStrings();
+  if (!visible) return null;
+
+  const acertaram = correctSoFar(snapshot);
+  const ultimaChamada = snapshot.lastCallAt !== null && now < snapshot.lastCallAt + LAST_CALL_MS;
+
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
+      <span className="rounded-full bg-grape-500/20 px-3 py-1 font-display text-base font-extrabold text-grape-600 dark:text-grape-400">
+        {pointsForLevel(level)}
+        <span className="ml-1 text-xs font-semibold">{strings.points}</span>
+      </span>
+
+      {snapshot.pot > 1 && (
+        <span className="rounded-full bg-amber-500/20 px-3 py-1 font-semibold text-amber-600 dark:text-amber-400">
+          {strings.racePot.replace('{n}', String(snapshot.pot))}
+        </span>
+      )}
+
+      {acertaram > 0 && (
+        <span className="muted" role="status">
+          {strings.raceCorrectSoFar.replace('{n}', String(acertaram))}
+        </span>
+      )}
+
+      {ultimaChamada && (
+        <span className="animate-pop-in font-bold text-red-500" role="status">
+          {strings.raceLastCall}
+        </span>
+      )}
+    </div>
+  );
+}
+
+/**
  * Quanto falta para a rodada estourar.
  *
  * So informativo — quem fecha a rodada e o anfitriao. Perto do fim vira alerta,
  * porque a diferenca entre "tenho tempo" e "e agora" muda o que se faz com a
- * ultima tentativa.
+ * ultima tentativa. Na corrida o prazo encurta quando alguem acerta, e este
+ * relogio segue o prazo em vigor, nao o do comeco.
  */
-function RoundClock({ startedAt }: { startedAt: number | null }) {
+function RoundClock({ snapshot, now }: { snapshot: RoomSnapshot; now: number }) {
   const strings = useStrings();
-  const [now, setNow] = useState(() => Date.now());
 
-  useEffect(() => {
-    const timer = setInterval(() => setNow(Date.now()), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const left =
-    startedAt === null ? null : Math.max(0, Math.ceil((startedAt + ROUND_TIMEOUT_MS - now) / 1000));
+  const deadline = roundDeadline(snapshot);
+  const left = deadline === null ? null : Math.max(0, Math.ceil((deadline - now) / 1000));
   const warning = left !== null && left <= WARNING_SECONDS;
 
   // Um tique por segundo na reta final. O `playSfx` ja se cala enquanto o
