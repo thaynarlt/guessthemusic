@@ -19,7 +19,7 @@ Cada modo tem duas variantes:
 Os dois modos multijogador usam a mesma pontuação: **acertar no trecho de 0,2s vale 6 pontos, e cada degrau liberado vale um ponto a menos** — 6, 5, 4, 3, 2, 1, e zero para quem não acertou. Como errar e pular consomem o mesmo degrau, custam a mesma coisa; pular só serve para não perder tempo, nunca é vantagem. Nenhum dos dois grava nada nem mexe na sequência do diário.
 
 - **Duelo** (`/duelo`) — de 2 a 4 pessoas em um aparelho só, **disputando a mesma música**. A primeira ouve 0,2s e chuta; se errar ou pular, a vez passa para a próxima, que ouve 0,5s mas já vale só 5 pontos. Quem acertar leva os pontos daquele degrau e a rodada acaba. Quem abre a rodada roda a cada rodada, porque começar é vantagem e desvantagem ao mesmo tempo: vale mais, mas entrega o degrau seguinte de graça a quem vem depois.
-- **Sala online** (`/sala`) — estilo Gartic: cria uma sala, compartilha um código de 4 letras e todo mundo ouve **a mesma música ao mesmo tempo**, cada um no seu ritmo, até 8 pessoas. Quem reconhece antes pontua mais. A rodada fecha quando todo mundo responde ou quando estouram 90s — assim quem fechou a aba não trava a sala. Empate no total é desempatado pelo tempo de resposta.
+- **Sala online** (`/sala`) — estilo Gartic: cria uma sala, compartilha um código de 4 letras e todo mundo ouve **a mesma música ao mesmo tempo**, cada um no seu ritmo, até 8 pessoas. Quem reconhece antes pontua mais. A rodada fecha quando todo mundo responde ou quando estouram 90s — assim quem fechou a aba não trava a sala. Empate no total é desempatado pelo tempo de resposta. Tem filtro de gênero, conversa, aviso de quem entra e sai, e pódio no fim.
 
 A sala online é o **único** pedaço do jogo que precisa de infraestrutura; o resto continua rodando com `npm run dev` e mais nada. Veja [Sala online](#sala-online-opcional).
 
@@ -52,7 +52,7 @@ Abra `http://localhost:3000`. **Não precisa de backend, banco nem arquivo de á
 - **Web Audio API** — corte no milissegundo, fade de 80 ms e trilhas sincronizadas (não usa `<audio>`)
 - **Route Handlers (Node)** — puzzle do dia, prévias de áudio e estatísticas globais opcionais
 - **Supabase Realtime** — só a sala online, e só os canais: sem tabela e carregado sob demanda
-- **Vitest** — 184 testes sobre a lógica pura, a sala e os scripts, sem tocar na UI
+- **Vitest** — 197 testes sobre a lógica pura, a sala e os scripts, sem tocar na UI
 
 ```
 app/            rotas (menu, /trecho, /banda, /duelo, /sala) + /api
