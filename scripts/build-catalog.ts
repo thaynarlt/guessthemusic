@@ -48,7 +48,7 @@ function validate(song: Song, index: number, seen: Set<string>): void {
   if (seen.has(song.id)) fail(id, 'id duplicado');
   seen.add(song.id);
 
-  for (const field of ['aliases', 'featuring'] as const) {
+  for (const field of ['aliases', 'featuring', 'genres'] as const) {
     const list = song[field];
     if (list === undefined) continue;
     if (!Array.isArray(list) || list.some((item) => typeof item !== 'string' || !item.trim())) {
@@ -152,7 +152,9 @@ async function main(): Promise<void> {
   }
 
   console.log(`✔ catalogo ok: ${songs.length} musica(s)`);
-  console.log(`  modo Banda: ${comStems} por instrumento, ${songs.length - comStems} por frequencia`);
+  console.log(
+    `  modo Banda: ${comStems} por instrumento, ${songs.length - comStems} por frequencia`,
+  );
   if (previews > 0) console.log(`  ${previews} por previa de 30s (fonte externa)`);
 }
 

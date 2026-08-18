@@ -22,7 +22,7 @@ const song = (id: string, artist: string, year: number, genre?: string): Song =>
   artist,
   year,
   source: 'synth',
-  ...(genre ? { genre } : {}),
+  ...(genre ? { genres: genre.split('+') } : {}),
 });
 
 const catalog: Song[] = [
@@ -34,6 +34,7 @@ const catalog: Song[] = [
   song('f', 'BTS', 2022, 'kpop'),
   song('g', 'Anitta', 2022, 'pop'),
   song('h', 'Sem Genero', 2015),
+  song('i', 'Rose', 2024, 'kpop+pop'),
 ];
 
 const filter = (over: Partial<CatalogFilter> = {}): CatalogFilter => ({
@@ -65,7 +66,18 @@ describe('filtrar', () => {
 
   it('aceita mais de um genero', () => {
     const hits = filterSongs(catalog, filter({ genres: ['rock', 'kpop'] }));
-    expect(hits.map((s) => s.id).sort()).toEqual(['a', 'b', 'c', 'e', 'f']);
+    expect(hits.map((s) => s.id).sort()).toEqual(['a', 'b', 'c', 'e', 'f', 'i']);
+  });
+
+  it('musica de dois generos entra por qualquer um deles', () => {
+    // O disco solo de uma cantora de K-pop e pop ocidental: quem filtra por um
+    // ou por outro tem de encontrar a mesma musica.
+    expect(filterSongs(catalog, filter({ genres: ['kpop'] })).map((s) => s.id)).toContain('i');
+    expect(filterSongs(catalog, filter({ genres: ['pop'] })).map((s) => s.id)).toContain('i');
+  });
+
+  it('nao conta a musica duas vezes por ter dois generos', () => {
+    expect(countFiltered(catalog, filter({ genres: ['kpop', 'pop'] }))).toBe(5);
   });
 
   it('filtra por epoca', () => {
@@ -91,12 +103,16 @@ describe('filtrar', () => {
   });
 
   it('musica sem genero so aparece quando nao ha filtro de genero', () => {
-    expect(filterSongs(catalog, filter({ genres: ['pop'] })).map((s) => s.id)).toEqual(['d', 'g']);
+    expect(filterSongs(catalog, filter({ genres: ['pop'] })).map((s) => s.id)).toEqual([
+      'd',
+      'g',
+      'i',
+    ]);
     expect(filterSongs(catalog, filter({ eras: ['2010'] })).map((s) => s.id)).toEqual(['h']);
   });
 
   it('conta o que sobrou', () => {
-    expect(countFiltered(catalog, filter({ genres: ['kpop'] }))).toBe(2);
+    expect(countFiltered(catalog, filter({ genres: ['kpop'] }))).toBe(3);
   });
 });
 
@@ -145,6 +161,7 @@ describe('artistas disponiveis', () => {
       'BTS',
       'Nirvana',
       'Queen',
+      'Rose',
       'Sem Genero',
     ]);
   });
