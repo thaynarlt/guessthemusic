@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { AppHeader } from '@/components/AppHeader';
 import { AttemptList } from '@/components/AttemptList';
 import { AudioDeck } from '@/components/AudioDeck';
@@ -12,6 +12,7 @@ import { StatsModal } from '@/components/StatsModal';
 import { useSnippetPlayer } from '@/lib/audio/useSnippetPlayer';
 import { songUsesStems } from '@/lib/game/catalog';
 import { attemptsRemaining, unlockedLevel } from '@/lib/game/machine';
+import { remember, type PlayedSong } from '@/lib/game/rotation';
 import {
   formatSeconds,
   sessionId,
@@ -26,8 +27,13 @@ import { useAutoHowTo, useSettings, useStrings } from '@/store/useSettings';
 
 const FULL_DURATION = SNIPPET_STEPS[SNIPPET_STEPS.length - 1] ?? 16;
 
-/** Quantas musicas guardar no historico para nao repetir no modo livre. */
-const RECENT_MEMORY = 8;
+/**
+ * Historico do modo livre, por sessao. Fica fora do componente porque ir ao
+ * menu e voltar desmonta a tela: guardado num `ref`, o descanso zeraria e a
+ * musica que acabou de tocar poderia voltar na rodada seguinte. Continua so na
+ * memoria — recarregar a pagina recomeca, igual ao placar da sessao.
+ */
+const histories = new Map<string, PlayedSong[]>();
 
 interface GameScreenProps {
   mode: GameMode;
@@ -56,7 +62,6 @@ export function GameScreen({ mode, variant = 'diario' }: GameScreenProps) {
   const [round, setRound] = useState(1);
   const [showHowTo, setShowHowTo] = useState(false);
   const [showStats, setShowStats] = useState(false);
-  const recent = useRef<string[]>([]);
 
   const isFree = variant === 'livre';
 
@@ -66,8 +71,9 @@ export function GameScreen({ mode, variant = 'diario' }: GameScreenProps) {
     let active = true;
 
     if (isFree) {
-      const song = freeRound(mode, recent.current, genreFilter(freeGenre));
-      recent.current = [song.id, ...recent.current].slice(0, RECENT_MEMORY);
+      const history = histories.get(session) ?? [];
+      const song = freeRound(mode, history, genreFilter(freeGenre));
+      histories.set(session, remember(history, song));
       setAnswer(song);
       setLabel(`#${round}`);
       startFree(mode, round, song.id);
@@ -84,7 +90,7 @@ export function GameScreen({ mode, variant = 'diario' }: GameScreenProps) {
     return () => {
       active = false;
     };
-  }, [mode, isFree, round, freeGenre, startDaily, startFree]);
+  }, [mode, isFree, round, freeGenre, session, startDaily, startFree]);
 
   useEffect(() => {
     if (autoHowTo) setShowHowTo(true);
