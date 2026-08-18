@@ -5,6 +5,7 @@ import { playSfx } from '@/lib/audio/sfx';
 import { getSong, songs } from '@/lib/game/catalog';
 import { pruneFilter, type CatalogFilter } from '@/lib/game/filter';
 import { createGame, skip as skipTurn, submitGuess } from '@/lib/game/machine';
+import { remember, type PlayedSong } from '@/lib/game/rotation';
 import { freeRound } from '@/lib/puzzle/today';
 import type { GameMode, GameState, Song } from '@/lib/game/types';
 import { joinRoom, type ConnectionStatus, type RoomConnection } from '@/lib/room/client';
@@ -30,9 +31,6 @@ import {
   type RoomSnapshot,
 } from '@/lib/room/protocol';
 import { clearSession, loadSession, playerIdFor, saveSession } from '@/lib/room/session';
-
-/** Quantas musicas guardar para nao repetir dentro da mesma partida. */
-const RECENT_MEMORY = 16;
 
 export interface RoomStore {
   code: string | null;
@@ -78,12 +76,12 @@ export const createRoomStore = () =>
     /** Conexao e cronometro nao sao dados de tela: ficam fora do estado. */
     let connection: RoomConnection | null = null;
     let deadline: ReturnType<typeof setTimeout> | null = null;
-    let recent: string[] = [];
+    let history: PlayedSong[] = [];
 
     /** Sorteia a proxima musica da sala, dentro do filtro e sem repetir. */
     const draw = (snapshot: RoomSnapshot): Song => {
-      const song = freeRound(snapshot.mode, recent, snapshot.filter);
-      recent = [song.id, ...recent].slice(0, RECENT_MEMORY);
+      const song = freeRound(snapshot.mode, history, snapshot.filter);
+      history = remember(history, song);
       return song;
     };
 
@@ -299,7 +297,7 @@ export const createRoomStore = () =>
         };
         saveSession({ code, name, playerId: me.id });
 
-        recent = [];
+        history = [];
         set({
           code,
           me,

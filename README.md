@@ -12,7 +12,7 @@ São 6 tentativas por modo, um puzzle novo por dia (meia-noite UTC), estatístic
 Cada modo tem duas variantes:
 
 - **Diário** (`/trecho`, `/banda`) — um puzzle por dia, com sequência, estatísticas e compartilhamento.
-- **Livre** (`/livre/trecho`, `/livre/banda`) — rodadas ilimitadas, sem esperar o dia virar. Sorteia uma música na hora, evita repetir as últimas e mantém um placar da sessão. **Não grava nada e não mexe na sequência do diário.**
+- **Livre** (`/livre/trecho`, `/livre/banda`) — rodadas ilimitadas, sem esperar o dia virar. Sorteia uma música na hora, dá um bom descanso à música e ao artista que acabaram de sair (`lib/game/rotation.ts`) e mantém um placar da sessão. **Não grava nada e não mexe na sequência do diário.**
 
 ## Multijogador
 
@@ -57,12 +57,12 @@ Abra `http://localhost:3000`. **Não precisa de backend, banco nem arquivo de á
 - **Web Audio API** — corte no milissegundo, fade de 80 ms, trilhas sincronizadas (não usa `<audio>`) e os efeitos de interface, gerados na hora em vez de servidos como arquivo
 - **Route Handlers (Node)** — puzzle do dia, prévias de áudio e estatísticas globais opcionais
 - **Supabase Realtime** — só a sala online, e só os canais: sem tabela e carregado sob demanda
-- **Vitest** — 255 testes sobre a lógica pura, a sala e os scripts, sem tocar na UI
+- **Vitest** — 261 testes sobre a lógica pura, a sala e os scripts, sem tocar na UI
 
 ```
 app/            rotas (menu, /trecho, /banda, /duelo, /sala) + /api
 components/     UI (client components)
-lib/game/       lógica pura: sorteio diário, palpites, máquina de estados, duelo, pontos, filtro, stats, share
+lib/game/       lógica pura: sorteio diário, rotação do modo livre, palpites, máquina de estados, duelo, pontos, filtro, stats, share
 lib/audio/      gerador procedural, provedor plugável e motor de reprodução
 lib/puzzle/     resolução do puzzle do dia (local ou via API)
 lib/room/       sala online: protocolo, código e canal de Realtime

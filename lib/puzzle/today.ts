@@ -1,7 +1,8 @@
 import { dailyAnswer, playableSongs } from '@/lib/game/catalog';
-import { dateKey, pickRandom, puzzleNumberFor } from '@/lib/game/daily';
+import { dateKey, puzzleNumberFor } from '@/lib/game/daily';
 import { EMPTY_FILTER, filterSongs, type CatalogFilter } from '@/lib/game/filter';
 import { ALL_GENRES } from '@/lib/game/genres';
+import { pickFresh, type PlayedSong } from '@/lib/game/rotation';
 import type { GameMode, Song } from '@/lib/game/types';
 
 export interface DailyPuzzle {
@@ -14,7 +15,8 @@ export const genreFilter = (genre: string): CatalogFilter =>
   genre === ALL_GENRES ? EMPTY_FILTER : { ...EMPTY_FILTER, genres: [genre] };
 
 /**
- * Rodada sorteada na hora, respeitando o filtro e evitando repetir as ultimas.
+ * Rodada sorteada na hora, respeitando o filtro e dando descanso ao que acabou
+ * de tocar — musica e artista (ver `pickFresh`).
  *
  * Filtro que nao sobrou nada cai para o catalogo inteiro: aqui e tarde para
  * reclamar — quem escolheu ja foi avisado na tela de configuracao, e a partida
@@ -22,12 +24,12 @@ export const genreFilter = (genre: string): CatalogFilter =>
  */
 export function freeRound(
   mode: GameMode,
-  recentIds: readonly string[],
+  history: readonly PlayedSong[],
   filter: CatalogFilter = EMPTY_FILTER,
 ): Song {
   const all = playableSongs(mode);
   const pool = filterSongs(all, filter);
-  return pickRandom(pool.length > 0 ? pool : all, recentIds);
+  return pickFresh(pool.length > 0 ? pool : all, history);
 }
 
 /** Numero do puzzle de hoje (nao e segredo: aparece no compartilhamento). */

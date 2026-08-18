@@ -5,11 +5,9 @@ import { playSfx } from '@/lib/audio/sfx';
 import { getSong } from '@/lib/game/catalog';
 import { createDuel, duelGuess, duelNextRound, duelSkip, type DuelState } from '@/lib/game/duel';
 import { EMPTY_FILTER, type CatalogFilter } from '@/lib/game/filter';
+import { remember, type PlayedSong } from '@/lib/game/rotation';
 import { freeRound } from '@/lib/puzzle/today';
 import type { GameMode, Song } from '@/lib/game/types';
-
-/** Quantas musicas guardar para nao repetir dentro do mesmo duelo. */
-const RECENT_MEMORY = 12;
 
 interface DuelStore {
   duel: DuelState | null;
@@ -28,7 +26,7 @@ interface DuelStore {
  * some ao recarregar — nao mexe na sequencia nem nas estatisticas do diario.
  */
 export const useDuelStore = create<DuelStore>((set, get) => {
-  const recent: string[] = [];
+  let history: PlayedSong[] = [];
 
   /** Som da jogada: quem rouba a rodada leva a fanfarra. */
   const announce = (duel: DuelState): void => {
@@ -39,11 +37,10 @@ export const useDuelStore = create<DuelStore>((set, get) => {
     else playSfx(last?.result === 'skipped' ? 'skip' : 'wrong');
   };
 
-  /** Sorteia a proxima musica evitando as ultimas do duelo. */
+  /** Sorteia a proxima musica dando descanso as ultimas do duelo. */
   const draw = (mode: GameMode, filter: CatalogFilter): Song => {
-    const song = freeRound(mode, recent, filter);
-    recent.unshift(song.id);
-    recent.length = Math.min(recent.length, RECENT_MEMORY);
+    const song = freeRound(mode, history, filter);
+    history = remember(history, song);
     return song;
   };
 
@@ -53,7 +50,7 @@ export const useDuelStore = create<DuelStore>((set, get) => {
     nonce: 0,
 
     start: (mode, names, rounds, filter) => {
-      recent.length = 0;
+      history = [];
       set({ duel: createDuel(mode, names, rounds, draw(mode, filter).id), filter, nonce: 0 });
     },
 
@@ -84,7 +81,7 @@ export const useDuelStore = create<DuelStore>((set, get) => {
     },
 
     reset: () => {
-      recent.length = 0;
+      history = [];
       set({ duel: null, nonce: 0 });
     },
   };

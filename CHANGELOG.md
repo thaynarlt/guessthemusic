@@ -3,6 +3,22 @@
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 Versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [Não publicado]
+
+### Alterado
+
+- **Sorteio do modo livre com descanso de música e de artista.** O histórico
+  antigo guardava 8 músicas e só olhava o id: a mesma música podia voltar na
+  nona rodada e o mesmo cantor, na seguinte — e como cada artista tem até 12
+  músicas no catálogo, isso acontecia o tempo todo em sessão longa. Agora cada
+  candidata entra no sorteio com um peso: zero enquanto está de quarentena (40%
+  do pool para a música, 15% dos artistas para o cantor), subindo aos poucos até
+  voltar ao normal. No catálogo inteiro dá mais de 100 rodadas sem repetir
+  música e cerca de 15 sem repetir artista; com filtro estreito os prazos
+  encolhem junto, para nunca travar o sorteio. Vale também para o duelo e para a
+  sala online. O histórico do modo livre passou a sobreviver a ir ao menu e
+  voltar — antes zerava com a tela.
+
 ## [0.6.0] — 2026-08-16
 
 ### Adicionado
