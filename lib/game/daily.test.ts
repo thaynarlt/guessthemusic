@@ -1,11 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import {
-  dateKey,
-  msUntilNextPuzzle,
-  pickAnswer,
-  pickRandom,
-  puzzleNumberFor,
-} from '@/lib/game/daily';
+import { dateKey, msUntilNextPuzzle, pickAnswer, puzzleNumberFor } from '@/lib/game/daily';
 import { dailyAnswer, songs } from '@/lib/game/catalog';
 import type { Song } from '@/lib/game/types';
 
@@ -56,12 +50,18 @@ describe('pickAnswer', () => {
   });
 
   it('nao repete musica antes de percorrer o catalogo inteiro', () => {
-    const ciclo = Array.from({ length: fake.length }, (_, i) => pickAnswer(fake, 'trecho', i + 1).id);
+    const ciclo = Array.from(
+      { length: fake.length },
+      (_, i) => pickAnswer(fake, 'trecho', i + 1).id,
+    );
     expect(new Set(ciclo).size).toBe(fake.length);
   });
 
   it('embaralha de novo a cada ciclo', () => {
-    const first = Array.from({ length: fake.length }, (_, i) => pickAnswer(fake, 'trecho', i + 1).id);
+    const first = Array.from(
+      { length: fake.length },
+      (_, i) => pickAnswer(fake, 'trecho', i + 1).id,
+    );
     const second = Array.from(
       { length: fake.length },
       (_, i) => pickAnswer(fake, 'trecho', fake.length + i + 1).id,
@@ -71,8 +71,14 @@ describe('pickAnswer', () => {
   });
 
   it('nao repete a ordem entre os modos', () => {
-    const trecho = Array.from({ length: fake.length }, (_, i) => pickAnswer(fake, 'trecho', i + 1).id);
-    const banda = Array.from({ length: fake.length }, (_, i) => pickAnswer(fake, 'banda', i + 1).id);
+    const trecho = Array.from(
+      { length: fake.length },
+      (_, i) => pickAnswer(fake, 'trecho', i + 1).id,
+    );
+    const banda = Array.from(
+      { length: fake.length },
+      (_, i) => pickAnswer(fake, 'banda', i + 1).id,
+    );
     expect(banda).not.toEqual(trecho);
   });
 
@@ -94,50 +100,6 @@ describe('pickAnswer', () => {
   it('ignora avoidId quando a musica sorteada ja e outra', () => {
     const original = pickAnswer(songs, 'banda', 12);
     expect(pickAnswer(songs, 'banda', 12, 'id-que-nao-existe').id).toBe(original.id);
-  });
-});
-
-describe('pickRandom (modo livre)', () => {
-  it('nunca devolve uma musica do historico recente', () => {
-    const recentes = fake.slice(0, fake.length - 1).map((song) => song.id);
-    for (let i = 0; i < 30; i += 1) {
-      expect(recentes).not.toContain(pickRandom(fake, recentes).id);
-    }
-  });
-
-  it('recomeca o ciclo quando todas ja foram tocadas', () => {
-    const todas = fake.map((song) => song.id);
-    expect(todas).toContain(pickRandom(fake, todas).id);
-  });
-
-  it('percorre o catalogo inteiro ao longo de varias rodadas', () => {
-    const vistas = new Set<string>();
-    let recentes: string[] = [];
-    for (let i = 0; i < fake.length * 6; i += 1) {
-      const song = pickRandom(fake, recentes);
-      vistas.add(song.id);
-      recentes = [song.id, ...recentes].slice(0, fake.length - 1);
-    }
-    expect(vistas.size).toBe(fake.length);
-  });
-
-  it('sorteia do catalogo real sem repetir a ultima', () => {
-    const primeira = pickRandom(songs, []);
-    expect(pickRandom(songs, [primeira.id]).id).not.toBe(primeira.id);
-  });
-
-  it('respeita o gerador injetado', () => {
-    const ordenado = songs.slice().sort((a, b) => a.id.localeCompare(b.id));
-    expect(pickRandom(songs, [], () => 0).id).toBe(songs[0]?.id);
-    expect(ordenado.length).toBeGreaterThan(0);
-  });
-
-  it('nao estoura no limite superior do gerador', () => {
-    expect(() => pickRandom(songs, [], () => 0.999999999)).not.toThrow();
-  });
-
-  it('rejeita catalogo vazio', () => {
-    expect(() => pickRandom([], [])).toThrow();
   });
 });
 

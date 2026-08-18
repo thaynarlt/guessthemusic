@@ -62,22 +62,3 @@ export function pickAnswer(
   if (!picked) throw new Error('Falha ao sortear a musica do dia');
   return picked;
 }
-
-/**
- * Sorteia uma musica para o modo livre, evitando as ultimas ja tocadas. Quando
- * o jogador ja passou por todas, o historico e ignorado e o ciclo recomeca.
- */
-export function pickRandom(
-  songs: readonly Song[],
-  recentIds: readonly string[] = [],
-  random: () => number = Math.random,
-): Song {
-  if (songs.length === 0) throw new Error('Catalogo vazio');
-
-  const fresh = songs.filter((song) => !recentIds.includes(song.id));
-  const pool = fresh.length > 0 ? fresh : songs;
-  const picked = pool[Math.floor(random() * pool.length) % pool.length];
-
-  if (!picked) throw new Error('Falha ao sortear a musica');
-  return picked;
-}

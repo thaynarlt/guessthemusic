@@ -59,7 +59,7 @@ O `--no-ff` é proposital: preserva o agrupamento dos commits da branch no hist�
 ## Antes de abrir Pull Request
 
 ```bash
-npm test          # 255 testes da lógica pura, da sala e dos scripts
+npm test          # 264 testes da lógica pura, da sala e dos scripts
 npm run lint
 npm run build     # valida o catálogo e compila
 ```

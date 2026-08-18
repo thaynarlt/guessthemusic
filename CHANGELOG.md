@@ -3,6 +3,63 @@
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 Versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.7.0] — 2026-08-18
+
+### Adicionado
+
+- **Gênero "Cristã"**, com 218 músicas de 58 artistas do louvor brasileiro — de
+  Padre Fábio de Melo, Padre Marcelo Rossi e Anjos de Resgate a Colo de Deus,
+  Frei Gilson e Fraternidade São João Paulo II, com o louvor evangélico da mesma
+  playlist junto (Kleber Lucas, Jessé Aguiar, Thiago Brado). A lista de artistas
+  saiu de uma playlist de referência e virou o preset `crista` do importador,
+  então dá para refazer a importação. O gênero aparece sozinho no modo livre, no
+  duelo e na sala: a lista sai dos dados, não de uma constante.
+  **O catálogo foi de 1871 para 2089 músicas, e por isso as respostas do puzzle
+  diário mudaram** — quem estava com a partida do dia em andamento recomeça.
+- **`--ao-vivo` e `--titulo-unico` no importador.** O padrão de recusar gravação
+  ao vivo esvaziaria este gênero (o Frei Gilson tem 19 das 20 faixas mais
+  tocadas ao vivo), então agora dá para aceitá-las — e a marca "- Ao Vivo" sai
+  do título, o que de quebra impede a versão de estúdio e a ao vivo de ocuparem
+  duas vagas. O `--titulo-unico` resolve o outro traço do gênero: como cada
+  comunidade grava o mesmo louvor, duas gravações do mesmo título virariam duas
+  respostas certas para o mesmo áudio, e quem escolhesse a outra levaria erro.
+- **Grupos dos anos 2000 e 2010**, a era das boy e girl bands, que o catálogo só
+  tinha pelos solistas que saíram delas: One Direction, Fifth Harmony, Little
+  Mix, Destiny's Child, Spice Girls, \*NSYNC, The Pussycat Dolls, Westlife, Big
+  Time Rush, RBD, The Wanted, JLS, Girls Aloud, Sugababes, The Saturdays,
+  t.A.T.u., CNCO, Now United, Aly & AJ e Why Don't We em **pop**; 5 Seconds Of
+  Summer, Simple Plan, Good Charlotte, All Time Low, The All-American Rejects,
+  McFly e Boys Like Girls em **rock**, junto do blink-182 e do Paramore que já
+  estavam lá. São 209 músicas.
+- **Uma música pode ter mais de um gênero.** O campo `genre` (texto) virou
+  `genres` (lista) e o filtro aceita a música por qualquer um deles. Existe
+  porque música não respeita gaveta: o disco solo das integrantes do BLACKPINK é
+  K-pop e pop ocidental do primeiro ao último compasso, e obrigar a escolher
+  escondia a música de metade de quem a procura. São 49 músicas em dois gêneros.
+- **Id do artista no preset do importador** (`'LISA#145068682'`), para os nomes
+  que a busca do Deezer não resolve. A LISA do BLACKPINK não aparecia nem entre
+  os dez primeiros resultados de "LISA", e o desempate por fãs entregava uma
+  homônima — por isso ela estava fora do catálogo.
+
+### Alterado
+
+- **Elenco de K-pop revisto**: saíram TREASURE, BOYNEXTDOOR, ATEEZ, ZEROBASEONE,
+  THE BOYZ, STAYC, Girls' Generation, G-DRAGON, HyunA, TAEYEON, CL, RAIN, SUNMI,
+  Chung Ha e TAEYANG (144 músicas); entraram JISOO e LISA, e BLACKPINK, JENNIE e
+  BABYMONSTER ganharam mais música — o BABYMONSTER tinha só uma, porque as
+  faixas dele no Deezer são quase todas ao vivo e o importador as recusava.
+- **Sorteio do modo livre com descanso de música e de artista.** O histórico
+  antigo guardava 8 músicas e só olhava o id: a mesma música podia voltar na
+  nona rodada e o mesmo cantor, na seguinte — e como cada artista tem até 12
+  músicas no catálogo, isso acontecia o tempo todo em sessão longa. Agora cada
+  candidata entra no sorteio com um peso: zero enquanto está de quarentena (40%
+  do pool para a música, 15% dos artistas para o cantor), subindo aos poucos até
+  voltar ao normal. No catálogo inteiro dá mais de 100 rodadas sem repetir
+  música e cerca de 15 sem repetir artista; com filtro estreito os prazos
+  encolhem junto, para nunca travar o sorteio. Vale também para o duelo e para a
+  sala online. O histórico do modo livre passou a sobreviver a ir ao menu e
+  voltar — antes zerava com a tela.
+
 ## [0.6.0] — 2026-08-16
 
 ### Adicionado
