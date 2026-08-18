@@ -48,8 +48,14 @@ export interface Song {
    * Preenchido por `npm run catalog:featuring`.
    */
   featuring?: string[];
-  /** Genero para o filtro do modo livre (ex.: "rock", "pop", "kpop"). */
-  genre?: string;
+  /**
+   * Generos para o filtro do modo livre (ex.: ["rock"], ["kpop", "pop"]).
+   *
+   * E lista, e nao um genero so, porque musica nao respeita gaveta: o disco
+   * solo de uma cantora de K-pop e pop ocidental do primeiro ao ultimo compasso,
+   * e obrigar a escolher esconderia a musica de metade de quem a procura.
+   */
+  genres?: string[];
 }
 
 export type GameMode = 'trecho' | 'banda';
@@ -72,8 +78,7 @@ export const MAX_ATTEMPTS = 6;
 export const SNIPPET_STEPS = [0.2, 0.5, 2, 4, 8, 15] as const;
 
 /** Formata a duracao do trecho sem casas decimais desnecessarias (0.2s, 2s). */
-export const formatSeconds = (value: number): string =>
-  `${Number(value.toFixed(1))}s`;
+export const formatSeconds = (value: number): string => `${Number(value.toFixed(1))}s`;
 
 export type GuessResult = 'correct' | 'artist' | 'wrong' | 'skipped';
 

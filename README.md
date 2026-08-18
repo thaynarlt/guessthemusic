@@ -37,17 +37,17 @@ npm run dev
 
 Abra `http://localhost:3000`. **Não precisa de backend, banco nem arquivo de áudio**: o catálogo vem com 8 faixas geradas proceduralmente (Web Audio puro), então o jogo é jogável no primeiro `npm run dev`.
 
-| Comando | O que faz |
-| --- | --- |
-| `npm run dev` | Servidor de desenvolvimento |
-| `npm run build` | Valida o catálogo e faz o build de produção |
-| `npm start` | Sobe o build de produção |
-| `npm test` | Testes da lógica pura e do gerador de áudio (Vitest) |
-| `npm run lint` | ESLint (`eslint-config-next`) |
-| `npm run catalog:check` | Valida `data/songs.json` sozinho |
-| `npm run catalog:import` | Importa músicas reais das APIs do Deezer/iTunes |
-| `npm run catalog:featuring` | Preenche os artistas convidados de cada música |
-| `npm run format` | Prettier |
+| Comando                     | O que faz                                            |
+| --------------------------- | ---------------------------------------------------- |
+| `npm run dev`               | Servidor de desenvolvimento                          |
+| `npm run build`             | Valida o catálogo e faz o build de produção          |
+| `npm start`                 | Sobe o build de produção                             |
+| `npm test`                  | Testes da lógica pura e do gerador de áudio (Vitest) |
+| `npm run lint`              | ESLint (`eslint-config-next`)                        |
+| `npm run catalog:check`     | Valida `data/songs.json` sozinho                     |
+| `npm run catalog:import`    | Importa músicas reais das APIs do Deezer/iTunes      |
+| `npm run catalog:featuring` | Preenche os artistas convidados de cada música       |
+| `npm run format`            | Prettier                                             |
 
 ## Stack
 
@@ -57,7 +57,7 @@ Abra `http://localhost:3000`. **Não precisa de backend, banco nem arquivo de á
 - **Web Audio API** — corte no milissegundo, fade de 80 ms, trilhas sincronizadas (não usa `<audio>`) e os efeitos de interface, gerados na hora em vez de servidos como arquivo
 - **Route Handlers (Node)** — puzzle do dia, prévias de áudio e estatísticas globais opcionais
 - **Supabase Realtime** — só a sala online, e só os canais: sem tabela e carregado sob demanda
-- **Vitest** — 261 testes sobre a lógica pura, a sala e os scripts, sem tocar na UI
+- **Vitest** — 264 testes sobre a lógica pura, a sala e os scripts, sem tocar na UI
 
 ```
 app/            rotas (menu, /trecho, /banda, /duelo, /sala) + /api
@@ -80,22 +80,31 @@ npm run catalog:import -- --fonte deezer --preset classicos     # ~47 artistas c
 npm run catalog:import -- --fonte deezer --preset kpop --juntar # acrescenta K-pop
 npm run catalog:import -- --fonte deezer --limite 50            # chart do Brasil
 npm run catalog:import -- --fonte deezer --busca "rock nacional" --limite 30 --juntar
+npm run catalog:import -- --preset crista --por-artista 6 --ao-vivo --titulo-unico --juntar
 ```
 
-| Opção | Padrão | O que faz |
-| --- | --- | --- |
-| `--fonte` | `deezer` | `deezer` (1 chamada, já traz a prévia) ou `itunes` (chart + busca, mais lento) |
-| `--preset` | — | `classicos` ou `kpop`: listas curadas de artistas em `scripts/import-catalog.ts` |
-| `--por-artista` | `3` | Faixas por artista no preset |
-| `--pais` | `br` | País do chart |
-| `--limite` | `50` | Quantas músicas importar (chart/busca) |
-| `--busca` | — | Importa de uma busca em vez do chart |
-| `--juntar` | — | Acrescenta ao catálogo atual em vez de substituir |
-| `--saida` | `data/songs.json` | Arquivo de destino |
+| Opção            | Padrão            | O que faz                                                                                                                         |
+| ---------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `--fonte`        | `deezer`          | `deezer` (1 chamada, já traz a prévia) ou `itunes` (chart + busca, mais lento)                                                    |
+| `--preset`       | —                 | `classicos`, `rock`, `pop`, `hiphop`, `eletronica`, `kpop` ou `crista`: listas curadas de artistas em `scripts/import-catalog.ts` |
+| `--por-artista`  | `3`               | Faixas por artista no preset                                                                                                      |
+| `--pais`         | `br`              | País do chart                                                                                                                     |
+| `--limite`       | `50`              | Quantas músicas importar (chart/busca)                                                                                            |
+| `--busca`        | —                 | Importa de uma busca em vez do chart                                                                                              |
+| `--juntar`       | —                 | Acrescenta ao catálogo atual em vez de substituir                                                                                 |
+| `--ao-vivo`      | —                 | Aceita gravações ao vivo (e apaga o "- Ao Vivo" do título)                                                                        |
+| `--titulo-unico` | —                 | Uma gravação por título, mesmo de artistas diferentes                                                                             |
+| `--saida`        | `data/songs.json` | Arquivo de destino                                                                                                                |
 
-O importador descarta versões ao vivo, remix e karaokê (atrapalham o reconhecimento) e evita que a mesma música entre duas vezes por causa de "Remastered".
+O importador descarta remix, karaokê e afins (atrapalham o reconhecimento) e evita que a mesma música entre duas vezes por causa de "Remastered".
+
+Gravação **ao vivo** também fica de fora por padrão, mas com `--ao-vivo` ela entra e a marca some do título — em gêneros onde o ao vivo é a gravação de referência (o louvor católico, por exemplo, em que o Frei Gilson tem 19 das 20 faixas mais tocadas ao vivo) o padrão esvaziaria o preset. Nesses gêneros vale somar `--titulo-unico`: quando várias comunidades gravam o mesmo louvor, duas gravações do mesmo título viram duas respostas certas para o mesmo áudio, e quem escolhesse a outra levaria erro. Vence a primeira, ou seja, a ordem do preset.
 
 Depois rode `npm run catalog:featuring` e `npm run catalog:check`.
+
+O `--genero` grava **uma** categoria por importação, mas o campo é lista (`genres`): uma música pode estar em dois gêneros ao mesmo tempo e aparece no filtro dos dois. É o caso do disco solo das integrantes do BLACKPINK, que é K-pop e pop ocidental ao mesmo tempo — o segundo gênero é curadoria, aplicada depois da importação.
+
+Um preset também aceita o id do artista no Deezer (`'LISA#145068682'`), para os nomes que a busca não resolve: "LISA" não aparece nem entre os dez primeiros resultados dela mesma, e o desempate por fãs entregaria uma homônima.
 
 ### Artistas convidados
 
@@ -121,28 +130,28 @@ Na tela de revelação, músicas com id do Deezer ganham o **widget oficial** da
 
 Testado em 14/08/2026:
 
-| | SoundCloud | Deezer / iTunes |
-| --- | --- | --- |
-| Busca sem chave | `401` na API pública e na `api-v2` interna | `200`, sem cadastro |
-| Descobrir a faixa por artista/título | sem caminho público | `/search/artist` + `/artist/{id}/top` |
-| oEmbed sem chave | funciona, mas exige já saber a URL da faixa | — |
-| Bytes do áudio | `resolve` → `401`; iframe cross-origin bloqueia | mp3 baixável e decodificável |
-| Música inteira deslogado | sim (vantagem real dele) | 30s sem login |
+|                                      | SoundCloud                                      | Deezer / iTunes                       |
+| ------------------------------------ | ----------------------------------------------- | ------------------------------------- |
+| Busca sem chave                      | `401` na API pública e na `api-v2` interna      | `200`, sem cadastro                   |
+| Descobrir a faixa por artista/título | sem caminho público                             | `/search/artist` + `/artist/{id}/top` |
+| oEmbed sem chave                     | funciona, mas exige já saber a URL da faixa     | —                                     |
+| Bytes do áudio                       | `resolve` → `401`; iframe cross-origin bloqueia | mp3 baixável e decodificável          |
+| Música inteira deslogado             | sim (vantagem real dele)                        | 30s sem login                         |
 
 O jogo precisa do `AudioBuffer`, não de um player: sem as amostras não dá para cortar em 0,2s com fade, nem para aplicar os filtros do modo Banda. Um widget em iframe de outra origem não entrega isso — o que também explica por que o Songless, que usa SoundCloud, não tem um modo estilo Bandle.
 
 ## Precisa de banco de dados?
 
-Não — e por bastante tempo. Nem para o multijogador: o **Duelo** é local e a **Sala online** precisa de *estado compartilhado*, que é coisa diferente de banco. A sala vive uns dez minutos e morre com a última aba; não há nada para persistir, então ela usa só os canais de Realtime do Supabase (Broadcast + Presence) — **sem tabela, sem schema, sem migração**.
+Não — e por bastante tempo. Nem para o multijogador: o **Duelo** é local e a **Sala online** precisa de _estado compartilhado_, que é coisa diferente de banco. A sala vive uns dez minutos e morre com a última aba; não há nada para persistir, então ela usa só os canais de Realtime do Supabase (Broadcast + Presence) — **sem tabela, sem schema, sem migração**.
 
 O catálogo é um JSON lido em tempo de build:
 
-| Catálogo | `songs.json` | Peso no bundle (gzip) |
-| --- | --- | --- |
-| 236 músicas (atual) | 69 KB | ~13 KB |
-| ~1.000 músicas | ~290 KB | ~50 KB |
+| Catálogo              | `songs.json` | Peso no bundle (gzip) |
+| --------------------- | ------------ | --------------------- |
+| 236 músicas           | 69 KB        | ~13 KB                |
+| 2.205 músicas (atual) | 740 KB       | ~98 KB                |
 
-Regra prática: **até ~1.000 músicas o JSON resolve**. O áudio nunca pesa, porque mora no CDN da fonte.
+Regra prática: **até uns poucos milhares de músicas o JSON resolve**. O áudio nunca pesa, porque mora no CDN da fonte.
 
 Vale migrar para banco (Supabase — a rota `/api/stats` já está preparada) quando aparecer alguma destas necessidades:
 
@@ -188,8 +197,12 @@ Normalmente vem do `catalog:import`, mas dá pra escrever à mão:
 
 ```json
 {
-  "id": "deezer-3135556", "title": "...", "artist": "...", "year": 2001,
-  "source": "preview", "previewId": "deezer:3135556"
+  "id": "deezer-3135556",
+  "title": "...",
+  "artist": "...",
+  "year": 2001,
+  "source": "preview",
+  "previewId": "deezer:3135556"
 }
 ```
 
@@ -199,7 +212,11 @@ Normalmente vem do `catalog:import`, mas dá pra escrever à mão:
 
 ```json
 {
-  "id": "song-001", "title": "...", "artist": "...", "year": 2019, "source": "synth",
+  "id": "song-001",
+  "title": "...",
+  "artist": "...",
+  "year": 2019,
+  "source": "synth",
   "synth": { "bpm": 92, "root": 45, "mode": "minor", "progression": [0, 8, 3, 10], "seed": 1001 }
 }
 ```
@@ -246,7 +263,7 @@ NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGci...
 ```
 
-**Não rode SQL nenhum.** Basta criar um projeto no Supabase e copiar as duas chaves de *Settings → API*. A sala usa apenas os canais de Realtime:
+**Não rode SQL nenhum.** Basta criar um projeto no Supabase e copiar as duas chaves de _Settings → API_. A sala usa apenas os canais de Realtime:
 
 - **Broadcast** — as mensagens da partida (`state` e `done`). Não ficam gravadas em lugar nenhum.
 - **Presence** — a lista de quem está na sala, com queda de conexão detectada de graça.
@@ -257,12 +274,12 @@ O plano gratuito cobre 200 conexões simultâneas e 2 milhões de mensagens por 
 
 Como isso funciona por dentro:
 
-| Peça | Onde | O que faz |
-| --- | --- | --- |
-| `lib/room/protocol.ts` | puro, testado | ciclo da rodada, eleição do anfitrião, placar |
-| `lib/room/code.ts` | puro, testado | código de 4 letras (sem `I`, `O`, `0`, `1`, que confundem quando ditados) |
-| `lib/room/client.ts` | cliente | canal do Realtime; `import()` dinâmico, então quem só joga o diário nunca baixa a lib |
-| `store/useRoomStore.ts` | cliente, testado | amarra tudo; o teste sobe dois clientes em um canal falso e joga uma partida inteira |
+| Peça                    | Onde             | O que faz                                                                             |
+| ----------------------- | ---------------- | ------------------------------------------------------------------------------------- |
+| `lib/room/protocol.ts`  | puro, testado    | ciclo da rodada, eleição do anfitrião, placar                                         |
+| `lib/room/code.ts`      | puro, testado    | código de 4 letras (sem `I`, `O`, `0`, `1`, que confundem quando ditados)             |
+| `lib/room/client.ts`    | cliente          | canal do Realtime; `import()` dinâmico, então quem só joga o diário nunca baixa a lib |
+| `store/useRoomStore.ts` | cliente, testado | amarra tudo; o teste sobe dois clientes em um canal falso e joga uma partida inteira  |
 
 **Quem manda na sala** é quem chegou primeiro (empate resolvido pelo id, para todo cliente chegar ao mesmo nome sem negociar). Só o anfitriao sorteia a música e fecha a rodada; ele transmite o estado inteiro a cada mudança, em vez de deltas — são poucos bytes e resolve de graça quem entra no meio ou perde uma mensagem. Se ele cair, o próximo da fila assume sozinho.
 

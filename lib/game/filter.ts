@@ -48,6 +48,10 @@ export const BLOCK_FILTER_SONGS = 8;
 const matchesList = (list: readonly string[], value: string | undefined): boolean =>
   list.length === 0 || (value !== undefined && list.includes(value));
 
+/** Musica com mais de um genero entra por qualquer um deles. */
+const matchesAny = (list: readonly string[], values: readonly string[] | undefined): boolean =>
+  list.length === 0 || (values !== undefined && values.some((value) => list.includes(value)));
+
 /**
  * Aplica o filtro. Combinacao vazia devolve tudo.
  *
@@ -58,7 +62,7 @@ const matchesList = (list: readonly string[], value: string | undefined): boolea
 export function filterSongs(songs: readonly Song[], filter: CatalogFilter): Song[] {
   return songs.filter(
     (song) =>
-      matchesList(filter.genres, song.genre) &&
+      matchesAny(filter.genres, song.genres) &&
       matchesList(filter.eras, eraOf(song.year)) &&
       matchesList(filter.artists, song.artist),
   );
@@ -104,7 +108,7 @@ export function availableArtists(songs: readonly Song[], minimo = 1): string[] {
  * por que.
  */
 export function pruneFilter(songs: readonly Song[], filter: CatalogFilter): CatalogFilter {
-  const genres = new Set(songs.map((song) => song.genre).filter(Boolean) as string[]);
+  const genres = new Set(songs.flatMap((song) => song.genres ?? []));
   const artists = new Set(songs.map((song) => song.artist));
 
   return {

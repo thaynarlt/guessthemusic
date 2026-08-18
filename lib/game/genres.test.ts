@@ -10,7 +10,7 @@ const song = (id: string, genre?: string): Song => ({
   artist: `Artista ${id}`,
   year: 2020,
   source: 'preview',
-  ...(genre ? { genre } : {}),
+  ...(genre ? { genres: [genre] } : {}),
 });
 
 describe('availableGenres', () => {
@@ -27,9 +27,17 @@ describe('availableGenres', () => {
     expect(availableGenres([song('a'), song('b')])).toEqual([ALL_GENRES]);
   });
 
+  it('lista os dois generos de uma musica que tem dois', () => {
+    const dupla: Song = { ...song('a'), genres: ['kpop', 'pop'] };
+    expect(availableGenres([dupla])).toEqual([ALL_GENRES, 'kpop', 'pop']);
+    expect(filterByGenre([dupla], 'kpop')).toHaveLength(1);
+    expect(filterByGenre([dupla], 'pop')).toHaveLength(1);
+  });
+
   it('encontra os generos do catalogo real', () => {
     expect(availableGenres(songs)).toEqual([
       ALL_GENRES,
+      'crista',
       'eletronica',
       'hiphop',
       'kpop',
